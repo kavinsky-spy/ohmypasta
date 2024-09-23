@@ -1,0 +1,31 @@
+@import "../../../imports";
+
+.form-item--managed_file__item,
+.form-managed-file {
+
+  // Set "focus-within" to fix https://bugzilla.mozilla.org/show_bug.cgi?id=1430196
+  // so that component receives focus in Firefox.
+  &:focus,
+  &:focus-within {
+    @include focus-outline;
+    // "Yank" the padding with negative margin to avoid a jump
+    // when element is focused
+    margin-right: var(--padding-default);
+    margin-left: var(--padding-default);
+    padding-right: var(--padding-default);
+    padding-left: var(--padding-default);
+    // Use `box-shadow` to add border instead of changing `border-width`
+    // (which changes element size) and since `outline` is already used for the
+    // yellow focus state.
+    // box-shadow: var(--box-shadow-default);
+  }
+
+  .form-submit {
+    font-size: var(--body-small);
+    margin-top: var(--padding-default);
+  }
+}
+
+.form-item--managed_file__item {
+  margin-top: var(--padding-default);
+}

@@ -1,0 +1,58 @@
+@import "../../imports";
+
+.accordion {
+  box-shadow: var(--card-box-shadow);
+  border-radius: 0.8rem;
+
+  /* When accordion is open */
+  &.is-open {
+    .icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion__button {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .accordion__content {
+      display: block;
+    }
+  }
+}
+
+.accordion__heading {
+  margin: 0;
+
+  .icon {
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+}
+
+.accordion__button {
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 1.1rem 1.4rem; /* -0.2rem from border */
+  line-height: 1.2;
+  text-align: left;
+  border-radius: 0.8rem;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: none;
+  }
+}
+
+.accordion__content {
+  display: none;
+  padding: var(--padding-medium);
+}
+
+/* Forces content to display if user has JS disabled */
+@media (scripting: none) {
+  .accordion .accordion__content {
+    display: block;
+  }
+}

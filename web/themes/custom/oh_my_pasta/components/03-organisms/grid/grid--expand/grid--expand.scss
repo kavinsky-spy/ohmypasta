@@ -1,0 +1,41 @@
+@import '../../../imports.scss';
+
+.grid--expand {
+  /* Hide all items from 7/9 onwards if the grid is not expanded */
+  &:not(.is-expanded) {
+    &.grid--row-3 .grid__items > div:nth-child(n+7),
+    &.grid--row-4 .grid__items > div:nth-child(n+9) {
+      display: none;
+    }
+  }
+
+  .grid__less-text {
+    display: none;
+  }
+
+  &.is-expanded {
+    .grid__more-text {
+      display: none;
+    }
+
+    .grid__less-text {
+      display: inline;
+    }
+  }
+}
+
+/* Selectors for when user has JS disabled */
+@media (scripting: none) {
+  .grid--expand {
+    .js-grid-expand {
+      display: none;
+    }
+
+    &:not(.is-expanded) {
+      &.grid--row-3 .grid__items > div:nth-child(n+7),
+      &.grid--row-4 .grid__items > div:nth-child(n+9) {
+        display: flex;
+      }
+    }
+  }
+}

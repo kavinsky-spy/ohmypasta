@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ *   Wrap list of featured news teasers.
+ */
+#}
+
+{% embed "@organisms/carousel/carousel.twig" with {
+  carousel_contained: true,
+  carousel_slides: items,
+} %}
+  {% block carousel_slides_block %}
+    {% for item in items %}
+      {{ item.content }}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,11 @@
+@import '../../imports.scss';
+
+.guide-page__content .guide-page__heading {
+  padding-top: var(--padding-small);
+}
+
+@include large {
+  .guide-page__content .guide-page__heading {
+    margin-bottom: var(--padding-medium);
+  }
+}

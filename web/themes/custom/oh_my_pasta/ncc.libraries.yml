@@ -1,0 +1,52 @@
+global:
+  css:
+    base:
+      dist/base.css: {}
+  js:
+    dist/js/01-atoms/tables/tables.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupal.tabbingmanager
+    - ncc/lato
+    - ncc/catamaran
+    - ncc/tables
+
+lato:
+  version: VERSION
+  css:
+    component:
+      //fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap: { type: external }
+
+catamaran:
+  version: VERSION
+  css:
+    component:
+      //fonts.googleapis.com/css2?family=Catamaran:wght@400&display=swap: { type: external }
+      //fonts.googleapis.com/css2?family=Catamaran:wght@500&display=swap: { type: external }
+      //fonts.googleapis.com/css2?family=Catamaran:wght@600&display=swap: { type: external }
+      //fonts.googleapis.com/css2?family=Catamaran:wght@700&display=swap: { type: external }
+
+admin-theme:
+  css:
+    component:
+      dist/admin-theme.css: {}
+
+accessible-slick:
+  remote: https://github.com/Accessible360/accessible-slick
+  version: 1.0.1
+  license:
+    name: MIT
+    url: https://github.com/Accessible360/accessible-slick/blob/master/LICENSE
+    gpl-compatible: true
+  css:
+    theme:
+      /themes/custom/ncc/libraries/accessible-slick/slick/slick.min.css: {}
+  js:
+    /themes/custom/ncc//libraries/accessible-slick/slick/slick.min.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+youtube_iframe_api:
+  js:
+    //www.youtube.com/iframe_api: {type: external, attributes: { defer: true, async: true } }

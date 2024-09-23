@@ -1,0 +1,26 @@
+{#
+/**
+ * Available variables:
+ * - wysiwyg_base_class: the base classname
+ * - wysiwyg_modifiers: array of modifiers to add to the base classname
+ * - wysiwyg_blockname: blockname prepended to the base classname
+ * - wysiwyg_extra_classes: array of extra classes
+ *
+ * - wysiwyg_contained: true for the video to display inside of a container.
+ * - wysiwyg_content: WYSIWYG content - full text.
+ *
+ */
+#}
+
+{{ attach_library('ncc/wysiwyg') }}
+
+{% set wysiwyg_base_class = wysiwyg_base_class|default('wysiwyg') %}
+{% set wysiwyg_extra_classes = wysiwyg_extra_classes|default([]) %}
+
+{% if wysiwyg_contained %}
+  {% set wysiwyg_extra_classes = wysiwyg_extra_classes|merge(['container']) %}
+{% endif %}
+
+<div {{ bem(wysiwyg_base_class, wysiwyg_modifiers, wysiwyg_blockname, wysiwyg_extra_classes) }}>
+  {{ wysiwyg_content|raw }}
+</div>

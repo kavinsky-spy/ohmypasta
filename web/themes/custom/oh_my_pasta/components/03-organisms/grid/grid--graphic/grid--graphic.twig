@@ -1,0 +1,15 @@
+{# File for Storybook purposes #}
+
+{% embed "@organisms/grid/grid.twig" %}
+  {% block grid_items_block %}
+    {% for item in grid_items %}
+      <div class="col-sm-md-6 col-md-4 col-lg-2">
+        {% include "@molecules/card/card--graphic/card--graphic.twig" with {
+          graphic_card_number: item.number,
+          graphic_card_text: item.text,
+          graphic_card_color: item.color,
+        } %}
+      </div>
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

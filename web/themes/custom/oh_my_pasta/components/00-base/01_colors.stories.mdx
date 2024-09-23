@@ -1,0 +1,13 @@
+import { Preview, Source, Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import colors from '../06-misc/colors-demo/colors-demo.twig';
+import colorsData from '../00-base/01-colors/colors.yml';
+
+<Meta title="Base/01-Colors" />
+
+# Colors
+
+Every brand color should be defined in the `00-base/01-colors/_00-colors-vars.scss` file, with its corresponding variable. E.g. `var(--brand-primary)`.
+
+To use the `text` color, you type: `color: var(--text);` and it will pull to corresponding color.
+
+<div dangerouslySetInnerHTML={{ __html: colors(colorsData), }} />

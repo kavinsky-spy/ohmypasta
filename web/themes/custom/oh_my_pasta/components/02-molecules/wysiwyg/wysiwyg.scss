@@ -1,0 +1,20 @@
+@import '../../imports.scss';
+
+.wysiwyg {
+  margin-bottom: var(--padding-large);
+
+  picture,
+  img {
+    border-radius: 0.8rem;
+  }
+
+  .field--type-image {
+    margin-bottom: var(--space-double);
+
+    & + .field--name-field-caption {
+      margin: -1rem 0 var(--space-double) 0;
+      font-size: var(--body-small);
+      color: var(--dark-grey);
+    }
+  }
+}

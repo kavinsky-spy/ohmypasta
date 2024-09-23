@@ -1,0 +1,65 @@
+{#
+/** Available variables:
+ * - downloads_base_class: base classname of the wrapper.
+ * - downloads_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - downloads_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - downloads_extra_classes: extra classes, optional for the component.
+ *
+ * - downloads_content_modifiers: array of modifiers to add to the base classname of the copy wrapper.
+ *
+ * - downloads_heading_level: (default: 3) what level of heading to show on the downloads
+ * - downloads_heading: the content of the title component.
+ *
+ * - document.name_title: label of the link of the document's name
+ * - document.name_url: url of the link of the document's name
+ *
+ * - document.link_title: label of the link of the document's link
+ * - document.link_url: url of the link of the document's link
+ *
+ * Available blocks:
+ * - downloads_heading_block
+ * - list_content_block
+ */
+#}
+{{ attach_library('ncc/downloads') }}
+{% set downloads_base_class = 'downloads' %}
+
+<div {{ bem(downloads_base_class, downloads_modifiers, downloads_blockname, downloads_extra_classes) }}>
+  <div class="container">
+    {# Heading #}
+    {% if downloads_heading %}
+      {% block downloads_heading_block %}
+        {% include "@atoms/heading/heading.twig" with {
+          heading_level: downloads_heading_level|default(3),
+          heading: downloads_heading,
+        } %}
+      {% endblock %}
+    {% endif %}
+    {# Documents List #}
+    {% embed "@atoms/list/list.twig" with {
+      list_base_class: 'list',
+      list_blockname: downloads_base_class,
+    } %}
+      {% block list_content_block %}
+        {% for document in documents %}
+          <li {{ bem('list-item', downloads_content_modifiers|default([]), downloads_base_class) }}>
+            {% include "@atoms/link/link.twig" with {
+              link_content: document.downloads_link_name_text,
+              link_url: document.downloads_link_name_url,
+              link_attributes: {'aria-label': 'Download'|t ~ ' ' ~ document.downloads_link_name_text},
+              link_extra_classes: ['downloads__docname'],
+            } %}
+            {% include "@atoms/link/link.twig" with {
+              link_content: 'Download'|t,
+              link_url: document.downloads_link_url,
+              link_icon: true,
+              link_icon_name: 'download',
+              link_attributes: {'aria-label': 'Download'|t ~ ' ' ~ document.downloads_link_name_text},
+              link_extra_classes: ['downloads__download'],
+            } %}
+          </li>
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
+  </div>
+</div>

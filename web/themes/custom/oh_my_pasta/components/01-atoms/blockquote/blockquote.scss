@@ -1,0 +1,12 @@
+blockquote,
+.blockquote {
+  border-left: var(--space-one-half) solid var(--brand-primary);
+  color: var(--text);
+  font-style: italic;
+  margin: var(--padding-large) 0;
+  padding: var(--padding-small) 0 var(--padding-small) var(--padding-default);
+
+  @include large {
+    padding-left: var(--padding-large);
+  }
+}

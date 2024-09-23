@@ -1,0 +1,7 @@
+{{ attach_library('ncc/menu--main') }}
+
+{% include "@molecules/menu/menu.twig" with {
+  items: menu_items,
+  menu_type: 'main',
+  menu_extra_classes: ['js-main-menu'],
+} %}

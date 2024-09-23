@@ -1,0 +1,31 @@
+@import "../../imports";
+
+.listing-filters {
+  margin-bottom: var(--padding-large);
+
+  & > * {
+    flex-grow: 0;
+  }
+
+  .accordion {
+    margin-bottom: 0.4rem;
+  }
+
+  .facets-widget__list {
+    @include list-reset;
+
+    width: 100%;
+
+    .facets-widget__list {
+      padding: var(--space) 0 var(--space) var(--padding-large);
+    }
+
+    .facet-item {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.facet-inactive.hidden .listing-filters {
+  display: none;
+}

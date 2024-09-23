@@ -1,0 +1,24 @@
+@import '../../imports.scss';
+
+.service-status {
+  margin-bottom: var(--padding-large);
+  border-bottom: 0.1rem solid var(--secondary-orange);
+}
+
+.service-status__date {
+  display: inline-block;
+  margin-bottom: var(--padding-small);
+}
+
+.service-status__heading {
+  font-size: 2.1rem;
+  font-weight: var(--font-extrabold);
+
+  .heading__link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

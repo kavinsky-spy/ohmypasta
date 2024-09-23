@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Theme override to display a pager.
+ *
+ * Available variables:
+ * - items: List of pager items.
+ *   The list is keyed by the following elements:
+ *   - first: Item for the first page; not present on the first page of results.
+ *   - previous: Item for the previous page; not present on the first page
+ *     of results.
+ *   - next: Item for the next page; not present on the last page of results.
+ *   - last: Item for the last page; not present on the last page of results.
+ *   - pages: List of pages, keyed by page number.
+ *   Sub-sub elements:
+ *   items.first, items.previous, items.next, items.last, and each item inside
+ *   items.pages contain the following elements:
+ *   - href: URL with appropriate query parameters for the item.
+ *   - attributes: A keyed list of HTML attributes for the item.
+ *   - text: The visible text used for the item link, such as "‹ Previous"
+ *     or "Next ›".
+ * - current: The page number of the current page.
+ * - ellipses: If there are more pages than the quantity allows, then an
+ *   ellipsis before or after the listed pages may be present.
+ *   - previous: Present if the currently visible list of pages does not start
+ *     at the first page.
+ *   - next: Present if the visible list of pages ends before the last page.
+ *
+ * @see template_preprocess_pager()
+ */
+#}
+
+{{ attach_library('ncc/pager') }}
+{% set pager_base_class = 'pager' %}
+
+{% if pager_next_url or pager_prev_url %}
+  <nav {{ bem(pager_base_class) }} aria-label="{{ pager_name|default('Page navigation'|t) }}">
+    {% if pager_prev_url %}
+      {% include "@atoms/link/link.twig" with {
+        link_content: 'Previous'|t,
+        link_url: pager_prev_url,
+        link_icon: 'chevron-round',
+        link_icon_before: true,
+        link_extra_classes: ['pager__item', 'pager__prev'],
+        link_attributes: {
+          'aria-label': 'Go to the previous page'|t ~ ': ' ~ pager_prev_title,
+          'rel': 'prev'
+        },
+      } %}
+    {% endif %}
+    {% if pager_next_url %}
+      {% include "@atoms/link/link.twig" with {
+        link_content: 'Next'|t,
+        link_url: pager_next_url,
+        link_icon: 'chevron-round',
+        link_extra_classes: ['pager__item', 'pager__next'],
+        link_attributes:{
+          'aria-label': 'Go to the next page'|t ~ ': ' ~ pager_next_title,
+          'rel': 'prev'
+        },
+      } %}
+    {% endif %}
+  </nav>
+{% endif %}

@@ -1,0 +1,38 @@
+@import '../../imports.scss';
+
+.contact {
+  position: relative;
+  margin-bottom: var(--padding-large);
+}
+
+.contact__main-heading {
+  margin-bottom: var(--space-double);
+}
+
+.contact__heading {
+  font-size: var(--body-large);
+}
+
+.contact__content {
+  width: 100%;
+  background-color: var(--white);
+  padding: var(--padding-medium);
+  border: 0.1rem solid var(--brand-primary);
+  border-radius: 0.8rem;
+}
+
+.contact__info {
+  display: grid;
+  grid-template-columns: min-content auto;
+  gap: var(--padding-default) var(--padding-small);
+
+  p,
+  .paragraph {
+    margin: 0;
+  }
+}
+
+.contact__label {
+  font-size: var(--body-large);
+  font-weight: var(--font-bold);
+}

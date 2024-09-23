@@ -1,0 +1,36 @@
+{#
+/**
+ * Available variables:
+ * - video_base_class: the base classname
+ * - video_modifiers: array of modifiers to add to the base classname
+ *   by default, videos are expected to be 16x9, include the modifier "full" to support a 4x3 video
+ * - video_blockname: blockname prepended to the base classname
+ * - video_extra_classes: array of extra classes, used to add container class if video isn't going to be
+ *   displayed as full size.
+ *
+ * - video_contained: true for the video to display inside of a container.
+ * - video_content: the content of the video (typically an iframe)
+ *   the "|raw" filter is applied so that the iframe is rendered instead
+ *   of simply passing the iframe as plain text.
+ *
+ * Available blocks:
+ * - video_content_block: used to replace the content of the video
+ */
+#}
+
+{{ attach_library('ncc/video') }}
+{% set video_base_class = video_base_class|default('video') %}
+
+{% if video_full_width == false %}
+<div class="container">
+{% endif %}
+  <div {{ bem(video_base_class, video_modifiers, video_blockname, video_extra_classes) }}>
+    {% block video_content_block %}
+      <div class="field--name-field-media-oembed-video">
+        {{ video_content|raw }}
+      </div>
+    {% endblock %}
+  </div>
+{% if video_full_width == false %}
+</div>
+{% endif %}

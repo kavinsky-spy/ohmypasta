@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ *
+ * @see template_preprocess_field()
+ */
+#}
+
+{% for item in items %}
+  {% if 'On' in item.content.field_display_title.0['#markup'] %}
+    {% set block_title = item.content['#block_content'].info.value %}
+  {% endif %}
+
+  {% include "@molecules/contact/contact.twig" with {
+    contact_main_heading: block_title,
+    contact_heading: item.content.field_title,
+    contact_location: item.content.field_location.0,
+    contact_email_title: item.content.field_email.0['#title'],
+    contact_email_url: item.content.field_email.0['#url'],
+    contact_phone_title: item.content.field_phone.0['#context'].value,
+    contact_phone_url: item.content.field_phone.0['#context'].value
+  } only %}
+{% endfor %}
+

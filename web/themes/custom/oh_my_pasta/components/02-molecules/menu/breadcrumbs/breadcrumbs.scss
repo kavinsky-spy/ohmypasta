@@ -1,0 +1,24 @@
+@import "../../../imports";
+
+.breadcrumb {
+  background-color: var(--light-grey);
+}
+
+.breadcrumb__list {
+  padding: var(--padding-default) 0;
+}
+
+.breadcrumb__item {
+  display: flex;
+  align-items: center;
+  font-size: var(--body-small);
+
+  .link {
+    color: var(--black);
+  }
+
+  .icon {
+    width: 0.6rem;
+    height: 1.2rem;
+  }
+}

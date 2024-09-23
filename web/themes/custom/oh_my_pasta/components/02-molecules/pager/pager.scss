@@ -1,0 +1,36 @@
+@import "../../imports";
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--padding-small) 0 var(--padding-large) 0;
+}
+
+.pager__item {
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: var(--font-extrabold);
+  font-size: var(--heading--xsmall);
+  line-height: 1.35;
+
+  .icon {
+    height: 2.4rem;
+    width: 2.4rem;
+    padding: 0.5rem;
+    color: var(--white);
+    background-color: var(--secondary-green);
+    border-radius: 50%;
+  }
+}
+
+.pager__next {
+  margin-left: auto;
+}
+
+.pager__prev {
+  margin-right: var(--padding-default);
+
+  .icon {
+    transform: rotateZ(180deg);
+  }
+}

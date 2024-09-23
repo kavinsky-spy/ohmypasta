@@ -1,0 +1,119 @@
+@import '../../imports.scss';
+
+.call-out-box__wrapper {
+  height: 100%;
+  padding: var(--padding-medium);
+  background-color: var(--secondary-green);
+  border-radius: calc(var(--border-radius) * 2);
+}
+
+.call-out-box__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 92.8rem;
+  margin: 0 auto;
+
+  /* Only applies to small variation since button is not placed as a direct child otherwise */
+  & > .button {
+    margin-top: var(--padding-medium);
+  }
+}
+
+.call-out-box__content {
+  width: 100%;
+}
+
+.call-out-box__heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--padding-medium);
+
+  .heading {
+    margin: 0;
+    color: var(--white);
+  }
+
+  img,
+  .icon {
+    width: 4rem;
+    height: 4rem;
+    margin-right: var(--padding-medium);
+    color: var(--white);
+  }
+}
+
+.call-out-box__icon {
+  flex-shrink: 0;
+}
+
+.call-out-box__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--white);
+
+  a,
+  .link {
+    color: var(--white);
+  }
+
+  .button,
+  .call-out-box__search {
+    flex-shrink: 0;
+    margin: var(--padding-medium) 0 0 0;
+  }
+}
+
+.call-out-box__search {
+  @include search-form($border-color: var(--white));
+
+  flex-shrink: 0;
+  max-width: 29rem;
+
+  .form-submit:focus-visible,
+  .form-item__textfield:focus-visible {
+    outline-color: var(--white);
+    box-shadow: none;
+  }
+}
+
+/* Pink background variation */
+.call-out-box--pink .call-out-box__wrapper {
+  background-color: var(--secondary-pink);
+}
+
+/* Blue background variation */
+.call-out-box--blue .call-out-box__wrapper {
+  background-color: var(--secondary-blue);
+}
+
+/* Large / standalone variation */
+.call-out-box--large {
+  padding-top: var(--padding-medium);
+  padding-bottom: var(--padding-medium);
+}
+
+@include medium {
+  .call-out-box__text {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .button,
+    .call-out-box__search {
+      margin: 0 0 0 var(--padding-medium);
+    }
+  }
+}
+
+@include large {
+  /* Large / standalone variation */
+  .call-out-box--large {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
+
+    .call-out-box__wrapper {
+      padding: var(--space-quadruple) calc(var(--padding-xl) * 2);
+    }
+  }
+}

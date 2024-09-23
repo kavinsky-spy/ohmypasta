@@ -1,0 +1,176 @@
+@import '../../imports.scss';
+
+.carousel {
+  overflow: hidden;
+
+  /* Any global slick overrides can go here */
+  .slick-disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .slick-track {
+    display: flex !important; /* Needs to override inline styles */
+    padding-top: 0.2rem;
+  }
+
+  .slick-slide {
+    height: inherit !important; /* Needs to override inline styles */
+    margin: 0 1rem;
+
+    .card {
+      max-height: 100%;
+      transition: max-height 0.5s ease-in-out;
+    }
+
+    &:not(.slick-active) .card {
+      max-height: 81%;
+    }
+
+    & > div {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+  .slick-list {
+    overflow: visible !important; /* Need the important for the card shadows to stay on at all times */
+  }
+
+  .slick-dots {
+    @include list-reset;
+
+    display: flex;
+
+    .slick-sr-only {
+      @include sr-only;
+    }
+
+    .slick-active button {
+      background-color: var(--secondary-green);
+    }
+
+    li {
+      display: inline-flex;
+      margin: 0;
+
+      &:not(:last-child) {
+        margin-right: var(--padding-small);
+      }
+    }
+
+    button {
+      height: 1.6rem;
+      width: 1.6rem;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background-color: var(--dark-grey);
+      cursor: pointer;
+
+      &:focus-visible {
+        @include focus-outline;
+      }
+    }
+  }
+}
+
+/* Selectors for the component */
+.carousel__inner {
+  padding-bottom: var(--padding-large);
+}
+
+.carousel__slides .card {
+  display: flex !important; /* Needs to override inline styles */
+  height: 100%;
+  margin: 0;
+  box-shadow: 0 0.9rem 2rem 0 rgba(0, 0, 0, 0.10), 0 3.6rem 3.6rem 0 rgba(0, 0, 0, 0.09), 0 8.1rem 4.9rem 0 rgba(0, 0, 0, 0.05), 0 14.4rem 5.8rem 0 rgba(0, 0, 0, 0.01), 0 22.6rem 6.3rem 0 rgba(0, 0, 0, 0.00);
+}
+
+.carousel__controls {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 4.4rem;
+  width: 100%;
+  max-width: 85%;
+  margin: var(--space-double) auto 0 auto;
+
+  .button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4.4rem;
+    height: 4.4rem;
+    color: var(--white);
+    background-color: var(--secondary-green);
+    border-color: var(--secondary-green);
+    border-radius: 50%;
+    box-shadow: 0 0.4rem 1.4rem rgba(0, 0, 0, 0.65);
+
+    .icon {
+      width: 1.2rem;
+      height: 2.2rem;
+    }
+  }
+
+  .button--prev {
+    left: 0;
+  }
+
+  .button--next {
+    right: 0;
+
+    .icon {
+      transform: rotateZ(180deg);
+    }
+  }
+}
+
+.carousel__count {
+  margin: 0;
+  color: var(--brand-primary);
+  font-family: var(--font-heading);
+  font-weight: var(--font-extrabold);
+  font-size: var(--heading--xsmall);
+  text-align: center;
+  line-height: 1.35;
+}
+
+@include medium {
+  .carousel {
+    .slick-slide:not(.slick-active) .card {
+      max-height: 89%;
+    }
+  }
+
+  .carousel__inner {
+    overflow: hidden;
+    padding-bottom: var(--padding-xl);
+  }
+
+  .carousel__slides .card {
+    border-radius: 2rem;
+
+    .card__image {
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+    }
+
+    .card__content {
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+
+      .heading__link:focus-visible::after {
+        border-radius: 2rem;
+      }
+    }
+  }
+
+  .carousel__controls {
+    max-width: 56%;
+    margin: 4.5rem auto 0 auto;
+  }
+}

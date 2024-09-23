@@ -1,0 +1,38 @@
+{#
+/** Available variables:
+ * - language_switcher_base_class: base classname of the wrapper.
+ * - language_switcher_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - language_switcher_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - language_switcher_extra_classes: extra classes, optional for the component.
+ *
+ * - language_switcher_en_text: text of the English link.
+ * - language_switcher_en_url: url of the English link.
+ *
+ * - language_switcher_cy_text: text of the Welsh link.
+ * - language_switcher_cy_url: url of the Welsh link.
+ *
+ */
+#}
+
+{{ attach_library('ncc/language-switcher') }}
+
+{% set language_switcher_base_class = 'language-switcher' %}
+{% set language_switcher_modifiers = language_switcher_modifiers|default([]) %}
+
+<div {{ bem(language_switcher_base_class, language_switcher_modifiers, language_switcher_blockname, language_switcher_extra_classes) }}>
+  {% include "@atoms/paragraph/paragraph.twig" with {
+    paragraph_content: 'Change language to'|t,
+    paragraph_extra_classes: ['sr-only'],
+  } %}
+  {% block language_switcher_links_block %}
+    {% for link in language_switcher_links %}
+      {% include "@atoms/link/link.twig" with {
+        link_content: link.text,
+        link_url: link.url,
+        link_attributes: link.attributes,
+        link_base_class: 'language-link',
+        link_extra_classes: [link.class],
+      } %}
+    {% endfor %}
+  {% endblock %}
+</div>

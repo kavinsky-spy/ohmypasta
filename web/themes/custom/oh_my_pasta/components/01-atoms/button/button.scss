@@ -1,0 +1,145 @@
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding-small); /* Designs are 10px but border counts, so 8px + 2px border */
+  border: 0.2rem solid var(--brand-primary);
+  background-color: var(--button-bg-default);
+  border-radius: var(--border-radius);
+  color: var(--button-text-default);
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-weight: var(--font-bold);
+  font-size: var(--body-large);
+  line-height: 1.28;
+  text-underline-offset: 0.25em;
+  text-decoration: none;
+  transition:
+    background 0.25s ease-in-out,
+    color 0.1s ease-in-out,
+    opacity 0.2s ease-in-out,
+    transform 0.2s ease-in-out,
+    border-radius 0.25s ease-in-out;
+
+  &:visited {
+    color: var(--button-text-default);
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--button-hover-bg-default);
+    color: var(--button-hover-text-default);
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+  }
+
+  &:focus-visible {
+    @include focus-outline;
+  }
+}
+
+/* Secondary buttons */
+.button--secondary {
+  background-color: var(--button-secondary-bg);
+  border-color: var(--button-secondary-color);
+  color: var(--button-secondary-color);
+
+  &:visited {
+    color: var(--button-secondary-color);
+  }
+
+  &:hover,
+  &:focus-visible  {
+    background-color: var(--button-secondary-hover-bg);
+    color: var(--button-secondary-hover-color);
+    border-color: var(--button-secondary-hover-bg);
+  }
+}
+
+/* Outline buttons */
+.button--outline {
+  background-color: transparent;
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+
+  &:visited {
+    color: var(--white);
+  }
+
+  &:hover,
+  &:focus-visible  {
+    background-color: var(--white);
+    color: var(--brand-primary-tint);
+    border-color: var(--brand-primary-tint);
+  }
+
+  &.button--outline-red {
+    &:hover,
+    &:focus-visible  {
+      color: var(--brand-primary-tint-light);
+      border-color: var(--brand-primary-tint-light);
+    }
+  }
+
+  &.button--outline-blue {
+    &:hover,
+    &:focus-visible  {
+      color: var(--secondary-blue);
+      border-color: var(--secondary-blue);
+    }
+  }
+}
+
+/* Link buttons - no underline in default state */
+.button--link {
+  text-decoration: none;
+}
+
+/* Clean buttons */
+.button--clean {
+  padding: 0;
+  color: var(--brand-primary);
+  background-color: transparent;
+  border: none;
+
+  &:hover,
+  &:focus-visible {
+    background-color: transparent;
+  }
+
+  .icon {
+    color: var(--brand-primary);
+    margin-left: 0;
+  }
+}
+
+/* Iconed button */
+.button--icon {
+  .icon {
+    flex-shrink: 0;
+    height: 1.2rem;
+    width: 1.5rem;
+    margin: 0 0 0 var(--padding-default);
+    vertical-align: middle;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+    fill: currentColor;
+  }
+
+  &.button--icon-before .icon {
+    margin: 0 var(--padding-default) 0 0;
+  }
+}
+
+// External Buttons
+a.button.ext {
+
+  svg {
+    height: 2.3rem;
+    width: 2.3rem;
+    margin-left: var(--space);
+  }
+}

@@ -1,0 +1,24 @@
+# Tables
+The tables atom has a JS to make the table have a proper mobile design.
+This mobile design repeats the header of the table to each row, making the table to be thinner.
+When the header of the table is the first row, this mobile design works very well.
+But it does not work well if the header is a column or multiple rows or columns.
+In these cases, you have two additional configurations you can use that will be explained below.
+
+## Table non-responsive
+`table_non_responsive: true`
+If this variable is true, it adds the class `table--non-responsive` to the table tag,
+making the mobile design not be added to the table.
+So the table keeps the same design on desktop and mobile.
+
+## Table scrollable
+`table_scrollable: true`
+If this variable is true, it adds the class `table--scroll` to the table.
+That adds a `div` tag wrapping the table with style to make the table scrollable.
+It only works if table_non_responsive is true as well, as it won't be necessary when it has the proper mobile design.
+
+## Additional Notes
+If the table is added via Wysiwyg, the option to add these two variables should be added to Wysiwyg,
+to be available to the content editor.
+
+On the twig file, there are different kinds of tables to show the variations.

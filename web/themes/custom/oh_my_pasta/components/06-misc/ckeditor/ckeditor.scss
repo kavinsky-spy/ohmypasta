@@ -1,0 +1,114 @@
+/*
+* Add CKEditor 5 specific styles here to avoid loading all styles and making amends / changing base font-size
+*/
+
+.ck-content {
+  /* Manually copy all required bits with pixels, not rems */
+  p {
+    font-family: var(--font-body);
+    font-size: 18px;
+
+    &.paragraph--small {
+      font-size: 16px;
+    }
+  }
+
+  .alert-section {
+    border-radius: 4px;
+    background: #058939;
+    color: #fff;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+
+    strong {
+      font-size: 21px;
+      padding-bottom: 16px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+  }
+
+  /* Tables */
+  figure.table {
+    margin: 0 !important; /* Overrides alignment of CKEditor table */
+  }
+
+  figure.table table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 0;
+    color: #fff;
+    font-size: 18px;
+    margin: 20px 0;
+    width: 100%;
+
+    thead th {
+      font-size: 21px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    th,
+    td,
+    .table__heading-cell,
+    .table__cell {
+      border-bottom: 0.1rem solid #004A36;
+      border-right: 8px solid #fff;
+      border-width: 0 8px 1px 0;
+      padding: 16px;
+    }
+
+    th,
+    .table__mobile-header,
+    .table__heading-cell {
+      color: #fff;
+      background-color: #004A36;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .table__mobile-header {
+      display: none;
+      padding: 0;
+      font-size: 19px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+  }
+
+  figure.table .table--small-content {
+    font-size: 16px;
+
+    tr,
+    tr:nth-child(odd),
+    th {
+      background-color: unset;
+      border-bottom: 0;
+    }
+
+    td,
+    th {
+      border: 1px solid #CE491F;
+      border-width: 1px 0 0;
+      color: #000;
+    }
+
+    td {
+      text-align: end;
+    }
+
+    tbody tr td:first-child  {
+      text-align: start;
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+}
+
+/* Replace style from gin to tables */
+.paragraphs-tabs-wrapper .field-multiple-table .draggable .ck-content td {
+  padding: 16px;
+}

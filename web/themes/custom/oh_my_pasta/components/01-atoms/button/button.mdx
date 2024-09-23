@@ -1,0 +1,64 @@
+import { Preview, Source, Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import button from './button.twig';
+
+# Button
+A button triggers an event or action. They let users know what will happen next. You can use the `button_type` variable to get the following variations:
+
+## Primary
+The default form of a button, used for most cases.
+
+<div class="sb-unstyled" dangerouslySetInnerHTML={{ __html: button({
+  button_content: 'Primary button',
+  button_type: 'primary'
+}), }} />
+
+## Secondary
+Use a secondary button with a primary button for different actions.
+
+<div class="sb-unstyled" dangerouslySetInnerHTML={{ __html: button({
+  button_content: 'Secondary button',
+  button_type: 'secondary'
+}), }} />
+
+## Outline
+Use an outline button for components that have dark / colored backgrounds. You can also choose the hover / focus color by adding the `outline-[color]` class. Example: `outline-pink`
+
+<div class="sb-unstyled" style={{ backgroundColor: '#F6F7F9', padding: '16px', borderRadius: '4px' }} dangerouslySetInnerHTML={{ __html: button({
+  button_content: 'Outline button',
+  button_type: 'outline',
+  button_modifiers: ['outline-red'],
+}), }} />
+
+## Iconed
+Use the `button_icon` property to add an arrow within the button. As default, when this is set to true, `chevron` will be the icon used.
+With `button_icon_name` you will be able to decide which icon to use. With `button_icon_before` you can position the icon before the button text.
+<div class="sb-unstyled" dangerouslySetInnerHTML={{ __html: button({
+  button_content: 'Primary button',
+  button_type: 'primary',
+  button_icon: true,
+}), }} />
+
+If you need a button with just an icon, you can visually hide the text using the variable `button_visually_hidden_text`.
+This will create a span surrounding the button text and will add the `.button--clean` class.
+<div class="sb-unstyled" dangerouslySetInnerHTML={{ __html: button({
+  button_content: 'Primary button',
+  button_type: 'primary',
+  button_icon: true,
+  button_visually_hidden_text: true,
+}), }} />
+
+## Button URL
+When `button_url` is set, the button tag is transformed into a hyperlink and the `.button--link` class is added.
+This will prevent the link underline to appear for a button-like link.
+<div class="sb-unstyled" dangerouslySetInnerHTML={{ __html: button({
+  button_content: 'Button URL',
+  button_url: '#'
+}), }} />
+
+<div dangerouslySetInnerHTML={{ __html: '<br><br><br>', }} />
+
+# Source HTML
+Edit the properties and get the HTML markup.
+<Story id="atoms-button--button" />
+<Source id="atoms-button--button" />
+<ArgsTable story="^" />

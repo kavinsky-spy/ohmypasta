@@ -1,0 +1,73 @@
+@import '../../imports.scss';
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--padding-default);
+  background-color: var(--white);
+  box-shadow: var(--card-box-shadow);
+  outline: 0.1rem solid var(--mid-grey);
+  border-radius: 0.8rem;
+  transition: all 0.25s ease-in-out;
+
+  &:hover,
+  &:focus-within {
+    color: var(--brand-primary);
+    outline-color: var(--brand-primary);
+    background-color: var(--brand-primary-tint);
+  }
+}
+
+.tile__icon {
+  padding: var(--padding-small);
+
+  img {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+.tile__heading {
+  margin: 0;
+  font-size: var(--body-large);
+
+  .link--icon {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+      text-decoration-thickness: 0.1rem;
+      text-underline-offset: 0.25em;
+    }
+  }
+
+  .icon {
+    height: 1.6rem;
+    width: 0.8rem;
+  }
+}
+
+.tile__description {
+  margin: var(--padding-medium) 0 0 0;
+}

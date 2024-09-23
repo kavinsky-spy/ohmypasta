@@ -1,0 +1,34 @@
+{#
+/** Available variables:
+ * - page_title_base_class: base classname of the wrapper.
+ * - page_title_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - page_title_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - page_title_extra_classes: extra classes, optional for the component.
+ *
+ * - page_title_heading: page title.
+ * - page_title_summary: page summary.
+ *
+ * Available blocks:
+ * - page_title_icon_block - block to replace the icon.
+ */
+#}
+
+{{ attach_library('ncc/page-title') }}
+
+{% set page_title_base_class = 'page-title' %}
+{% set page_title_extra_classes = page_title_extra_classes|default([])|merge(['container']) %}
+
+<div {{ bem(page_title_base_class, page_title_modifiers, page_title_blockname, page_title_extra_classes) }}>
+  <div {{ bem('content', [], page_title_base_class) }}>
+    {% include "@atoms/heading/heading.twig" with {
+      heading: page_title_heading,
+      heading_level: 1,
+      heading_blockname: page_title_base_class,
+    } %}
+    {% if page_title_summary %}
+      <div {{ bem('summary', [], page_title_base_class) }}>
+        {{ page_title_summary }}
+      </div>
+    {% endif %}
+  </div>
+</div>

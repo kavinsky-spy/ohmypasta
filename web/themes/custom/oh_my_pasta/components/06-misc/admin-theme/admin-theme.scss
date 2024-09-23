@@ -1,0 +1,17 @@
+/*
+* Keep this until either of these are fixed:
+*   - https://www.drupal.org/project/drupal/issues/3332416
+*   - https://github.com/ckeditor/ckeditor5/issues/11334
+*/
+.ck.ck-toolbar.ck-toolbar_grouping > .ck-toolbar__items {
+  flex-wrap: wrap !important;
+}
+
+/*
+* Fix for social media field from social share not displaying the form display toggle properly
+*/
+.field--type-social-media .form-item .form-item__label {
+  display: inline !important;
+  padding-left: 0 !important;
+  padding-right: var(--gin-spacing-xxs);
+}

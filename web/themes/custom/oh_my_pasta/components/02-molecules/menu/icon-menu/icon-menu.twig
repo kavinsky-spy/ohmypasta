@@ -1,0 +1,60 @@
+{#
+/**
+ * Available variables:
+ * - icon_menu_base_class: the base classname
+ * - icon_menu_modifiers: array of modifiers to add to the base classname
+ * - icon_menu_blockname: blockname prepended to the base classname
+ * - icon_menu_extra_classes: extra classes
+ *
+ * - icon_menu_heading: title / heading above the social media icon links
+ * - icon_menu_items: a list of the social media icon links
+ *
+ * Available blocks:
+ * - icon_menu_items_block: menu items - to be replaced in Drupal
+ */
+#}
+
+{{ attach_library('ncc/icon-menu') }}
+{% set icon_menu_class = 'icon-menu' %}
+
+<div {{ bem(icon_menu_class, icon_menu_modifiers, icon_menu_blockname, icon_menu_extra_classes) }}>
+  {# Heading #}
+  {% if icon_menu_heading %}
+    {% include "@atoms/heading/heading.twig" with {
+      heading: icon_menu_heading,
+      heading_level: icon_menu_heading_level|default(2),
+      heading_size_override: icon_menu_heading_size|default('small'),
+      heading_blockname: icon_menu_class,
+    } %}
+  {% endif %}
+
+  {# Menu items #}
+  {% block icon_menu_items_block %}
+    {% embed "@atoms/list/list.twig" with {
+      list_base_class: icon_menu_class,
+      list_extra_classes: ['list--inline'],
+    } %}
+      {% block list_content_block %}
+        {% for item in icon_menu_items %}
+          {% embed "@atoms/list/_list-item.twig" with {
+            li_base_class: 'item',
+            li_blockname: icon_menu_class,
+          } %}
+            {% block list_item_content_block %}
+              {% embed "@atoms/link/link.twig" with {
+                link_url: item.url,
+                link_base_class: 'link',
+                link_blockname: icon_menu_class,
+              } %}
+                {% block link_content_block %}
+                  <img src="{{ 'icons/' ~ item.icon ~ '.svg' }}" alt="{{ item.title }}">
+                  <span {{ bem('text', [], icon_menu_class, ['sr-only']) }}>{{ 'Visit ' ~ item.title }}</span>
+                {% endblock %}
+              {% endembed %}
+            {% endblock %}
+          {% endembed %}
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+</div>

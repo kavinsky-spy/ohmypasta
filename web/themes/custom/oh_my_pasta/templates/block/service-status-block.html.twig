@@ -1,0 +1,17 @@
+{#
+/**
+* @file
+* Overrides /themes/contrib/localgov_base/templates/block/service-status-block.html.twig
+*
+* @see @organisms/service-status-list
+*
+*/
+#}
+
+{% include "@organisms/service-status-list/service-status-list.twig" with {
+  service_status_list_heading: 'Service updates'|t,
+  service_status_list_items: items,
+  service_status_list_all_text: 'See all service updates'|t,
+  service_status_list_all_url: see_all_link,
+  service_status_list_no_updates_text: 'There are currently no updates'|t,
+} %}

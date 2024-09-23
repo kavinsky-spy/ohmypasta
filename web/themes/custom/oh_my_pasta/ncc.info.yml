@@ -1,0 +1,46 @@
+name: Newport City Council
+type: theme
+description: Theme for the Newport City Council
+base theme: localgov_base
+core_version_requirement: ^10
+
+regions:
+  banner: 'Banner'
+  header: 'Header'
+  breadcrumb: 'Breadcrumb'
+  system: 'System'
+  messages: 'Messages'
+  page_title: 'Page title'
+  content_top: 'Content top'
+  content: 'Content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: 'Footer'
+  disabled: 'Disabled'
+
+logo: images/logo.svg
+
+libraries:
+  - 'ncc/global'
+
+ckeditor5-stylesheets:
+  - dist/ckeditor.css
+
+libraries-override:
+  system/base: false
+  system/component: false
+  localgov_base/global: false
+  localgov_subsites_paragraphs/localgov_subsites_paragraphs: false
+  localgov_alert_banner/alert_banner:
+    css:
+      component:
+        css/localgov-alert-banner.css: false
+
+components:
+  namespaces:
+    base: components/00-base
+    atoms: components/01-atoms
+    molecules: components/02-molecules
+    organisms: components/03-organisms
+    templates: components/04-templates
+    pages: components/05-pages

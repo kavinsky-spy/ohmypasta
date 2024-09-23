@@ -1,0 +1,229 @@
+@import '../../imports.scss';
+
+.view-roadworks__filters .views-exposed-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space);
+
+  .form-item {
+    width: calc(50% - var(--space-one-half));
+  }
+
+  .form-item__label {
+    font-weight: var(--font-weight-default);
+  }
+
+  .form-item--date__item {
+    min-width: auto;
+  }
+
+  .form-date {
+    height: 5rem;
+  }
+}
+
+.view-roadworks__content {
+  margin-bottom: var(--space-double);
+}
+
+/* Table header */
+.view-roadworks__table-header {
+  display: none;
+}
+
+/* Items/Rows */
+.view-roadworks__item {
+  border-bottom: 0.1rem solid var(--brand-primary);
+  padding: var(--padding-default);
+  position: relative;
+
+  .views-field {
+    margin-bottom: var(--space);
+  }
+
+  .views-field-title,
+  .views-field-field-type {
+    padding-right: 5.5rem;
+  }
+
+  .views-field-title {
+    color: var(--brand-primary);
+    font-weight: var(--font-bold);
+  }
+
+  .views-field-field-traffic-management {
+
+    .contextual-region {
+      position: static;
+    }
+
+    .field--name-field-image {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+  }
+
+  /* Replicating primary button */
+  .views-field-field-more-information a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-small); /* Designs are 10px but border counts, so 8px + 2px border */
+    border: 0.2rem solid var(--brand-primary);
+    background-color: var(--button-bg-default);
+    border-radius: var(--border-radius);
+    color: var(--button-text-default);
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: var(--font-bold);
+    font-size: var(--body-large);
+    line-height: 1.28;
+    text-underline-offset: 0.25em;
+    text-decoration: none;
+    transition:
+      background 0.25s ease-in-out,
+      color 0.1s ease-in-out,
+      opacity 0.2s ease-in-out,
+      transform 0.2s ease-in-out,
+      border-radius 0.25s ease-in-out;
+
+    &:visited {
+      color: var(--button-text-default);
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--button-hover-bg-default);
+      color: var(--button-hover-text-default);
+    }
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 0.1rem;
+    }
+
+    &:focus-visible {
+      @include focus-outline;
+    }
+  }
+}
+
+/* Completed works */
+.view-roadworks__item--completed {
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
+
+  .views-field-title {
+    color: var(--dark-grey);
+  }
+}
+
+@include large {
+  /* Filters */
+  .view-roadworks__filters {
+    box-shadow: none;
+
+    .heading {
+      display: none;
+    }
+
+    .accordion__content {
+      display: flex;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .views-exposed-form {
+
+      .form-item {
+        width: calc(16.3% - var(--space-one-half));
+      }
+    }
+  }
+
+  .view-roadworks__content {
+    margin-bottom: var(--padding-large);
+  }
+
+  /* Table header */
+  .view-roadworks__table-header {
+    background-color: var(--table-default-heading-bg);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space);
+  }
+
+  .view-roadworks__table-cell {
+    color: var(--text-light);
+    font-size: var(--heading--xsmall);
+    font-family: var(--font-heading);
+    font-weight: var(--font-extrabold);
+    line-height: 1.35;
+    padding: var(--padding-default);
+    display: flex;
+    align-items: center;
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      width: 10%;
+    }
+
+    &:nth-child(1),
+    &:nth-child(6),
+    &:nth-child(7) {
+      width: 18%;
+    }
+  }
+
+  /* Items/Rows */
+  .view-roadworks__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    position: relative;
+
+    .views-label {
+      display: none;
+    }
+
+    .views-field {
+      margin-bottom: 0;
+      padding: var(--padding-default);
+
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        width: 10%;
+      }
+
+      &:nth-child(1),
+      &:nth-child(6),
+      &:nth-child(7) {
+        width: 18%;
+      }
+    }
+
+
+    .views-field-field-more-information {
+      padding-top: 0;
+      width: 100%;
+
+      a {
+        display: inline-flex;
+      }
+    }
+
+    .views-field-field-traffic-management {
+      padding-right: 6.5rem;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{#
+/** Available variables:
+ * - service_page_base_class: base classname of the wrapper.
+ * - service_page_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - service_page_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - service_page_extra_classes: extra classes, optional for the component.
+ *
+ * Available blocks:
+ * - service_page_content_block - block to replace the content.
+ * - service_page_sidebar_block - block to replace the sidebar.
+ */
+#}
+
+{{ attach_library('ncc/service-page') }}
+
+{% set service_page_base_class = 'service-page' %}
+{% set service_page_modifiers = service_page_modifiers|default([]) %}
+{% set service_page_extra_classes = service_page_extra_classes|default([])|merge(['container', 'page-with-sidebar']) %}
+
+<div {{ bem(service_page_base_class, service_page_modifiers, service_page_blockname, service_page_extra_classes) }}>
+  <div class="row">
+    <article {{ bem('content', [], service_page_base_class, 'col-md-8') }}>
+      {% block service_page_content_block %}
+      {% endblock %}
+    </article>
+    <aside {{ bem('sidebar', [], service_page_base_class, 'col-md-4') }}>
+      {% block service_page_sidebar_block %}
+      {% endblock %}
+    </aside>
+  </div>
+</div>

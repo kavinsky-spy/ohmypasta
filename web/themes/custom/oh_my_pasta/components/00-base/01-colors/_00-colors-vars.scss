@@ -1,0 +1,67 @@
+/* Color variables - use via the 'var()' function. */
+:root {
+  /* Grayscale. */
+  --black: #000;
+  --dark-grey: #212121;
+  --mid-grey: #DBDBDB;
+  --light-grey: #FAFAFA;
+  --white: #F6F7F9;
+
+  /* Primary Colours. */
+  --brand-primary: #B20D12;
+  --brand-primary-tint: #F4CCA4;
+  --brand-primary-tint-light: #FF6166;
+
+  /* Secondary Colours. */
+  --secondary-orange: #CE491F;
+  --secondary-green: #124F12;
+  --secondary-green-tint: #166615;
+  --secondary-deep-peach: #F4CCA4;
+  --secondary-blue: #26A1FF;
+
+  /* Typography. */
+  --text: var(--black);
+  --text-light: var(--white);
+
+  /* Background. */
+  --background: var(--white);
+  --background-inverse: var(--brand-primary);
+
+  /* Links. */
+  --link-default: var(--brand-primary);
+  --link-visited: var(--brand-primary);
+  --link-active-outline: var(--black);
+
+  /* Forms. */
+  --form-border: #ddd;
+  --form-background: #eee;
+
+  /* Messages. */
+  --status-color: #25C720;
+  --status-color-dark: #158213;
+  --status-color-light: #88F085;
+  --warning-color: #FFE712;
+  --warning-color-dark: #CEA100;
+  --warning-color-light: #FFFE87;
+  --error-color: #E04616;
+  --error-color-light: #F7AD7A;
+
+  /* Primary Button. */
+  --button-bg-default: var(--brand-primary);
+  --button-text-default: var(--white);
+  --button-hover-bg-default: var(--white);
+  --button-hover-text-default: var(--brand-primary);
+  --button-outline-default: var(--black);
+
+  /* Secondary Button. */
+  --button-secondary-bg: var(--white);
+  --button-secondary-color: var(--brand-primary);
+  --button-secondary-hover-bg: var(--brand-primary);
+  --button-secondary-hover-color: var(--white);
+
+  /* Tables. */
+  --table-default-bg: var(--white);
+  --table-bg-inverse: var(--brand-primary-tint);
+  --table-default-heading-bg: var(--brand-primary);
+  --table-border: var(--brand-primary);
+}

@@ -1,0 +1,52 @@
+{#
+/** Available variables:
+ * - search_result_base_class: base classname of the wrapper.
+ * - search_result_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - search_result_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - search_result_extra_classes: extra classes, optional for the component.
+ *
+ * - search_result_heading: heading of the component.
+ * - search_result_heading_level: heading level of the component.
+ * - search_result_url: link of the component.
+ * - search_result_url_new_window: true if link needs to open in a new window.
+ * - search_result_description: optional text of the component.
+ * - search_result_date: (optional) Show a date field in the result.
+ *
+ * Available blocks:
+ * - search_result_description_block
+ * - search_result_date_block
+ */
+#}
+
+{{ attach_library('ncc/search-result') }}
+
+{% set search_result_base_class = 'search-result' %}
+{% set search_result_modifiers = search_result_modifiers|default([]) %}
+{% set search_result_extra_classes = search_result_extra_classes|default([]) %}
+
+<div {{ bem(search_result_base_class, search_result_modifiers, search_result_blockname, search_result_extra_classes) }}>
+  {# Date #}
+  {% if search_result_date %}
+    {% block search_result_date_block %}
+      <span {{ bem('date', [], search_result_base_class) }}>
+        {{ search_result_date }}
+        </span>
+    {% endblock %}
+  {% endif %}
+  {# search_result title / link #}
+  {% include "@atoms/heading/heading.twig" with {
+    heading: search_result_heading,
+    heading_level: search_result_heading_level|default(3),
+    heading_url: search_result_url,
+    heading_link_attributes: search_result_url_new_window ? {'target': '_blank', 'rel': 'noopener noreferrer'} : {},
+    heading_blockname: search_result_base_class,
+  } %}
+  {# Optional description #}
+  {% if search_result_description %}
+    {% block search_result_description_block %}
+      <div {{ bem('description', [], search_result_base_class) }}>
+        {{ search_result_description }}
+      </div>
+    {% endblock %}
+  {% endif %}
+</div>

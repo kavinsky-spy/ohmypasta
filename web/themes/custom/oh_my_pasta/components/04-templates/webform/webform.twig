@@ -1,0 +1,39 @@
+{#
+/** Available variables:
+ * - webform_base_class: base classname of the wrapper.
+ * - webform_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - webform_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - webform_extra_classes: extra classes, optional for the component.
+ *
+ * - webform_heading: title of the webform.
+ * - webform_heading_level: heading level of the title.
+ *
+ * - webform_content: content of the webform.
+ *
+ * Available blocks:
+ * - webform_form_block - block to replace the form.
+ */
+#}
+
+{{ attach_library('ncc/webform') }}
+
+{# Adding classes manually to avoid issues with the form attributes getting added where they shouldn't #}
+<div class="webform container">
+  <div class="webform__inner">
+    {# Optional heading #}
+    {% if webform_heading %}
+      {% include "@atoms/heading/heading.twig" with {
+        heading: webform_heading,
+        heading_level: webform_heading_level|default(1),
+        heading_blockname: 'webform',
+      } only %}
+    {% endif %}
+
+    {# Main form #}
+    <div class="webform__form">
+      {% block webform_form_block %}
+        {{ webform_content }}
+      {% endblock %}
+    </div>
+  </div>
+</div>

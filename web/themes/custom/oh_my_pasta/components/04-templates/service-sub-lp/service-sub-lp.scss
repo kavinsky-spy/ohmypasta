@@ -1,0 +1,13 @@
+@import '../../imports.scss';
+
+.service-sub-lp {
+  /* Child pages */
+  .grid {
+    padding: 0;
+  }
+
+  .call-out-box {
+    padding-top: var(--padding-medium);
+    padding-bottom: var(--padding-medium);
+  }
+}

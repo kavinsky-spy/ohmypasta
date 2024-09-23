@@ -1,0 +1,47 @@
+{#
+/** Available variables:
+ * - top_links_base_class: base classname of the wrapper.
+ * - top_links_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - top_links_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - top_links_extra_classes: extra classes, optional for the component.
+ *
+ * - top_links_heading: heading of the component.
+ * - top_links_heading_level: heading level of the component.
+ *
+ * Available blocks:
+ * - top_links_links_block - block to replace the links.
+ */
+#}
+
+{{ attach_library('ncc/top-links') }}
+
+{% set top_links_base_class = 'top-links' %}
+{% set top_links_extra_classes = top_links_extra_classes|default([])|merge(['container']) %}
+
+<div {{ bem(top_links_base_class, top_links_modifiers, top_links_blockname, top_links_extra_classes) }}>
+  {% include "@atoms/heading/heading.twig" with {
+    heading: top_links_heading,
+    heading_level: top_links_heading_level|default(2),
+    heading_blockname: top_links_base_class,
+  } %}
+  <div {{ bem('items', [], top_links_base_class) }}>
+    {% block top_links_items_block %}
+      {% embed "@atoms/list/list.twig" with {
+        list_style: 'unstyled',
+      } %}
+        {% block list_content_block %}
+          {% for item in top_links_items %}
+            {% embed "@atoms/list/_list-item.twig" %}
+              {% block list_item_content_block %}
+                {% include "@atoms/link/link.twig" with {
+                  link_content: item.title,
+                  link_url: item.url,
+                } %}
+              {% endblock %}
+            {% endembed %}
+          {% endfor %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  </div>
+</div>

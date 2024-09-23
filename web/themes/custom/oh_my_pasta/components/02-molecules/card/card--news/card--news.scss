@@ -1,0 +1,61 @@
+@import '../../../imports.scss';
+
+.card.card--news {
+  flex-direction: row;
+  margin-bottom: var(--space-double);
+
+  .card__image {
+    border-radius: 0.8rem 0 0 0.8rem;
+
+    div:not([data-drupal-ajax-container]),
+    picture,
+    img {
+      height: 100%;
+      width: 100%;
+    }
+
+    picture,
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .card__paragraph {
+    display: none;
+    margin: 0;
+  }
+
+  .card__date {
+    margin: 1.2rem 0;
+  }
+}
+
+@include medium {
+  .card.card--news {
+    .card__image {
+      width: 33.5%;
+    }
+
+    .card__content {
+      width: 66.5%;
+    }
+
+    .card__date {
+      margin: var(--space-double) 0;
+    }
+  }
+}
+
+@include medium {
+  .card.card--news {
+    margin-bottom: var(--padding-large);
+  }
+}
+
+@include large {
+  .card.card--news {
+    .card__paragraph {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{#
+/** Available variables:
+ * - contact_base_class: base classname of the wrapper.
+ * - contact_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - contact_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - contact_extra_classes: extra classes, optional for the component.
+ *
+ * - contact_content_modifiers: array of modifiers to add to the base classname of the copy wrapper.
+ *
+ * - contact_main_heading_level: (default: 3) what level of heading to show on the contact
+ * - contact_main_heading_extra_classes: base classname of the title component. Defaults to "title".
+ * - contact_main_heading: the content of the title component.
+ * - contact_main_heading_link: (optional) the url the title should link to. Defaults to contact_link_url.
+ *
+ * - contact_heading_level: (default: 4) what level of heading to show on the contact
+ * - contact_heading_extra_classes: base classname of the title component. Defaults to "title".
+ * - contact_heading: the content of the title component.
+ * - contact_heading_link: (optional) the url the title should link to. Defaults to contact_link_url.
+ *
+ * - contact_location: the content of the location component.
+ *
+ * - contact_email_title: the label of the email component
+ * - contact_email_url: the url of the email component
+ *
+ * - contact_phone_title: the label of the phone component
+ * - contact_phone_url: the url of the phone component
+ *
+ * Available blocks:
+ * - contact_main_heading_block
+ * - contact_heading_block
+ * - contact_location_block
+ * - contact_email_block
+ * - contact_phone_block
+ */
+#}
+
+{{ attach_library('ncc/contact') }}
+{% set contact_base_class = 'contact' %}
+
+<div {{ bem(contact_base_class, contact_modifiers, contact_blockname, contact_extra_classes) }}>
+  {# Block heading #}
+  {% if contact_main_heading %}
+    {% block contact_main_heading_block %}
+      {% include "@atoms/heading/heading.twig" with {
+        heading_level: contact_main_heading_level|default(2),
+        heading_extra_classes: contact_main_heading_extra_classes|default(['heading--sub']),
+        heading: contact_main_heading,
+        heading_base_class: 'main-heading',
+        heading_blockname: contact_base_class,
+      } %}
+    {% endblock %}
+  {% endif %}
+  <div {{ bem('content', contact_content_modifiers|default([]), contact_base_class) }}>
+    {# Inner heading #}
+    {% if contact_heading %}
+      {% block contact_heading_block %}
+        {% include "@atoms/heading/heading.twig" with {
+          heading_level: contact_heading_level|default(3),
+          heading: contact_heading,
+          heading_base_class: 'heading',
+          heading_blockname: contact_base_class,
+        } %}
+      {% endblock %}
+    {% endif %}
+
+    {# Info - Location + email + phone #}
+    <div {{ bem('info', [], contact_base_class) }}>
+      {# Location #}
+      {% if contact_location %}
+        {% block contact_location_block %}
+          <span {{ bem('label', [], contact_base_class) }}>{{ 'Location'|t ~ ':' }}</span>
+          {% include "@atoms/paragraph/paragraph.twig" with {
+            paragraph_content: contact_location,
+          } %}
+        {% endblock %}
+      {% endif %}
+      {# Email #}
+      {% if contact_email_url %}
+        {% block contact_email_block %}
+          <span {{ bem('label', [], contact_base_class) }}>{{ 'Email'|t ~ ':' }}</span>
+          {% include "@atoms/link/link.twig" with {
+            link_content: contact_email_title,
+            link_url: contact_email_url,
+          } %}
+        {% endblock %}
+      {% endif %}
+      {# Phone #}
+      {% if contact_phone_title %}
+        {% block contact_phone_block %}
+          <span {{ bem('label', [], contact_base_class) }}>{{ 'Phone'|t ~ ':' }}</span>
+          {% include "@atoms/link/link.twig" with {
+            link_content: contact_phone_title,
+            link_url: 'tel:' ~ contact_phone_url,
+          } %}
+        {% endblock %}
+      {% endif %}
+    </div>
+  </div>
+</div>

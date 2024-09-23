@@ -1,0 +1,15 @@
+.maintenance-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding-default);
+  text-align: center;
+
+  h1 {
+    margin-bottom: var(--space-quadruple);
+  }
+
+  .logo img {
+    margin: 0 auto var(--space-double);
+  }
+}

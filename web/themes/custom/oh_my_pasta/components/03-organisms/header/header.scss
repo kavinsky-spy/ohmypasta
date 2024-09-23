@@ -1,0 +1,184 @@
+@import "../../imports";
+
+body.header-is-open {
+  overflow: hidden;
+
+  /* Hide alerts and cookie banner while mobile menu is open */
+  #ccc,
+  #block-ncc-alertbanner {
+    display: none;
+  }
+}
+
+.header {
+  position: relative;
+  padding: var(--padding-medium) 0;
+  background-color: var(--white);
+  box-shadow: 0 0.6rem 0.4rem 0 rgba(0, 0, 0, 0.05);
+  z-index: 25;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  flex-shrink: 0;
+  margin-right: var(--padding-medium);
+
+  img {
+    width: 12.6rem;
+  }
+
+  a {
+    display: inline-block;
+  }
+}
+
+.header__main {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.header__content {
+  display: none;
+  background-color: var(--white);
+
+  &.is-open {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 100%);
+    max-height: calc(100vh - 100%);
+    box-shadow: inset 0 0.6rem 0.4rem 0 rgba(0, 0, 0, 0.05);
+    overflow: scroll;
+
+    /* Uses dynamic viewport if supported */
+    @supports (height: 100vh) {
+      height: calc(100vh - 100%);
+      max-height: calc(100vh - 100%);
+    }
+  }
+}
+
+.header__menu {
+  .contextual-region {
+    position: static;
+  }
+}
+
+.header__toggle {
+  height: 3.7rem;
+  width: 3.7rem;
+  padding: 0;
+  font-size: 0;
+  background-image: url(#{$images}/icons/hamburger-green.svg);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.is-open {
+    background-image: url(#{$images}/icons/close-green.svg);
+    background-size: 85%;
+  }
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+}
+
+.header__switcher {
+  margin-right: var(--padding-medium);
+}
+
+.header__account--mobile {
+  align-self: flex-start;
+}
+
+.header__account--desktop {
+  display: none;
+}
+
+.header__search {
+  form {
+    position: relative;
+    @include search-form();
+  }
+}
+
+/* Desktop selectors */
+@include large {
+  .header {
+    box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .header__logo img {
+    width: 24.2rem;
+  }
+
+  .header__main {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .header__content {
+    display: flex;
+  }
+
+  .header__menu {
+    display: flex;
+    align-items: center;
+    margin-right: var(--padding-large);
+  }
+
+  .header__toggle {
+    display: none;
+  }
+
+  .header__actions {
+    margin-bottom: var(--padding-medium);
+  }
+
+  .header__account--mobile {
+    display: none;
+  }
+
+  .header__account--desktop {
+    display: inline-flex;
+  }
+
+  .header__search form {
+    max-width: 25rem;
+  }
+}
+
+@include xl {
+  .header__search form {
+    max-width: 30rem;
+  }
+}
+
+/* Desktop-down selectors for stuff that would be harder to override */
+@include media-breakpoint-down(md){
+  .header__content {
+    padding: var(--space-double) var(--padding-medium) var(--padding-large) var(--padding-medium);
+  }
+
+  .header__search {
+    order: -1;
+    padding-bottom: var(--space-double);
+  }
+
+  .header__menu {
+    padding: var(--padding-large) 0;
+    margin-bottom: var(--padding-large);
+    border-bottom: 0.1rem solid var(--secondary-orange);
+  }
+}

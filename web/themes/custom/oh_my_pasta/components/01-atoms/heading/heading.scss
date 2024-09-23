@@ -1,0 +1,76 @@
+/*
+ * Generic header styles:
+ * All arguments are optional. If not defined, the defaults below will be used
+*/
+
+h1,
+.h1,
+.heading--title {
+  @include heading(
+    $font-size: 'heading--title',
+  );
+}
+
+h2,
+.h2,
+.heading--main {
+  @include heading(
+    $font-size: 'heading--main',
+  );
+}
+
+h3,
+.h3,
+.heading--sub {
+  @include heading(
+    $font-size: 'heading--sub',
+    $font-weight: var(--font-bold),
+  );
+}
+
+h4,
+.h4,
+.heading--small,
+.heading--alt {
+  @include heading(
+    $font-size: 'heading--small',
+    $font-weight: var(--font-bold),
+  );
+}
+
+h5,
+.h5,
+.heading--xsmall {
+  @include heading(
+    $font-size: 'heading--xsmall',
+    $line-height: 1.35,
+  );
+}
+
+h6,
+.h6,
+.heading--tiny {
+  @include heading(
+    $font-size: 'heading--tiny',
+    $line-height: 1.35,
+  );
+}
+
+.heading__icon {
+  font-size: inherit;
+  height: 1.5rem;
+  margin-left: auto;
+  width: 1.5rem;
+}
+
+// Wysiwig styles
+.text-long {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding-top: var(--padding-small);
+  }
+}

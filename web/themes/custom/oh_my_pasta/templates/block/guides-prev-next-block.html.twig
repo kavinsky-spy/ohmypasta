@@ -1,0 +1,15 @@
+{#
+/**
+* @file
+* Default theme implementation for the guides_prev_next_block block.
+*/
+#}
+
+<div class="container">
+  {% include "@molecules/pager/pager.twig" with {
+    pager_prev_title: previous_title,
+    pager_prev_url: previous_url,
+    pager_next_title: next_title,
+    pager_next_url: next_url,
+  } %}
+</div>

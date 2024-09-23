@@ -1,0 +1,65 @@
+{#
+/** Available variables:
+ * - service_status_list_base_class: base classname of the wrapper.
+ * - service_status_list_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - service_status_list_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - service_status_list_extra_classes: extra classes, optional for the component.
+ *
+ * - service_status_list_heading: heading of the component.
+ * - service_status_list_heading: heading level.
+ * - service_status_list_items: service status items.
+ * - service_status_list_all_text: see all services link text.
+ * - service_status_list_all_url: see all services link url.
+ * - service_status_list_no_updates_text: text for when there are no updates.
+ *
+ * Available blocks:
+ * - service_status_list_items_block - block to replace the items.
+ */
+#}
+
+{{ attach_library('ncc/service-status-list') }}
+
+{% set service_status_list_base_class = 'service-status-list' %}
+{% set service_status_list_extra_classes = service_status_list_extra_classes|default([])|merge(['container']) %}
+
+<div {{ bem(service_status_list_base_class, service_status_list_modifiers, service_status_list_blockname, service_status_list_extra_classes) }}>
+  <div {{ bem('content', [], service_status_list_base_class) }}>
+    {% if service_status_list_heading %}
+      {% include "@atoms/heading/heading.twig" with {
+        heading: service_status_list_heading,
+        heading_level: service_status_list_heading_level|default(2),
+        heading_blockname: service_status_list_base_class,
+      } %}
+    {% endif %}
+
+    <div {{ bem('items', [], service_status_list_base_class) }}>
+      {% block service_status_list_items_block %}
+        {% for item in service_status_list_items %}
+          {% include "@molecules/service-status/service-status.twig" with {
+            service_status_heading: item.title,
+            service_status_heading_url: item.url,
+            service_status_headinglevel: service_status_list_heading_level + 1,
+            service_status_date: item.date,
+            service_status_description: item.description,
+          } %}
+        {% endfor %}
+      {% endblock %}
+      {% if not service_status_list_items %}
+        {% include "@atoms/paragraph/paragraph.twig" with {
+          paragraph_content: service_status_list_no_updates_text,
+          paragraph_base_class: 'no-updates',
+          paragraph_blockname: service_status_list_base_class,
+          paragraph_extra_classes: ['paragraph--no-margin'],
+        } %}
+      {% endif %}
+    </div>
+
+    {% if service_status_list_all_url and service_status_list_items %}
+      {% include "@atoms/link/link.twig" with {
+        link_content: service_status_list_all_text,
+        link_url: service_status_list_all_url,
+        link_blockname: service_status_list_base_class,
+      } %}
+    {% endif %}
+  </div>
+</div>

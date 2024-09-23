@@ -1,0 +1,108 @@
+{#
+/** Available variables:
+ * - grid_base_class: base classname of the wrapper.
+ * - grid_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - grid_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - grid_extra_classes: extra classes, optional for the component.
+ *
+ * - grid_type: sets the grid type - [faq-full, faq-columns, expandable].
+ *
+ * - grid_heading: heading of the component.
+ * - grid_heading_level: heading level of the component.
+ * - grid_bg_color: background color of the component - white or light green.
+ * - grid_items_per_row: items per row.
+ * - grid_cta_text: optional CTA button text.
+ * - grid_cta_url: optional CTA button URL.
+ *
+ * - grid_more_text: view more text - overrides CTA button
+ * - grid_less_text: view less text - overrides CTA button
+ *
+ * Available blocks:
+ * - grid_items_block - block to replace the items.
+ */
+#}
+
+{{ attach_library('ncc/grid') }}
+
+{% if grid_type == 'faq-full' or grid_type == 'faq-columns' %}
+  {{ attach_library('ncc/accordion-faq') }}
+{% elseif grid_type == 'expand' %}
+  {{ attach_library('ncc/grid--expand') }}
+{% elseif grid_type == 'graphic' %}
+  {{ attach_library('ncc/grid--graphic') }}
+{% endif %}
+
+{% set grid_base_class = 'grid' %}
+{% set grid_modifiers = grid_modifiers|default([]) %}
+{% set grid_extra_classes = grid_extra_classes|default([]) %}
+
+{# Modifers for grid type, background color and items per row #}
+{% set grid_modifiers = grid_modifiers|merge([grid_type]) %}
+{% set grid_modifiers = grid_modifiers|merge([grid_bg_color]) %}
+{% set grid_modifiers = grid_modifiers|merge(['row-' ~ grid_items_per_row]) %}
+
+{# Item col class based on items per row #}
+{% if grid_items_per_row == 2 %}
+  {% set grid_items_col_class = 'col-md-6' %}
+{% elseif grid_items_per_row == 3 %}
+  {% set grid_items_col_class = 'col-md-4' %}
+{% elseif grid_items_per_row == 4 %}
+  {% set grid_items_col_class = 'col-md-3' %}
+{% endif %}
+
+{# Item col class based on grid type #}
+{% if grid_type == 'faq-full' %}
+  {% set grid_items_col_class = 'col-12' %}
+{% elseif grid_type == 'faq-columns' %}
+  {% set grid_items_col_class = 'col-md-4' %}
+{% endif %}
+
+<div {{ bem(grid_base_class, grid_modifiers, grid_blockname, grid_extra_classes) }}>
+  <div {{ bem('content', [], grid_base_class, ['container']) }}>
+    {# Optional grid heading #}
+    {% if grid_heading %}
+      {% include "@atoms/heading/heading.twig" with {
+        heading: grid_heading,
+        heading_level: grid_heading_level|default(2),
+        heading_blockname: grid_base_class,
+        heading_size_override: 'main',
+      } %}
+    {% endif %}
+
+    {# Tiles / grid items #}
+    <div {{ bem('items', [], grid_base_class, ['row']) }}>
+      {% block grid_items_block %}
+        {% for item in grid_items %}
+          <div class="{{ grid_items_col_class }}">
+            {% include "@molecules/tile/tile.twig" with {
+              tile_heading: item.heading,
+              tile_url: item.url,
+              tile_icon: item.icon,
+              tile_description: item.description,
+            }%}
+          </div>
+        {% endfor %}
+      {% endblock %}
+    </div>
+
+    {# Expand button for expandable grid version #}
+    {% if grid_type == 'expand' and grid_items|length > 8 and grid_more_text and grid_less_text %}
+      {% embed "@atoms/button/button.twig" with {
+        button_extra_classes: ['grid__cta', 'js-grid-expand'],
+      } %}
+        {% block button_content_block %}
+          <span class="grid__more-text">{{ grid_more_text }}</span>
+          <span class="grid__less-text">{{ grid_less_text }}</span>
+        {% endblock %}
+      {% endembed %}
+
+    {# Regular optional CTA button #}
+    {% elseif grid_cta_url %}
+      {% include "@atoms/button/button.twig" with {
+        button_content: grid_cta_text,
+        button_url: grid_cta_url,
+        button_extra_classes: ['grid__cta'],
+      } %}
+    {% endif %}
+  </div>
+</div>

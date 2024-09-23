@@ -1,0 +1,28 @@
+<fieldset class="form-fieldset form-fieldset--date {% if date_error %}form-item--error{% endif %}">
+  <legend class="heading--main">When was your passport issued?</legend>
+  <p class="form-item__description">For example, 12 11 2007</p>
+  <div class="form-items">
+    <div class="form-item form-item--textfield__item">
+      <label for="day" class="form-item__label form-item__label--textfield">Day</label>
+      <input id="day" type="text" pattern="[0-9]*" inputmode="numeric" class="form-item__textfield">
+    </div>
+    <div class="form-item form-item--textfield__item">
+      <label for="month" class="form-item__label form-item__label--textfield">Month</label>
+      <input id="month" type="text" pattern="[0-9]*" inputmode="numeric" class="form-item__textfield">
+    </div>
+    <div class="form-item form-item--textfield__item">
+      <label for="year" class="form-item__label form-item__label--textfield">Year</label>
+      <input id="year" type="text" pattern="[0-9]*" inputmode="numeric" class="form-item__textfield">
+    </div>
+  </div>
+</fieldset>
+
+<div class="field--type-datetime field--widget-datetime-default js-form-wrapper form-wrapper">
+  <h3 class="heading heading--main">When was your passport issued?</h3>
+  <div id="edit-field-move-to-learn-date-0-value">
+    <div class="js-form-item form-item js-form-type-date form-item--date__item form-no-label {% if radio_error %}form-item--error{% endif %}">
+      <label for="edit-field-move-to-learn-date-0-value-date" class="visually-hidden form-item__label">Date</label>
+      <input title="Date (e.g. 2023-02-14)" type="date" placeholder="YYYY-MM-DD" data-help="Enter the date using the format YYYY-MM-DD (e.g., 2023-02-14)." id="edit-field-move-to-learn-date-0-value-date" name="field_move_to_learn_date[0][value][date]" value="" size="12" class="form-date js-form-date-item form-item__date form-item__textfield">
+    </div>
+  </div>
+</div>

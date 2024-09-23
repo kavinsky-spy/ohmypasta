@@ -1,0 +1,57 @@
+@import '../../../imports.scss';
+
+.card.card--school {
+  margin-bottom: var(--space-double);
+
+  .card__image {
+
+    div:not([data-drupal-ajax-container]),
+    picture,
+    img {
+      height: 100%;
+      width: 100%;
+    }
+
+    picture,
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .card__content {
+    gap: var(--space-double);
+  }
+
+  .card__details {
+    display: grid;
+    grid-template-columns: min-content auto;
+    gap: var(--space-double) var(--padding-small);
+
+    a {
+      position: relative;
+      word-break: break-all;
+      z-index: 1;
+    }
+  }
+}
+
+@include medium {
+  .card.card--school {
+    flex-direction: row;
+
+    .card__image {
+      border-radius: 0.8rem 0 0 0.8rem;
+      width: 33.5%;
+    }
+
+    .card__content {
+      width: 66.5%;
+    }
+  }
+}
+
+@include medium {
+  .card.card--school {
+    margin-bottom: var(--padding-large);
+  }
+}

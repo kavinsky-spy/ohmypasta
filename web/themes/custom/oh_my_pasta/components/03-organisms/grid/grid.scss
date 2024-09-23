@@ -1,0 +1,46 @@
+@import '../../imports.scss';
+
+.grid {
+  padding: var(--padding-medium) 0 0 0;
+}
+
+.grid__heading {
+  padding-top: var(--padding-small);
+  margin-bottom: var(--padding-medium);
+}
+
+.grid__items {
+  border: none;
+
+  [class*="col-"] > * {
+    margin-bottom: var(--padding-medium);
+  }
+}
+
+.grid__cta {
+  margin-bottom: var(--padding-medium);
+}
+
+/* White background variation */
+.grid--white {
+  background-color: var(--white);
+}
+
+/* Light green background variation */
+.grid--lightgreen {
+  background-color: var(--brand-primary-tint-light);
+}
+
+@include large {
+  .grid {
+    padding: var(--padding-xl) 0 var(--padding-default) 0;
+  }
+
+  .grid__items [class*="col-"] > * {
+    margin-bottom: var(--padding-large);
+  }
+
+  .grid__cta {
+    margin-bottom: var(--padding-large);
+  }
+}

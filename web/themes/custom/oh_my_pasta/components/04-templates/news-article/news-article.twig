@@ -1,0 +1,65 @@
+{#
+/** Available variables:
+ * - news_article_base_class: base classname of the wrapper.
+ * - news_article_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - news_article_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - news_article_extra_classes: extra classes, optional for the component.
+ *
+ * - news_article_heading: news title
+ * - news_article_summary: news subtitle
+ *
+ * - news_article_content: main content
+ *
+ * - news_article_back_text: back link text
+ * - news_article_back_url: back link url
+ *
+ * Available blocks:
+ * - news_article_image_block - block to replace the image.
+ * - news_article_content_block - block to replace the content / body.
+ * - news_article_components_block - block to replace the components.
+ * - news_article_back_block - block to replace the back link with BE custom one.
+ */
+#}
+
+{{ attach_library('ncc/news-article') }}
+
+{% set news_article_base_class = 'news-article' %}
+{% set news_article_modifiers = news_article_modifiers|default([]) %}
+{% set news_article_extra_classes = news_article_extra_classes|default([])|merge(['container']) %}
+
+<article {{ bem(news_article_base_class, news_article_modifiers, news_article_blockname, news_article_extra_classes) }}>
+  {# Page title #}
+  {% include "@molecules/page-title/page-title.twig" with {
+    page_title_heading: news_article_heading,
+    page_title_summary: news_article_summary,
+  } %}
+  {# Main article image with caption #}
+  <div {{ bem('image', [], news_article_base_class) }}>
+    {% block news_article_image_block %}
+      {% include "@molecules/image-with-caption/image-with-caption.twig" %}
+    {% endblock %}
+  </div>
+  {# Main article body / content #}
+  <div {{ bem('content', [], news_article_base_class) }}>
+    {% block news_article_content_block %}
+      {{ news_article_content }}
+    {% endblock %}
+  </div>
+  {# Back to newsroom link #}
+  <div {{ bem('back', [], news_article_base_class) }}>
+    {% block news_article_back_block %}
+      {% include "@atoms/link/link.twig" with {
+        link_content: news_article_back_text,
+        link_url: news_article_back_url,
+        link_icon: true,
+        link_icon_before: true,
+      } %}
+    {% endblock %}
+  </div>
+  {# Components - social share + banner #}
+  <div {{ bem('components', [], news_article_base_class) }}>
+    {% block news_article_components_block %}
+      {{ news_article_components }}
+    {% endblock %}
+  </div>
+</article>

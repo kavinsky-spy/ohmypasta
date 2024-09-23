@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Default node template for localgov_services_landing pages.
+ */
+#}
+
+{{ attach_library('ncc/service-sub-lp') }}
+
+<article class="node service-sub-lp">
+  {# Child pages #}
+  {% if content.localgov_topics.0 %}
+    {{ content.localgov_topics }}
+  {% endif %}
+
+  {# Main components #}
+  {% if content.field_components %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          {{ content.field_components }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</article>

@@ -1,0 +1,61 @@
+{#
+/**
+ * Available variables:
+ * - accordion_base_class: base classname of the wrapper.
+ * - accordion_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - accordion_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - accordion_extra_classes: extra classes, optional for the component.
+ *
+ * - accordion_heading: the accordion heading text.
+ * - accordion_heading_level: the accordion heading level.
+ * - accordion_content: initially hidden content that expands when clicking on the button.
+ * - accordion_icon_name: allows to modify the default icon (chevron)
+ * - accordion_icon_before: true if the icon should go before the text.
+ * - accordion_contained: Set this option to true if you want the component to sit within a container.
+ *
+ * Available blocks:
+ * - heading_block
+ * - button_content_block
+ * - accordion_content_block: the content within the accordion item.
+ */
+#}
+
+{{ attach_library('ncc/accordion') }}
+{% set accordion_base_class = 'accordion' %}
+
+{% set accordion_extra_classes = accordion_extra_classes|default([])|merge(['js-accordion']) %}
+{% set accordion_contained = accordion_contained|default(false) %}
+
+{% if accordion_contained %}
+  <div class="container">
+{% endif %}
+
+<div {{ bem(accordion_base_class, accordion_modifiers|default([]), accordion_blockname, accordion_extra_classes) }}>
+  {# Accordion heading + button #}
+  {% embed "@atoms/heading/heading.twig" with {
+    heading_level: accordion_heading_level|default(3),
+    heading_size_override: 'xsmall',
+    heading_extra_classes: ['js-accordion-heading', accordion_base_class ~ '__heading'],
+  } %}
+    {% block heading_block %}
+      {% include "@atoms/button/button.twig" with {
+        button_content: accordion_heading,
+        button_extra_classes: ['accordion__button'],
+        button_icon: true,
+        button_icon_name: accordion_icon_name|default('chevron-down'),
+        button_icon_before: accordion_icon_before,
+      }%}
+    {% endblock %}
+  {% endembed %}
+
+  {# Accordion content #}
+  <div {{ bem('content', [], accordion_base_class, ['js-accordion-content']) }}>
+    {% block accordion_content_block %}
+      {{ accordion_content }}
+    {% endblock %}
+  </div>
+</div>
+
+{% if accordion_contained %}
+  </div>
+{% endif %}

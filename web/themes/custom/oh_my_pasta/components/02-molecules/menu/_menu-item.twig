@@ -1,0 +1,49 @@
+{% set item_modifiers = [] %}
+{% if item.in_active_trail == TRUE %}
+  {% set item_modifiers = item_modifiers|merge(['active']) %}
+{% endif %}
+{% if menu_level == 0 %}
+  {% set item_modifiers = item_modifiers|merge(['level-zero']) %}
+{% elseif menu_level > 0 %}
+  {% set item_modifiers = item_modifiers|merge(['sub', 'sub-' ~ menu_level]) %}
+{% endif %}
+{% if item.below %}
+  {% set item_modifiers = item_modifiers|merge(['with-sub']) %}
+  {% set submenu_id = 'submenu-' ~ menu_level ~ '-' ~ item.title|lower|replace({' ': ''}) %}
+{% endif %}
+{# below could maybe be done without a loop? #}
+{% for modifier in item.modifiers %}
+  {% set item_modifiers = item_modifiers|merge([modifier]) %}
+{% endfor %}
+
+{% set list__item_label = item_label %}
+{% set list__item__base_class = item_base_class|default(menu_class ~ '__item') %}
+{% set list__item__modifiers = item_modifiers %}
+{% set list__item__blockname = item_blockname %}
+
+<li class="{{ list__item__base_class }}">
+  {% if not item.below %}
+    {% include "@atoms/link/link.twig" with {
+      link_content: item.title,
+      link_url: item.url,
+      link_base_class: item_base_class|default(menu_class ~ '__link'),
+      link_modifiers: item_modifiers,
+    } %}
+  {% else %}
+    {% set submenu_title = 'Open '|t ~ item.title ~ ' submenu'|t %}
+    {% include "@atoms/link/link.twig" with {
+      link_content: item.title,
+      link_url: item.url,
+      link_base_class: item_base_class|default(menu_class ~ '__link'),
+      link_modifiers: item_modifiers,
+      link_extra_classes: ['menu__link--expand-sub', 'js-menu-sub-expand'],
+      link_attributes: { 'aria-expanded': 'false', 'aria-controls': submenu_id, 'aria-label' : submenu_title },
+      link_icon: true,
+    } %}
+    <div class="menu--sub-wrapper" id="{{ submenu_id }}">
+      <button class="button button--clean menu--sub__back js-menu-sub-back" aria-label="{{ 'Go back to ' ~ item.title }}">{{ '< ' ~ 'Back'|t }}</button>
+      {% import '@molecules/menu/menu.twig' as menus %}
+      {{ menus.menu_links(item.below, attributes, menu_type, menu_level + 1, menu_class, menu_modifiers, menu_blockname, menu_extra_classes, item_base_class, item_modifiers, item_blockname, directory) }}
+    </div>
+  {% endif %}
+</li>

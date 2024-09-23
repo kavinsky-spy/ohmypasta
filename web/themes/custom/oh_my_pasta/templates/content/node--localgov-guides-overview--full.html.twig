@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Default node template for localgov_guides_landing pages.
+ */
+#}
+
+{% set guide_title = label.0 %}
+{% if content.localgov_guides_section_title.0 %}
+  {% set guide_title = content.localgov_guides_section_title.0 %}
+{% endif %}
+
+{% embed "@templates/guide-page/guide-page.twig" with {
+  guide_page_heading: guide_title,
+} %}
+  {% block guide_page_content_block %}
+    {% if content.field_components %}
+      {{ content.field_components }}
+    {% endif %}
+    {# Print guides navigation inside of node - @see ncc_localgov_guides.module #}
+    {% if content.guides_nav %}
+      {{ content.guides_nav }}
+    {% endif %}
+  {% endblock %}
+  {% block guide_page_sidebar_block %}
+    {% if content.field_contact_block %}
+      {{ content.field_contact_block }}
+    {% endif %}
+  {% endblock %}
+{% endembed %}

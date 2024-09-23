@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Default node template for localgov_services_landing pages.
+ */
+#}
+
+{% embed "@templates/service-page/service-page.twig" %}
+  {% block service_page_content_block %}
+    {% if content.field_components %}
+      {{ content.field_components }}
+    {% endif %}
+  {% endblock %}
+  {% block service_page_sidebar_block %}
+    {% if content.field_contact_block %}
+      {{ content.field_contact_block }}
+    {% endif %}
+    {% if content.localgov_related_links %}
+      {{ content.localgov_related_links }}
+    {% endif %}
+  {% endblock %}
+{% endembed %}

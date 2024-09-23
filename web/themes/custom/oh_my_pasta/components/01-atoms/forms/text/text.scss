@@ -1,0 +1,68 @@
+.form-item {
+  margin-bottom: var(--space-double);
+}
+
+.form-item__label {
+  display: block;
+}
+
+.form-item__textfield {
+  width: 100%;
+  padding: var(--padding-small);
+  border: 0.1rem solid var(--black);
+  font-size: var(--body-small);
+  line-height: 2;
+  -webkit-appearance: none;
+
+  &:focus-visible {
+    @include focus-outline;
+  }
+
+  &::placeholder {
+    color: var(--dark-grey);
+  }
+}
+
+.form-item__description {
+  margin-bottom: var(--space);
+
+  &.after {
+    margin-top: var(--space);
+    margin-bottom: 0;
+  }
+}
+
+/* Labels for standalone elements */
+.form-item--textfield__item,
+.form-item--textarea__item,
+.form-item--email__item,
+.form-item--select__item,
+.form-item--date__item {
+  .form-item__label {
+    margin-bottom: var(--padding-default);
+    font-size: 1.9rem;
+    font-weight: var(--font-extrabold);
+    font-family: var(--font-heading);
+  }
+}
+
+/* Date with textfield inputs */
+.form-fieldset--date .form-items {
+  margin-top: var(--space-double);
+
+  .form-item {
+    margin: var(--space) var(--space-double) var(--space-one-half) 0;
+  }
+
+  .form-item__textfield {
+    max-width: 13rem;
+  }
+
+  @include medium {
+    display: flex;
+
+    .form-item {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import '../../imports.scss';
+
+#block-ncc-directory-channel-search-block {
+  margin-bottom: var(--padding-xl);
+
+  form {
+    @include search-form();
+
+    /* Proximity search */
+    .form-item__select {
+      padding: 1.1rem var(--space);
+      line-height: 1.5;
+      border: 0.2rem solid var(--brand-primary);
+      border-radius: var(--border-radius);
+    }
+
+    fieldset {
+
+      legend {
+        display: none;
+      }
+
+      .form-item {
+        margin-bottom: var(--space-double);
+      }
+
+      ~ .form-actions .form-submit {
+        bottom: 4.2rem;
+      }
+    }
+  }
+}
+
+/* Body field */
+.node--localgov_directory .text-long {
+  margin-bottom: var(--padding-default);
+}
+
+/* No results */
+.view-localgov-directory-channel .view-empty {
+  @include medium {
+    margin-left: -52%;
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "text": "English",
+    "url": "#",
+    "icon": "flag-en",
+    "class": "is-active",
+    "attributes": {
+      "hreflang": "en-gb"
+    }
+  },
+  {
+    "text": "Cymraeg",
+    "url": "#",
+    "icon": "flag-cy",
+    "class": "",
+    "attributes": {
+      "hreflang": "cy"
+    }
+  }
+]

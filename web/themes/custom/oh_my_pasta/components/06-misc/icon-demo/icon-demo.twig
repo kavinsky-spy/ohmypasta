@@ -1,0 +1,17 @@
+<br>
+<div class="demo-cards">
+  {% for item in items %}
+    <div class="demo-cards__card">
+      {% include "@atoms/icon/icon.twig" with {
+        icon_name: item.value,
+        icon_role: item.role,
+        icon_title: item.title,
+        icon_desc: item.desc,
+        icon_decorative: item.decorative,
+      } %}
+      <pre>{{ item.name }}</pre>
+    </div>
+  {% endfor %}
+</div>
+<br>
+<br>

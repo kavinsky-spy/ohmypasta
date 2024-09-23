@@ -1,0 +1,60 @@
+a,
+.link {
+  @include link;
+}
+
+.link--icon {
+  display: inline-flex;
+  align-items: center;
+
+  .icon {
+    flex-shrink: 0;
+    height: var(--space);
+    width: var(--space);
+    margin-left: var(--space);
+  }
+}
+
+.link--icon-before .icon {
+  margin-left: 0;
+  margin-right: var(--space);
+}
+
+.link--inline {
+  margin-right: var(--padding-small);
+
+  @include medium {
+    margin-right: var(--padding-default);
+  }
+}
+
+.link--overlay {
+  color: transparent;
+  text-indent: -9999px;
+  font-size: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* External Links */
+a.ext {
+  svg {
+    height: 1.8rem;
+    width: 1.8rem;
+    vertical-align: middle;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+    fill: currentColor;
+    padding: 0;
+    margin-left: var(--space-one-half);
+    position: relative;
+    top: -0.3rem;
+
+    path {
+      stroke: currentColor;
+    }
+  }
+}

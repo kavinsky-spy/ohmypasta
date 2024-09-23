@@ -1,0 +1,35 @@
+@import '../../../imports.scss';
+
+.grid.grid--graphic .grid__items {
+  margin-left: calc(var(--padding-small) * -1);
+  margin-right: calc(var(--padding-small) * -1);
+
+  [class*="col-"] {
+    padding: 0 var(--padding-small);
+
+    & > * {
+      margin-bottom: var(--padding-default);
+    }
+  }
+}
+
+/* Tweaks for pages with non-full-width content */
+.page-with-sidebar,
+.service-sub-lp {
+  .grid.grid--graphic {
+    padding: var(--padding-default) 0 var(--space-double) 0;
+
+    .grid__items {
+      margin-left: calc(var(--space-one-half) * -1);
+      margin-right: calc(var(--space-one-half) * -1);
+
+      [class*="col-"] {
+        padding: 0 var(--space-one-half);
+
+        & > * {
+          margin-bottom: var(--space);
+        }
+      }
+    }
+  }
+}

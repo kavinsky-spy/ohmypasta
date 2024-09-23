@@ -1,0 +1,107 @@
+{#
+/**
+ * Available variables:
+ * - header_base_class: base classname of the wrapper.
+ * - header_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - header_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - header_extra_classes: extra classes, optional for the component.
+ *
+ * - header_logo_src: url of the logo.
+ * - header_logo_link: homepage link.
+ *
+ * - header_account_text: text of the link to my.newport.
+ * - header_account_url: link to my.newport.
+ *
+ * Available blocks:
+ * - header_logo_block: header logo block.
+ * - header_menu_block: header menu block.
+ * - header_search_block: header search block.
+ * - header_switcher_block: language switcher block.
+ * - header_desktop_account_block: desktop my account menu.
+ * - header_mobile_account_block: mobile my account menu.
+ */
+#}
+
+{{ attach_library('ncc/header') }}
+
+{% set header_base_class = 'header' %}
+{% set header_extra_classes = header_extra_classes|default([])|merge(['js-header']) %}
+{% set header_logo_src = directory ? '/' ~ directory ~ '/images/logo.svg' : 'logo.svg' %}
+
+<header {{ bem(header_base_class, header_modifier, header_blockname, header_extra_classes) }}>
+  <div {{ bem('inner', [], header_base_class, ['container']) }}>
+    {# Logo #}
+    <div {{ bem('logo', [], header_base_class) }}>
+      {% block header_logo_block %}
+        <a href="{{ header_logo_link|default('/') }}">
+          <img class="header__logo" src="{{ header_logo_src }}" alt="{{ 'Newport City Council logo' }}">
+        </a>
+      {% endblock %}
+    </div>
+
+    {# Main container #}
+    <div {{ bem('main', [], header_base_class) }}>
+      {# Actions - Language switcher + My account #}
+      <div {{ bem('actions', [], header_base_class) }}>
+        <div {{ bem('switcher', [], header_base_class) }}>
+          {% block header_switcher_block %}
+            {% include "@molecules/language-switcher/language-switcher.twig" with {
+              language_switcher_links: header_language_links,
+            } %}
+          {% endblock %}
+        </div>
+        {# Desktop my.newport button #}
+        <div {{ bem('account--desktop', [], header_base_class) }}>
+          {% block header_desktop_account_block %}
+            {% include "@atoms/button/button.twig" with {
+              button_content: header_account_text|default('My account'|t),
+              button_url: header_account_url|default('https://my.newport.gov.uk/'),
+            } %}
+          {% endblock %}
+        </div>
+      </div>
+
+      {# Content - Menu + Search #}
+      <div {{ bem('content-wrapper', [], header_base_class) }}>
+        {# Mobile header toggle #}
+        {% include "@atoms/button/button.twig" with {
+          button_type: 'clean',
+          button_content: 'Toggle mobile navigation'|t,
+          button_extra_classes: ['header__toggle', 'js-header-toggle'],
+          button_attributes: { 'aria-controls': 'header-mobile-content' },
+        } %}
+
+        {# Content inner div - to be toggled in mobile #}
+        <div {{ bem('content', [], header_base_class, ['js-header-mobile']) }} id="header-mobile-content">
+          {# Main site menu #}
+          <div {{ bem('menu', [], header_base_class) }}>
+            {% block header_menu_block %}
+              {% include "@molecules/menu/menu--main/menu--main.twig" with {
+                menu_items: header_menu_items,
+              } %}
+            {% endblock %}
+          </div>
+          {# Mobile my.newport button #}
+          <div {{ bem('account--mobile', [], header_base_class) }}>
+            {% block header_mobile_account_block %}
+              {% include "@atoms/button/button.twig" with {
+                button_content: header_account_text|default('My account'|t),
+                button_url: header_account_url|default('https://my.newport.gov.uk/'),
+              } %}
+            {% endblock %}
+          </div>
+          <div {{ bem('search', [], header_base_class) }}>
+            {% block header_search_block %}
+              <form action="/search" method="post" id="search-test-placeholder" accept-charset="UTF-8">
+                <div class="js-form-item form-item form-item--textfield__item">
+                  <input type="text" id="search-test-text" name="search" value="" size="60" maxlength="128" placeholder="Search placeholder" class="form-text form-item__textfield">
+                </div>
+                <button type="submit" id="search-test-submit" name="op" value="Search" class="button js-form-submit form-submit">Search</button>
+              </form>
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,27 @@
+@import '../../imports.scss';
+
+.newsroom {
+  .call-out-box {
+    padding-top: var(--padding-large);
+    padding-bottom: 0;
+  }
+}
+
+.newsroom__featured {
+  .card .card__content {
+    .heading {
+      padding-top: var(--padding-small);
+    }
+
+    .paragraph {
+      margin-bottom: var(--space-double);
+    }
+  }
+}
+
+.newsroom__filters {
+  /* Hide the search form as it's needed by BE */
+  .views-exposed-form {
+    display: none;
+  }
+}

@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Theme override for status messages.
+ *
+ * Displays status, error, and warning messages, grouped by type.
+ *
+ * An invisible heading identifies the messages for assistive technology.
+ * Sighted users see a colored box. See http://www.w3.org/TR/WCAG-TECHS/H69.html
+ * for info.
+ *
+ * Add an ARIA label to the contentinfo area so that assistive technology
+ * user agents will better describe this landmark.
+ *
+ * Available variables:
+ * - message_list: List of messages to be displayed, grouped by type.
+ * - status_headings: List of all status types.
+ * - attributes: HTML attributes for the element, including:
+ *   - class: HTML classes.
+ */
+#}
+
+<div data-drupal-messages class="status-messages-list">
+  {% block messages %}
+    {% for type, messages in message_list %}
+      {% if type == 'error' %}
+        {% set status_heading = 'There is a problem'|t %}
+      {% else %}
+        {% set status_heading = status_headings[type] %}
+      {% endif %}
+
+      {% embed "@molecules/status-messages/status-messages.twig" with {
+        status_messages_title: status_heading,
+        status_messages_type: type,
+        status_messages_messages: messages,
+      } %}
+      {% endembed %}
+
+      {# Remove type specific classes. #}
+      {% set attributes = attributes.removeClass(classes) %}
+    {% endfor %}
+  {% endblock messages %}
+</div>

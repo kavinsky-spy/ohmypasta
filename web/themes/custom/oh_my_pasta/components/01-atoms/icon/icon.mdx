@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/blocks';
+import button from '../button/button.twig';
+import * as IconStories from './icon.stories';
+
+<Meta of={IconStories} />
+
+
+# Icons
+Icons are processed by webpack and merged into a single svg file. The benefits of having them all imported at once are:
+no more than one request, cache the icons in memory and flexible to style the icons, can override colors by CSS.
+You can render the icon you need by adding the svg to the `indigo/images/icons` folder, then use the file name
+on the `icon_name` variable.
+
+## Color inheritance
+If you need the icon to change its color on hover because it is part of i.e. a button, make sure the `fill` property
+of the svg path you want is set to `currentColor`. See the following example:
+
+<div dangerouslySetInnerHTML={{ __html: button({
+  button_content: 'Arrow icon changes its color',
+  button_type: 'secondary',
+  button_icon: true,
+}), }} />
+
+where the svg code is:
+```
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12">
+    <path fill="currentColor" fill-rule="evenodd" d="M.424 1.063l.639-.639c.234-.234.614-.234.848 0l5.152 5.152c.234.234.234.614 0 .848L1.91 11.576c-.234.234-.614.234-.848 0l-.639-.639c-.234-.234-.234-.614 0-.848L4.512 6 .424 1.911c-.234-.234-.234-.614 0-.848z"/>
+</svg>
+```
+
+## Available icons
+<Story of={IconStories.IconList} />
+# Source HTML
+Edit the properties and get the HTML markup.
+<Story of={IconStories.Icon} />
+<Source of={IconStories.Icon} />
+<Controls />
+
+

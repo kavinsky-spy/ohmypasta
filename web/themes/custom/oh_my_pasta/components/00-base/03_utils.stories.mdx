@@ -1,0 +1,33 @@
+import { Source, Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Base/03-Utils" />
+
+# Utils
+
+## Example component
+Under `/02-molecules`, we have included an `example` molecule that can serve as a barebones reference component
+that I can copy as a starting point when I create a new component.
+
+
+## Container
+By default, components will extend to the width of the screen (or the parent's width).
+However, if you want any of your components to be wrapped in a `.container`,
+there is a variable that you can set to true and it will add an extra class to your component's main wrapper.
+This has been added to several relevant molecules and organisms.
+
+However, if the component you need doesn't have this option, you can add it following the same structure, e.g.:
+```
+{% set example_contained = example_contained|default(false) %}
+{% if example_contained %}
+  {% set example_extra_classes = example_extra_classes|default([])|merge(['container']) %}
+{% endif %}
+```
+
+So it will be added like this:
+```
+<div class"example container">
+  ...
+</div>
+```
+
+And don't forget to add it to Controls in your stories.js file!

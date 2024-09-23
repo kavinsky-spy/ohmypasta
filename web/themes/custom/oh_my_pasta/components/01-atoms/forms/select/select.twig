@@ -1,0 +1,15 @@
+<div class="form-item{% if select_error %} form-item--error{% endif %}">
+  <label class="form-item__label" for="select">{{ select__label|default('Select Dropdown'|t) }}</label>
+  <p class="form-item__description">Description</p>
+  <div class="form-item__dropdown">
+    <select class="form-item__select" id="select">
+      <optgroup label="{{ select__optgroup_label|default('Label'|t) }}">
+        {% for selection in select %}
+          {% include "@atoms/forms/select/_select-item.twig" with {
+            select_item: selection.title
+          } %}
+        {% endfor %}
+      </optgroup>
+    </select>
+  </div>
+</div>

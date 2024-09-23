@@ -1,0 +1,108 @@
+// CSS-only select styling (from https://github.com/filamentgroup/select-css)
+
+.form-item__dropdown {
+  display: block;
+  position: relative;
+  background-color: var(--white);
+
+  &::after {
+    content: "";
+    background-image: url(#{$images}/icons/chevron-down.svg);
+    background-size: 2rem 1.2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1.2rem;
+    width: 2rem;
+    position: absolute;
+    top: 40%;
+    right: var(--space-double);
+    z-index: 2;
+
+    /* These hacks make the select behind the arrow clickable in some browsers */
+    pointer-events: none;
+    display: none;
+  }
+}
+
+.form-item__select {
+  border: 0.1rem solid var(--black);
+  border-radius: 0;
+  margin: 0;
+  padding: var(--padding-small) var(--padding-xl) var(--padding-small) var(--padding-small);
+  font-size: var(--body-small);
+  line-height: 2;
+  width: 100%;
+
+  &:focus-visible {
+    @include focus-outline;
+  }
+}
+
+@supports (-webkit-appearance: none) or (appearance: none) or
+  ((-moz-appearance: none) and (mask-type: alpha)) {
+  /* Show custom arrow */
+  .form-item__dropdown::after {
+    display: block;
+  }
+
+  /* Remove select styling */
+  .form-item__select {
+    /* inside @supports so that iOS <= 8 display the native arrow */
+    background: none; /* Match-04 */
+
+    /* inside @supports so that Android <= 4.3 display the native arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:focus {
+      border-color: var(--brand-primary);
+      border-radius: 0;
+    }
+  }
+
+  .select--custom-list {
+    .form-item__dropdown {
+      background-color: transparent;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    select + span.ui-button {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      width: auto;
+      @extend .link;
+
+
+      &span {
+        color: var(--brand-primary);
+      }
+    }
+  }
+
+  // Autocomplete.
+  .ui-front--custom .ui-menu-item {
+    margin: 0 var(--space);
+    padding: var(--space);
+
+    .ui-menu-item-wrapper {
+      @extend .link;
+
+      padding-left: 0;
+      padding-right: 0;
+      white-space: nowrap;
+
+      &.ui-state-active {
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        background-color: transparent;
+        margin: 0;
+      }
+    }
+  }
+}

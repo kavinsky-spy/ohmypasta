@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Default node template for localgov_services_landing pages.
+ */
+#}
+
+{{ attach_library('ncc/service-lp') }}
+
+<article class="node service-lp">
+  {# Child pages / In this section #}
+  {% if content.localgov_destinations.0 %}
+    {% set child_pages_title = content.field_child_pages_title.0|default('In this section'|t) %}
+
+    {% embed "@organisms/grid/grid.twig" with {
+      grid_heading: child_pages_title,
+    } %}
+      {% block grid_items_block %}
+        {{ content.localgov_destinations }}
+      {% endblock %}
+    {% endembed %}
+  {% endif %}
+
+  {# Main components #}
+  {% if content.field_components %}
+    {{ content.field_components }}
+  {% endif %}
+
+  {# Service updates block #}
+  {% if service_updates %}
+    {{ service_updates }}
+  {% else %}
+    {% include "@organisms/service-status-list/service-status-list.twig" with {
+      service_status_list_heading: 'Service updates'|t,
+      service_status_list_no_updates_text: 'There are currently no updates'|t,
+    } %}
+  {% endif %}
+</article>

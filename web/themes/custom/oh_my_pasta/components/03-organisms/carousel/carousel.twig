@@ -1,0 +1,74 @@
+{#
+/**
+ * Available variables:
+ * - carousel_base_class: base classname of the wrapper.
+ * - carousel_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - carousel_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - carousel_extra_classes: extra classes, optional for the component.
+ *
+ * - carousel_slides: data for the slides contained inside the carousel
+ * - carousel_contained: Set this option to true if you want the component to sit within a container.
+ *
+ * Available blocks:
+ * - carousel_slides_block
+ */
+#}
+
+{{ attach_library('ncc/accessible-slick') }}
+{{ attach_library('ncc/carousel') }}
+
+{% set carousel_base_class = 'carousel' %}
+{% set carousel_contained = carousel_contained|default(false) %}
+{% if carousel_contained %}
+  {% set carousel_extra_classes = carousel_extra_classes|default([])|merge(['container']) %}
+{% endif %}
+
+<div {{ bem(carousel_base_class, carousel_modifiers|default([]), carousel_blockname, carousel_extra_classes) }}>
+  <div {{ bem('inner', carousel_modifiers|default([]), carousel_base_class) }}>
+    <div {{ bem('slides', carousel_modifiers|default([]), carousel_base_class, ['slick-slides']) }}>
+      {% block carousel_slides_block %}
+        {% for slide in carousel_slides %}
+          {% embed "@molecules/card/card.twig" with {
+            card_heading: slide.title,
+            card_heading_size: 'small',
+            card_text: slide.date,
+            card_link: slide.url,
+            card_image: true,
+            card_heading_size: 'xsmall',
+          } %}
+            {% block card_image_block %}
+              {% include "@atoms/image/image.twig" with {
+                image_src: slide.image_source,
+                mobile_size: '632x468',
+                tablet_size: '632x468',
+                desktop_size: '632x468',
+              } %}
+            {% endblock %}
+          {% endembed %}
+        {% endfor %}
+      {% endblock %}
+    </div>
+    <div {{ bem('bottom', [], carousel_base_class) }}>
+      <div {{ bem('controls', [], carousel_base_class) }}>
+        <button class="button button--prev" aria-label="Previous slide">
+          {% include "@atoms/icon/icon.twig" with {
+            icon_name: 'chevron-round',
+            icon_decorative: true,
+          } %}
+        </button>
+        <button class="button button--next" aria-label="Next slide">
+          {% include "@atoms/icon/icon.twig" with {
+            icon_name: 'chevron-round',
+            icon_decorative: true,
+          } %}
+        </button>
+      </div>
+      {% include "@atoms/paragraph/paragraph.twig" with {
+        paragraph_content: '1 ' ~ 'of'|t ~ ' ' ~ carousel_slides|length,
+        paragraph_base_class: 'count',
+        paragraph_blockname: carousel_base_class,
+        paragraph_extra_classes: ['js-carousel-count'],
+      } %}
+    </div>
+  </div>
+</div>

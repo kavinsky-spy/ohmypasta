@@ -1,0 +1,93 @@
+{% set footer_base_class = 'footer' %}
+{{ attach_library('ncc/footer') }}
+
+<footer {{ bem(footer_base_class, footer_modifier, footer_blockname, footer_extra_classes) }}>
+  {# Footer top - Page feedback #}
+  <div {{ bem('top', [], footer_base_class) }}>
+    <div class="container">
+      {% block footer_feedback_block %}
+        {% include "@molecules/accordion/accordion.twig" with {
+          accordion_heading: footer_feedback_heading,
+          accordion_heading_level: 2,
+          accordion_content: footer_feedback_content,
+        } %}
+      {% endblock %}
+    </div>
+  </div>
+
+  {# Footer main - Contact us, follow us, our address & accessibility #}
+  <div {{ bem('main', [], footer_base_class) }}>
+    <div class="container">
+      <div {{ bem('inner', [], footer_base_class, ['row']) }}>
+        {# Contact us #}
+        <div {{ bem('main__contact', [], footer_base_class, ['col-md-6','col-lg-3']) }}>
+          {% block footer_contact_block %}
+            {% include "@atoms/heading/heading.twig" with {
+              heading: footer_contact_heading,
+              heading_level: 2,
+              heading_size_override: 'small',
+            } %}
+            <div class="text-long">
+              <p>If you haven't found what you were looking for</p>
+                <p><a href="#">Leave a message</a></p>
+                <p><a href="#">Other ways to get in touch</a></p>
+                <p><a href="#">Employee login</a></p>
+            </div>
+          {% endblock %}
+        </div>
+        {# Follow us & Download #}
+        <div {{ bem('main__links', [], footer_base_class, ['col-md-6','col-lg-3']) }}>
+          {% block footer_links_block %}
+            {% include "@molecules/menu/icon-menu/icon-menu.twig" with {
+              icon_menu_heading: footer_social_menu_heading,
+              icon_menu_items: footer_social_menu_items,
+              icon_menu_modifiers: ['footer'],
+            } %}
+            {% include "@molecules/menu/icon-menu/icon-menu.twig" with {
+              icon_menu_heading: footer_download_heading,
+              icon_menu_items: footer_download_items,
+              icon_menu_modifiers: ['download'],
+            } %}
+          {% endblock %}
+        </div>
+        {# Our address #}
+        <div {{ bem('main__address', [], footer_base_class, ['col-md-6','col-lg-3']) }}>
+          {% block footer_address_block %}
+            {% include "@atoms/heading/heading.twig" with {
+              heading: footer_address_heading,
+              heading_level: 2,
+              heading_size_override: 'small',
+            } %}
+            <div class="text-long">
+              <p>Newport City Council,<br>Civic Centre, Newport,<br>South Wales, NP20 4UR</p>
+            </div>
+          {% endblock %}
+        </div>
+        {# Accessibility #}
+        <div {{ bem('main__accessibility', [], footer_base_class, ['col-md-6','col-lg-3']) }}>
+          {% block footer_accessibility_block %}
+            {% include "@atoms/heading/heading.twig" with {
+              heading: footer_accessibility_heading,
+              heading_level: 2,
+              heading_size_override: 'small',
+            } %}
+            <div class="text-long">
+              <p>We are committed to making our website accessible to all users.</p>
+              <p><a href="#">Accessibility statement</a></p>
+              <p><a href="#">Privacy and data</a></p>
+              <p><a href="We are committed to making our website accessible to all users.">Cookies</a></p>
+            </div>
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# Footer bottom - Copyright #}
+  <div {{ bem('bottom', [], footer_base_class) }}>
+    {% include "@atoms/paragraph/paragraph.twig" with {
+      paragraph_content: '© Newport City Council '|t ~ 'now'|date('Y'),
+      paragraph_modifiers: ['no-margin'],
+    } %}
+  </div>
+</footer>

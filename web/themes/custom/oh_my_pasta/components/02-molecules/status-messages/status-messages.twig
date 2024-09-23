@@ -1,0 +1,60 @@
+{#
+/**
+ * Available variables:
+ * - status_messages_base_class: base classname of the wrapper.
+ * - status_messages_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - status_messages_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - status_messages_extra_classes: array of extra classes to add to the base classes.
+ *
+ * - status_messages_title: checks status title.
+ * - status_messages_type: checks type of status message.
+ * - status_messages_messages: messages content.
+ *
+ * - is_message_with_icon: true if it displays the title with an icon
+ * - status_messages_icon: icon of the status message.
+ *
+ */
+#}
+
+{{ attach_library('ncc/status-messages') }}
+
+{% set status_messages_base_class = 'status-messages' %}
+{% set status_messages_modifiers = status_messages_modifiers|default([])|merge([status_messages_type]) %}
+
+{% if status_messages_type in ['error', 'warning'] %}
+  {% set is_message_with_icon = true %}
+  {% set status_messages_icon = 'warning' %}
+{% endif %}
+
+{% set status_message_title_id = 'status-messages-title' %}
+
+<div class="container">
+  <div {{ bem(status_messages_base_class, status_messages_modifiers, status_messages_blockname, status_messages_extra_classes) }}
+    {% if type == 'error' %}role="alert" aria-labelledby="status-messages-title"{% endif %}
+  >
+    {% if status_messages_title or is_message_with_icon %}
+      <div {{ bem('header', [], status_messages_base_class) }}>
+        {% if is_message_with_icon %}
+          {% include "@atoms/icon/icon.twig" with {
+            icon_name: status_messages_icon,
+            icon_decorative: true,
+          } %}
+        {% endif %}
+        {% if status_messages_title %}
+          <p id="status-messages-title" class="heading heading--xsmall">{{ status_messages_title }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div {{ bem('content', [], status_messages_base_class) }}>
+      {% if status_messages_messages|length > 1 %}
+        <ul class="list--unstyled">
+          {% for message in status_messages_messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        {{ status_messages_messages|first }}
+      {% endif %}
+    </div>
+  </div>
+</div>

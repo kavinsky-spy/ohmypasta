@@ -1,0 +1,104 @@
+ul,
+ol {
+  padding-left: var(--padding-medium);
+  margin: 0 0 var(--space-double) 0;
+
+  li {
+    margin-bottom: var(--space-one-fourth);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+
+  li {
+    position: relative;
+
+    &::before {
+      content: '•';
+      position: absolute;
+      left: -1.5rem;
+    }
+
+    /* UL nested list style. */
+    ul {
+      margin: 0.6rem 0;
+    }
+  }
+}
+
+/* OL nested list style. */
+ol li ol {
+  margin: 0.6rem 0;
+}
+
+/* Unstyled lists. */
+.list--unstyled {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  li::before {
+    content: none;
+  }
+}
+
+/* Inline lists. */
+.list--inline {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  li,
+  .list__item {
+    margin: 0 var(--padding-default) 0 0;
+
+    &::before {
+      content: none;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+/* List with icons. */
+.list--icon {
+  list-style: none;
+  padding-left: 0;
+
+  li,
+  .list__item {
+    .icon {
+      color: var(--secondary-blue);
+      margin-top: 0.6rem;
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+
+    ul,
+    ol {
+      margin-left: var(--space-double);
+    }
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+ul.toolbar-menu li {
+  margin: 0;
+  position: static;
+
+  &::before {
+    content: '';
+    left: initial;
+  }
+}

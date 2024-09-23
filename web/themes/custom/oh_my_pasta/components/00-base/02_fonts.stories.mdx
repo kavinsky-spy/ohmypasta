@@ -1,0 +1,40 @@
+import { Source, Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Base/02-Fonts" />
+
+# Typography
+The site is using [Lato](https://fonts.google.com/specimen/Lato) and [Catamaran](https://fonts.google.com/specimen/Catamaran) as the main fonts. To load the font on Storybook, we use the `preview-head.html` file.
+In order to load it in Drupal, we are following the Drupal standards:
+- The font stylesheet is added as an external library in the `libraries.yml` file of the theme.
+- This new library is added as a dependency of the global library, so it loads on every single page.
+- We are preconnecting the google domains related in the `html.html.twig` template.
+
+
+## Lato
+<div dangerouslySetInnerHTML={{ __html: `
+<p style="margin-bottom: 1rem; font-size: 1.3rem">Regular 400</p>
+<p class="heading--alt" style="font-weight: 400; font-family=Lato; font-size: 2.4rem">Lorem ipsum dolor sit amet</p>
+<hr>
+<p style="margin-bottom: 1rem; font-size: 1.3rem;">Bold 700</p>
+<p class="heading--alt" style="font-weight: 700; font-family=Lato; font-size: 2.4rem">Lorem ipsum dolor sit amet</p>
+<hr>
+<p style="margin-bottom: 1rem; font-size: 1.3rem">Black 900</p>
+<p class="heading--alt" style="font-weight: 900; font-family=Lato; font-size: 2.4rem">Lorem ipsum dolor sit amet</p>
+<br>
+`, }} />
+
+## Catamaran
+<div dangerouslySetInnerHTML={{ __html: `
+<p style="margin-bottom: 1rem; font-size: 1.3rem">Regular 400</p>
+<p class="heading--alt" style="font-weight: 400; font-family: Catamaran; font-size: 2.4rem">Lorem ipsum dolor sit amet</p>
+<hr>
+<p style="margin-bottom: 1rem; font-size: 1.3rem;">Medium 500</p>
+<p class="heading--alt" style="font-weight: 500; font-family: Catamaran; font-size: 2.4rem">Lorem ipsum dolor sit amet</p>
+<hr>
+<p style="margin-bottom: 1rem; font-size: 1.3rem">SemiBold 600</p>
+<p class="heading--alt" style="font-weight: 600; font-family: Catamaran; font-size: 2.4rem">Lorem ipsum dolor sit amet</p>
+<hr>
+<p style="margin-bottom: 1rem; font-size: 1.3rem">Bold 700</p>
+<p class="heading--alt" style="font-weight: 700; font-family: Catamaran; font-size: 2.4rem">Lorem ipsum dolor sit amet</p>
+<br>
+`, }} />

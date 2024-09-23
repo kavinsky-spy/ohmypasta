@@ -1,0 +1,27 @@
+{#
+/**
+ * Available variables:
+ * - paragraph_base_class: the base classname
+ * - paragraph_modifiers: array of modifiers to add to the base classname
+ * - paragraph_blockname: blockname prepended to the base classname
+ * - paragraph_extra_classes: extra classes added
+ *
+ * - paragraph_size: defines the style of the paragraph and adds a class accordingly
+ *     Options: ['default', 'xs', 'small', 'medium', 'large']
+ * - paragraph_content: the content of the paragraph (typically text)
+ *
+ * Available blocks:
+ * - paragraph_content_block: used to replace the content of the paragraph with something other than plain text
+ *   for example: A formatted text field in Drupal
+ */
+#}
+{% set paragraph_base_class = paragraph_base_class|default('paragraph') %}
+{% if paragraph_size %}
+  {% set paragraph_modifiers = paragraph_modifiers|default([])|merge([paragraph_size]) %}
+{% endif %}
+
+<p {{ bem(paragraph_base_class, paragraph_modifiers|default([]), paragraph_blockname, paragraph_extra_classes) }}>
+  {% block paragraph_content_block %}
+    {{ paragraph_content|raw }}
+  {% endblock %}
+</p>

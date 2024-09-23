@@ -1,0 +1,72 @@
+@import '../../imports.scss';
+
+.status-messages-list {
+  margin: var(--padding-medium) 0;
+}
+
+.status-messages {
+  margin-bottom: var(--padding-default);
+  padding: var(--padding-default);
+  color: var(--status-color-dark);
+  border: 0.1rem solid var(--status-color-dark);
+  border-radius: var(--border-radius);
+  background-color: var(--status-color-light);
+
+  .heading {
+    color: inherit;
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    font-weight: var(--font-bold);
+
+    &:hover,
+    &:focus-visible {
+      color: inherit;
+    }
+  }
+
+  .icon {
+    height: 2.4rem;
+    width: 2.4rem;
+    margin-right: 0.4rem;
+  }
+}
+
+.status-messages__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-double);
+}
+
+.status-messages__content {
+  overflow: auto;
+
+  .item-list__comma-list {
+    margin: var(--padding-small) 0 0 0;
+  }
+}
+
+/* Error variation */
+.status-messages--error {
+  color: var(--error-color);
+  border-color: var(--error-color);
+  background-color: var(--error-color-light);
+
+  .status-messages__header .icon {
+    color: var(--error-color);
+  }
+}
+
+/* Warning variation */
+.status-messages--warning {
+  color: var(--warning-color-dark);
+  border-color: var(--warning-color-dark);
+  background-color: var(--warning-color-light);
+
+  .status-messages__header .icon {
+    color: var(--warning-color-dark);
+  }
+}

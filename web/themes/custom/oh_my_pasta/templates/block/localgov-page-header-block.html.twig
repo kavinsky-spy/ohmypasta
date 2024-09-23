@@ -1,0 +1,15 @@
+{#
+/**
+* @file
+* Default theme implementation of localgov_header_block.
+*
+* @see template_preprocess_block()
+*
+* @ingroup themeable
+*/
+#}
+
+{% include "@molecules/page-title/page-title.twig" with {
+  page_title_heading: title,
+  page_title_summary: lede['#value'],
+} %}

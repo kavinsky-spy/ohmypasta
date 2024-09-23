@@ -1,0 +1,73 @@
+{#
+/** Available variables:
+ * - mini_hub_base_class: base classname of the wrapper.
+ * - mini_hub_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - mini_hub_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - mini_hub_extra_classes: extra classes, optional for the component.
+ *
+ * - mini_hub_heading: page title.
+ * - mini_hub_summary: page summary.
+ *
+ * - mini_hub_type: type of the mini hub (horizontal) - optional.
+ * - mini_hub_list_type: ol for regular guides, ul for horizontal.
+ *
+ * Available blocks:
+ * - mini_hub_icon_block - block to replace the icon.
+ */
+#}
+
+{{ attach_library('ncc/mini-hub') }}
+
+{% set mini_hub_base_class = 'mini-hub' %}
+{% set mini_hub_extra_classes = mini_hub_extra_classes|default([])|merge(['container']) %}
+{% set mini_hub_modifiers = mini_hub_modifiers|default([]) %}
+{% set mini_hub_list_type = 'ol' %}
+
+{# Attach the JS and CSS tweaks if the type is horizontal #}
+{% if mini_hub_type == 'horizontal' %}
+  {{ attach_library('ncc/mini-hub--horizontal') }}
+  {% set mini_hub_modifiers = mini_hub_modifiers|merge(['horizontal']) %}
+  {% set mini_hub_extra_classes = mini_hub_extra_classes|merge(['js-minihub']) %}
+  {% set mini_hub_list_type = 'ul' %}
+{% endif %}
+
+<nav {{ bem(mini_hub_base_class, mini_hub_modifiers, mini_hub_blockname, mini_hub_extra_classes) }} aria-label="{{ 'Guide navigation'|t }}">
+  {# Skip guide navigation if needed for keyboard / screenreader users #}
+  {% include "@atoms/link/link.twig" with {
+    link_content: 'Skip guide navigation'|t,
+    link_url: '#guide-content',
+    link_extra_classes: ['sr-only', 'sr-only-focusable', 'mini-hub__skip'],
+  } %}
+
+  {# Horizontal nav mobile toggle #}
+  {% if mini_hub_type == 'horizontal' %}
+    {% include "@atoms/button/button.twig" with {
+      button_content: 'Contents'|t,
+      button_icon: true,
+      button_icon_name: 'chevron-down',
+      button_extra_classes: ['mini-hub__toggle', 'js-minihub-toggle'],
+      button_attributes: { 'aria-expanded': 'false' },
+    } %}
+  {% endif %}
+
+  {# Guide navigation links #}
+  {% embed "@atoms/list/list.twig" with {
+    list_type: mini_hub_list_type,
+    list_style: mini_hub_type == 'horizontal' ? '' : 'unstyled',
+  } %}
+    {% block list_content_block %}
+      {% for link in mini_hub_links %}
+        {% if link.active or link.url.options.attributes.class == 'active' %}
+          <li class="list__item list__item--active" aria-current="page">{{ link.text }}</li>
+        {% else %}
+          <li class="list__item">
+            {% include "@atoms/link/link.twig" with {
+              link_content: link.text,
+              link_url: link.url,
+            } %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+</nav>

@@ -1,0 +1,16 @@
+@import '../../imports.scss';
+
+.top-links {
+  margin-bottom: var(--padding-large);
+}
+
+.top-links__heading {
+  margin: 0;
+  padding: var(--padding-small) 0 var(--padding-medium);
+}
+
+.top-links__items {
+  .list .list__item:not(:last-child) {
+    margin-bottom: var(--padding-default);
+  }
+}

@@ -1,0 +1,13 @@
+diff --git a/node_modules/@drupal/once/package.json b/node_modules/@drupal/once/package.json
+index 390e4fb..9fcb93f 100644
+--- a/node_modules/@drupal/once/package.json
++++ b/node_modules/@drupal/once/package.json
+@@ -9,7 +9,7 @@
+   ],
+   "homepage": "https://www.drupal.org/project/once",
+   "exports": {
+-    "import": "src/once.js"
++    "import": "./src/once.js"
+   },
+   "browser": "dist/once.min.js",
+   "files": [

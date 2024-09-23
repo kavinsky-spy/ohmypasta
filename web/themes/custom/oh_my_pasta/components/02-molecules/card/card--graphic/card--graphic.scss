@@ -1,0 +1,114 @@
+@import '../../../imports.scss';
+
+/* Political party colors. Please move to the global vars if it ever gets re-used elsewhere */
+:root {
+  --party-welsh-labour: #E4003B;
+  --party-conservatives: #0087DC;
+  --party-liberal-dem: #FDBB30;
+  --party-plaid-cymru: #3F8428;
+  --party-green: #008066;
+  --party-ukip: #733886;
+  --party-freedom-alliance: #FF55A3;
+  --party-abolish-wa: #A52A2A;
+  --party-gwlad: #FF6500;
+  --party-brexit: #1DACD6;
+  --party-newport-independent: #FFB90F;
+}
+
+.graphic-card {
+  padding: var(--padding-default) var(--padding-small);
+  box-shadow: var(--card-box-shadow);
+  border-bottom: 1rem solid var(--mid-grey);
+  border-radius: 0.8rem;
+  outline: 0.1rem solid var(--mid-grey);
+  text-align: center;
+}
+
+.graphic-card__number {
+  margin-bottom: var(--padding-default);
+  font-size: var(--heading--main);
+  font-family: var(--font-heading);
+  font-weight: var(--font-bold);
+}
+
+.graphic-card__text {
+  margin-bottom: 0;
+  font-size: var(--heading--small);
+  word-break: break-word;
+}
+
+/* Color variations */
+.graphic-card--welsh-labour {
+  border-color: var(--party-welsh-labour);
+}
+
+.graphic-card--conservatives {
+  border-color: var(--party-conservatives);
+}
+
+.graphic-card--liberal-democrats {
+  border-color: var(--party-liberal-dem);
+}
+
+.graphic-card--plaid-cymru {
+  border-color: var(--party-plaid-cymru);
+}
+
+.graphic-card--green-party {
+  border-color: var(--party-green);
+}
+
+.graphic-card--ukip {
+  border-color: var(--party-ukip);
+}
+
+.graphic-card--freedom-alliance {
+  border-color: var(--party-freedom-alliance);
+}
+
+.graphic-card--abolish-welsh-assembly {
+  border-color: var(--party-abolish-wa);
+}
+
+.graphic-card--gwlad {
+  border-color: var(--party-gwlad);
+}
+
+.graphic-card--brexit-party {
+  border-color: var(--party-brexit);
+}
+
+.graphic-card--newport-independent-party {
+  border-color: var(--party-newport-independent);
+}
+
+.graphic-card--independent-candidate {
+  border-color: var(--dark-grey);
+}
+
+/* Tweaks for pages with non-full-width content */
+.page-with-sidebar,
+.service-sub-lp {
+  .graphic-card {
+    padding: var(--padding-default) var(--padding-xsmall);
+  }
+
+  .graphic-card__number {
+    margin-bottom: var(--padding-default);
+    font-size: var(--heading--sub);
+  }
+
+  .graphic-card__text {
+    font-size: var(--body-copy);
+  }
+}
+
+@include large {
+  .graphic-card {
+    padding: var(--padding-medium) var(--padding-small);
+  }
+
+  .graphic-card__number {
+    margin-bottom: var(--padding-medium);
+  }
+}

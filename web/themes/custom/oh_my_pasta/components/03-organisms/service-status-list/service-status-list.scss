@@ -1,0 +1,26 @@
+@import '../../imports.scss';
+
+.service-status-list {
+  padding-bottom: var(--padding-large);
+}
+
+.service-status-list__content {
+  max-width: 73.5rem;
+}
+
+.service-status-list__heading {
+  padding-top: var(--padding-small);
+  margin-bottom: var(--padding-medium);
+}
+
+.service-status-list__link {
+  display: inline-block;
+}
+
+.service-status-list__no-updates {
+  padding-bottom: var(--padding-default);
+  border-bottom: 0.1rem solid var(--secondary-orange);
+  color: var(--brand-primary);
+  font-size: 2.1rem;
+  font-weight: var(--font-extrabold);
+}

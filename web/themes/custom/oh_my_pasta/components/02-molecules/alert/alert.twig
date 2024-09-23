@@ -1,0 +1,75 @@
+{#
+/**
+ * Available variables:
+ * - alert_base_class: the base classname
+ * - alert_modifiers: array of modifiers to add to the base classname to identify what type of alert (e.g. danger)
+ * - alert_blockname: blockname prepended to the base classname
+ *
+ * - alert_type: defines the type of alert and adds a class accordingly - follows localgov
+ *     Options: 'announcement', 'minor', 'major', 'notable-person'].
+ *
+ * - alert_title: the title of the alert
+ * - alert_display_title: true to display the title
+ * - alert_content: the content of the alert (typically text)
+ *
+ * - alert_link_text: optional link text
+ * - alert_link_url: optional link url
+ *
+ * - alert_remove_close: true to hide the close button - for permanent alerts
+ *
+ * Available blocks:
+ * - alert_content_block: used to replace the content with something other than text
+ *   for example, A formatted text field in Drupal
+ * - alert_link_block: used to replace the link with the pre-processed one from localgov
+ */
+#}
+{{ attach_library('ncc/alert') }}
+
+{% set alert_base_class = alert_base_class|default('alert') %}
+{% set alert_extra_classes = alert_extra_classes|default(['js-localgov-alert-banner', 'localgov-alert-banner']) %}
+
+{% if alert_type %}
+  {% set alert_modifiers = alert_modifiers|default([])|merge([alert_type]) %}
+{% endif %}
+
+<div {{ bem(alert_base_class, alert_modifiers, alert_blockname, alert_extra_classes) }}>
+  <div {{ bem('inner', [], alert_base_class, ['container']) }}>
+    <div {{ bem('content-wrapper', [], alert_base_class) }}>
+      {% if alert_display_title %}
+        {% include "@atoms/heading/heading.twig" with {
+          heading: alert_title,
+          heading_level: 2,
+          heading_size_override: 'small',
+          heading_blockname: alert_base_class,
+        } %}
+      {% endif %}
+
+      <div {{ bem('content', [], alert_base_class) }}>
+        {% block alert_content_block %}
+          {{ alert_content }}
+        {% endblock %}
+      </div>
+
+      {% if alert_link_url %}
+        <div {{ bem('link', [], alert_base_class) }}>
+          {% block alert_link_block %}
+            {% include "@atoms/link/link.twig" with {
+              link_content: alert_link_text,
+              link_url: alert_link_url,
+            } %}
+          {% endblock %}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if not alert_remove_close %}
+      {% include "@atoms/button/button.twig" with {
+        button_icon: true,
+        button_icon_name: 'close',
+        button_type: 'clean',
+        button_extra_classes: ['js-localgov-alert-banner__close', 'alert__close'],
+        button_attributes: {'aria-label': 'Hide alert'|t ~ ': ' ~ alert_title },
+      } %}
+    {% endif %}
+  </div>
+</div>

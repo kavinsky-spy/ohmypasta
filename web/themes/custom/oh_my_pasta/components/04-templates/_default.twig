@@ -1,0 +1,58 @@
+{% set layout_modifiers = [] %}
+
+{% set main_base_class = main_base_class|default('main') %}
+{% set main_modifiers = [] %}
+{% set main_extra_classes = [] %}
+
+{% set main_content_base_class = main_content_base_class|default('main-content') %}
+{% set main_content_modifiers = [] %}
+{% set main_content_extra_classes = [] %}
+
+{# Page with sidebar tweaks #}
+{% if sidebar_first or sidebar_second %}
+  {% set main_modifiers = main_modifiers|merge(['with-sidebar']) %}
+  {% set main_extra_classes = main_extra_classes|merge(['container']) %}
+  {% set main_content_modifiers = main_content_modifiers|merge(['with-sidebar']) %}
+  {% set main_content_extra_classes = main_content_extra_classes|merge(['col-md-8']) %}
+{% endif %}
+
+<div {{ bem('layout-container', layout_modifiers, layout_blockname, layout_extra_classes) }}>
+  {% block page_header %}
+    {% include "@organisms/header/header.twig" %}
+  {% endblock %}
+  <div role="region" aria-label="Messages and actions">
+    {% block page_system %}{% endblock %}
+  </div>
+
+  <main {{ bem(main_base_class, main_modifiers, main_blockname, main_extra_classes) }} id="main-content" tabindex="-1">
+    {# Page title #}
+    {% block page_title %}{% endblock %}
+    {# Content top - full width #}
+    {% block page_content_top %}{% endblock %}
+    {# Opening row div - for sidebar pages #}
+    {% if sidebar_first or sidebar_second %}
+      <div class="row">
+    {% endif %}
+    {% if sidebar_first %}
+      <aside class="main-sidebar--first col-md-4" role="complementary">
+        {% block page_sidebar_first %}{% endblock %}
+      </aside>
+    {% endif %}
+    <div {{ bem(main_content_base_class, main_content_modifiers, main_content_blockname, main_content_extra_classes) }}>
+      {% block page_content %}{% endblock %}
+    </div>
+    {% if sidebar_second %}
+      <aside class="main-sidebar--second col-md-4" role="complementary">
+        {% block page_sidebar_second %}{% endblock %}
+      </aside>
+    {% endif %}
+    {# Closing row div - for sidebar pages #}
+    {% if sidebar_first or sidebar_second %}
+      </div>
+    {% endif %}
+  </main>
+
+  {% block page_footer %}
+    {% include "@organisms/footer/footer.twig" %}
+  {% endblock %}
+</div>

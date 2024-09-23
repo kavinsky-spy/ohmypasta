@@ -1,0 +1,42 @@
+@import '../../../imports.scss';
+
+.icon-menu__heading {
+  margin-bottom: var(--padding-medium);
+}
+
+.icon-menu__item a {
+  display: block;
+}
+
+/* App download variation */
+.icon-menu--download li {
+  margin-right: 0.2rem;
+}
+
+/* Social share variation */
+.icon-menu--share {
+  margin-bottom: var(--padding-large);
+
+  .icon-menu__heading {
+    padding-top: var(--padding-small);
+  }
+}
+
+/* Footer and social share hover */
+.icon-menu--footer,
+.icon-menu--share {
+  .icon-menu__item a {
+    transition: filter 0.25s ease;
+
+    &:hover {
+      filter: brightness(1.85) hue-rotate(-25deg);
+    }
+  }
+}
+
+@include large {
+  /* Social share variation */
+  .icon-menu--share {
+    margin-bottom: var(--space-quadruple);
+  }
+}

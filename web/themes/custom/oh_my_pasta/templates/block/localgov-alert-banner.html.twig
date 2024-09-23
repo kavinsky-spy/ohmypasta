@@ -1,0 +1,37 @@
+{#
+/**
+ * @file localgov_alert_banner.html.twig
+ * Default theme implementation to present Alert banner data.
+ *
+ * This template is used when viewing Alert banner pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ * - display_title: Boolean indicating if alert banner title should be displayed
+ * - remove_hide_link: Boolean indicating if the link to close the banner should be hidden
+ * - type_of_alert: Type of alert banner
+ *
+ * @see template_preprocess_localgov_alert_banner()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ attach_library('localgov_alert_banner/alert_banner') }}
+
+{% set type_of_alert =  type_of_alert|split('--')[1] %}
+
+{% embed "@molecules/alert/alert.twig" with {
+  alert_type: type_of_alert,
+  alert_title: content.field_display_title.0['#context'].value,
+  alert_display_title: display_title,
+  alert_content: content.short_description,
+  alert_link_url: content.link.0['#url'],
+  alert_remove_close: remove_hide_link,
+} %}
+  {% block alert_link_block %}
+    {{ content.link }}
+  {% endblock %}
+{% endembed %}

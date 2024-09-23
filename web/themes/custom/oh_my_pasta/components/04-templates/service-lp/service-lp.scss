@@ -1,0 +1,14 @@
+@import '../../imports.scss';
+
+.service-lp {
+  /* Child pages / In this section */
+  .grid {
+    padding: 0;
+  }
+}
+
+@include large {
+  .page-title .page-title__summary {
+    margin-bottom: calc(var(--padding-large) + var(--space-double));
+  }
+}

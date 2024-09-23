@@ -1,0 +1,12 @@
+{{ attach_library('ncc/skip-to-content') }}
+{% set skip_to_content_base_class = 'skip-to-content' %}
+{% set skip_to_content_extra_classes = 'sr-only' %}
+
+<div {{ bem(skip_to_content_base_class, skip_to_content_modifiers, skip_to_content_blockname, skip_to_content_extra_classes) }}>
+  <div class="container">
+    {% include "@atoms/link/link.twig" with {
+      link_content: 'Skip to main content'|t,
+      link_url: '#main-content',
+    } %}
+  </div>
+</div>

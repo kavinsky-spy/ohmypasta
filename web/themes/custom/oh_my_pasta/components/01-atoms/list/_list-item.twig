@@ -1,0 +1,30 @@
+{#
+/**
+ * Available variables:
+ * - li_base_class: the base classname
+ * - li_modifiers: array of modifiers to add to the base classname
+ * - li_blockname: blockname prepended to the base classname
+ * - li_extra_classes
+ * - list_item_icon: name of the icon used
+ * - list_item_label: (optional) a <strong> label before the list item itself
+ * - list_item_content: the content of the list_item (typically text)
+ *
+ * Available blocks:
+ * - list_item_content_block: used to replace the content of the list_item with something other than text
+ *   for example: to insert the image and/or link components
+ */
+#}
+{% set li_base_class = li_base_class|default('list__item') %}
+
+<li {{ bem(li_base_class, li_modifiers, li_blockname, li_extra_classes) }}>
+  {% block list_item_content_block %}
+    {% if list_item_icon %}
+      {% include "@atoms/icon/icon.twig" with {
+        icon_name: list_item_icon,
+        icon_decorative: true,
+      } %}
+    {% endif %}
+    {% if list_item_label %}<strong>{{ list_item_label }}</strong>{% endif %}
+    {{ list_item_content }}
+  {% endblock %}
+</li>

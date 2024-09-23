@@ -1,0 +1,66 @@
+/* These styles only affect the colors "Usage" page in the component library */
+.cl-colors {
+  margin-top: var(--space-quadruple);
+
+  .cl-colors__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -2rem;
+    padding: 0;
+  }
+
+  .cl-colors__list-item {
+    padding: var(--space) var(--space-double) var(--space-double);
+    flex: 1 1 25%;
+    list-style: none;
+    margin: 0;
+    min-width: 15rem;
+    min-height: 15rem;
+    max-width: 25%;
+  }
+
+  .cl-colors__item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 1;
+    border-radius: 0.4rem;
+    box-shadow: var(--card-box-shadow);
+    transition: all 0.4s;
+  }
+
+  .cl-colors__info {
+    background-color: var(--white);
+    border-top: 0.1rem solid var(--mid-grey);
+    color: var(--text);
+    display: block;
+    font-size: var(--body-xs);
+    margin-top: 15rem !important;
+    padding: var(--space);
+    flex: 1;
+
+    .cl-colors__title {
+      display: block;
+      font-size: var(--body-small);
+      font-weight: var(--font-bold);
+      margin-bottom: 0;
+    }
+
+    .cl-colors__name {
+      font-family: monospace;
+    }
+  }
+}
+
+/* Dynamically set swatch text color based on the lightness of the background color */
+@function set-color(
+  $color,
+  $text-primary: var(--text),
+  $text-secondary: var(--text-light)
+) {
+  @if (lightness($color) > 50) {
+    @return $text-primary;
+  } @else {
+    @return $text-secondary;
+  }
+}

@@ -1,0 +1,42 @@
+@import '../../../imports.scss';
+
+.mini-hub.mini-hub--horizontal {
+  padding: 0;
+  background-color: var(--brand-primary-tint);
+  border-radius: 0.8rem;
+
+  .list {
+    display: none;
+    margin: 0;
+    padding: var(--padding-medium) var(--padding-medium) var(--padding-medium) var(--padding-xl);
+  }
+
+  .mini-hub__toggle {
+    width: 100%;
+    padding: var(--space);
+    justify-content: space-between;
+  }
+
+  &.is-open {
+    .list {
+      display: block;
+    }
+
+    .mini-hub__toggle .icon {
+      transform: rotateZ(180deg);
+    }
+  }
+}
+
+@include medium {
+  .mini-hub.mini-hub--horizontal {
+    .list {
+      display: block;
+      column-count: 3;
+    }
+
+    .mini-hub__toggle {
+      display: none;
+    }
+  }
+}

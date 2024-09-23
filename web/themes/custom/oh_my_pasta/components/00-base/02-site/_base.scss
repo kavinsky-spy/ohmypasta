@@ -1,0 +1,46 @@
+html {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text);
+  min-height: 100vh;
+  @include body-copy;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal;
+}
+
+.container--margin {
+  margin-top: var(--padding-medium);
+  margin-bottom: var(--padding-medium);
+}
+
+/* Removes margin bottom of the last element inside of a WYSIWYG */
+.text-long > *:last-child {
+  margin: 0;
+}
+
+// Disable all animations by default if 'prefer-reduced-motion' is enabled
+// NOTE: Check your animations with this feature enabled; it will turn off
+// animation but not transforms, so it might look a bit weird!
+@media (prefers-reduced-motion) {
+  * {
+    transition: none !important;
+  }
+}

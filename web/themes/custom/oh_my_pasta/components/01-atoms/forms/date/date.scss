@@ -1,0 +1,24 @@
+@import "../../../imports";
+
+.form-item--date__item {
+  min-width: 20rem;
+  background: var(--white);
+  color: var(--black);
+  position: relative;
+  appearance: none;
+
+  /* To display a custom icon in case the client needs it - remove if not */
+  &::after {
+    content: url(#{$images}/icons/calendar.svg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0.3rem;
+    right: 0.3rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: var(--white);
+    pointer-events: none;
+  }
+}

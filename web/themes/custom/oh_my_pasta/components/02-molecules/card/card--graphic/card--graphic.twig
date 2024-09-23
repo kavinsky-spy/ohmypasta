@@ -1,0 +1,38 @@
+{#
+/** Available variables:
+ * - graphic_card_base_class: base classname of the wrapper.
+ * - graphic_card_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - graphic_card_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - graphic_card_extra_classes: extra classes, optional for the component.
+ *
+ * - graphic_card_number: the number / metric of the graphic.
+ * - graphic_card_text: the text of the graphic.
+ * - graphic_card_color: the color of the graphic.
+ *
+ * Available blocks:
+ * -
+ */
+#}
+{{ attach_library('ncc/card--graphic') }}
+
+{% set graphic_card_base_class = 'graphic-card' %}
+{% set graphic_card_modifiers = graphic_card_modifiers|default([]) %}
+
+{% if graphic_card_color %}
+  {% set graphic_card_modifiers = graphic_card_modifiers|merge([graphic_card_color]) %}
+{% endif %}
+
+<div {{ bem(graphic_card_base_class, graphic_card_modifiers, graphic_card_blockname, graphic_card_extra_classes) }}>
+  {# Number #}
+  {% include "@atoms/paragraph/paragraph.twig" with {
+    paragraph_content: graphic_card_number,
+    paragraph_blockname: graphic_card_base_class,
+    paragraph_base_class: 'number',
+  } %}
+  {# Text #}
+  {% include "@atoms/paragraph/paragraph.twig" with {
+    paragraph_content: graphic_card_text,
+    paragraph_blockname: graphic_card_base_class,
+    paragraph_base_class: 'text',
+  } %}
+</div>

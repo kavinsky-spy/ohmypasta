@@ -1,0 +1,41 @@
+{#
+/** Available variables:
+ * - service_status_base_class: base classname of the wrapper.
+ * - service_status_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - service_status_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - service_status_extra_classes: extra classes, optional for the component.
+ *
+ * - service_status_date: date of the service status.
+ * - service_status_heading: heading of the service status.
+ * - service_status_heading_url: service status page url.
+ * - service_status_heading_level: heading level.
+ * - service_status_description: description / text of the service status.
+ *
+ * Available blocks:
+ * - service_status_icon_block - block to replace the icon.
+ */
+#}
+
+{{ attach_library('ncc/service-status') }}
+{% set service_status_base_class = 'service-status' %}
+
+<div {{ bem(service_status_base_class, service_status_modifiers, service_status_blockname, service_status_extra_classes) }}>
+  {% if service_status_date %}
+    <time datetime="{{ service_status_date|date("d-m-Y") }}" class="service-status__date paragraph--small">{{ service_status_date|date("d-m-Y") }}</time>
+  {% endif %}
+  {% if service_status_heading %}
+    {% include "@atoms/heading/heading.twig" with {
+      heading: service_status_heading,
+      heading_url: service_status_heading_url,
+      heading_level: service_status_heading_level|default(3),
+      heading_blockname: service_status_base_class,
+    } %}
+  {% endif %}
+  {% if service_status_description %}
+    {% include "@atoms/paragraph/paragraph.twig" with {
+      paragraph_content: service_status_description,
+      paragraph_base_class: 'text',
+      paragraph_blockname: service_status_base_class,
+    } %}
+  {% endif %}
+</div>

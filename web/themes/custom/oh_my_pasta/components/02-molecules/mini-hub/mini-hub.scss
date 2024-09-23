@@ -1,0 +1,39 @@
+@import '../../imports.scss';
+
+.mini-hub {
+  margin-bottom: var(--padding-large);
+  padding: var(--padding-small);
+
+  .list__item {
+    margin-bottom: var(--padding-default);
+    font-weight: var(--font-medium);
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .list__item--active {
+    font-weight: var(--font-bold);
+    color: var(--brand-primary);
+  }
+
+  /* Styles that should only apply to the regular variation */
+  .list--unstyled {
+    .list__item {
+      padding-left: var(--padding-small);
+      border-left: 0.4rem solid var(--secondary-green-tint);
+    }
+
+    .list__item--active {
+      border-color: var(--brand-primary);
+    }
+  }
+}
+
+.mini-hub__skip {
+  display: inline-block;
+  margin-bottom: var(--padding-medium);
+  padding: var(--padding-small);
+  border: 0.2rem solid var(--brand-primary);
+}

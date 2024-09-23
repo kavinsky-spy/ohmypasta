@@ -1,0 +1,59 @@
+/* Create a mixin for paragraph styles that can be implemented
+ * in components with other classnames.
+*/
+@mixin paragraph($margin: 0 0 var(--padding-default)) {
+  margin: $margin;
+  line-height: 1.2;
+}
+
+p,
+.paragraph {
+  @include paragraph;
+}
+
+.paragraph--small {
+  font-size: var(--body-small);
+}
+
+b,
+strong,
+.paragraph--strong {
+  font-weight: var(--font-semibold);
+}
+
+.paragraph--large {
+  font-size: var(--body-large);
+}
+
+.paragraph--no-margin {
+  margin: 0;
+}
+
+// Wysiwig styles
+.alert-section {
+  border-radius: var(--padding-xsmall);
+  background: var(--secondary-green);
+  color: var(--white);
+  padding: var(--padding-default);
+  display: flex;
+  flex-direction: column;
+
+  strong {
+    font-size: var(--heading--xsmall);
+    margin-bottom: var(--padding-default);
+    font-weight: var(--font-extrabold);
+    line-height: 1.35;
+  }
+}
+
+@include medium {
+  .alert-section {
+    strong {
+      margin-bottom: var(--space-double);
+    }
+  }
+}
+
+.text-long p {
+  margin-bottom: var(--space-double);
+}

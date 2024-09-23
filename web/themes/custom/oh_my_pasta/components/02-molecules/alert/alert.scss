@@ -1,0 +1,91 @@
+@import '../../imports.scss';
+
+.alert {
+  padding-top: var(--space-triple);
+  padding-bottom: var(--space-triple);
+  color: var(--white);
+  background-color: var(--status-color);
+}
+
+.alert__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alert__heading {
+  margin-bottom: var(--padding-medium);
+  font-weight: var(--font-extrabold);
+  color: inherit;
+}
+
+.alert__content {
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  a {
+    color: inherit;
+    margin-bottom: 0;
+  }
+}
+
+.alert__link {
+  display: inline-flex;
+  margin-top: var(--padding-default);
+
+  a,
+  .link {
+    color: inherit;
+  }
+}
+
+.alert__close {
+  flex-shrink: 0;
+  width: 3.2rem;
+  height: 3.2rem;
+  padding: 0.4rem;
+  border: none;
+  color: inherit;
+  margin-left: var(--padding-medium);
+
+  &:hover,
+  &:focus-visible {
+    color: inherit;
+  }
+
+  .icon {
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    margin: 0;
+  }
+}
+
+/* Minor alert variation */
+.alert--minor {
+  color: var(--black);
+  background-color: var(--warning-color);
+}
+
+/* Major alert variation */
+.alert--major {
+  background-color: var(--error-color);
+}
+
+/* Notable person death alert variation */
+.alert--notable-person {
+  background-color: var(--black);
+}
+
+@include large {
+  .alert {
+    padding-block: var(--space-quadruple);
+  }
+
+  .alert__close {
+    width: 4.4rem;
+    height: 4.4rem;
+    margin-left: var(--padding-xl);
+  }
+}

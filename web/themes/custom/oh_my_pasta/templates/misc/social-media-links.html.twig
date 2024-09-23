@@ -1,0 +1,38 @@
+{#
+/**
+ * Available variables
+ * - elements: array of element contains social media link.
+ *
+ */
+#}
+
+<div class="container">
+  {% embed "@molecules/menu/icon-menu/icon-menu.twig" with {
+    icon_menu_heading: 'Share on social media'|t,
+    icon_menu_heading_size: 'main',
+    icon_menu_modifiers: ['share'],
+  } %}
+    {% block icon_menu_items_block %}
+      <ul class="list--inline">
+        {% set classes = ['share'] %}
+        {% for element in elements %}
+          {% if element.forward_dialog == 1 %}
+            {% set classes = classes|merge(['use-ajax']) %}
+            {% set dialogType = "data-dialog-type=dialog" %}
+            {% set dialogOptions = "data-dialog-options=" ~ {'width': '600'}|json_encode %}
+          {% endif %}
+          <li class="icon-menu__item">
+            <a {{ dialogType }} {{ dialogOptions }} {{ element.attr.target }} {{ element.attr.rel }} {{ element.attr.class.addClass(classes) }}  {{ element.api }}
+              title="{{ element.text }}">
+              {% if element.img %}
+                <img alt="{{ element.text }}" src="{{ element.img }}">
+              {% else %}
+                {{ element.text }}
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endblock %}
+  {% endembed %}
+</div>

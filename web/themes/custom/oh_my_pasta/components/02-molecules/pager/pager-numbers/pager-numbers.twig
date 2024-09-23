@@ -1,0 +1,93 @@
+{#
+/**
+ * @file
+ * Theme override to display a pager.
+ *
+ * Available variables:
+ * - items: List of pager items.
+ *   The list is keyed by the following elements:
+ *   - first: Item for the first page; not present on the first page of results.
+ *   - previous: Item for the previous page; not present on the first page
+ *     of results.
+ *   - next: Item for the next page; not present on the last page of results.
+ *   - last: Item for the last page; not present on the last page of results.
+ *   - pages: List of pages, keyed by page number.
+ *   Sub-sub elements:
+ *   items.first, items.previous, items.next, items.last, and each item inside
+ *   items.pages contain the following elements:
+ *   - href: URL with appropriate query parameters for the item.
+ *   - attributes: A keyed list of HTML attributes for the item.
+ *   - text: The visible text used for the item link, such as "‹ Previous"
+ *     or "Next ›".
+ * - current: The page number of the current page.
+ * - ellipses: If there are more pages than the quantity allows, then an
+ *   ellipsis before or after the listed pages may be present.
+ *   - previous: Present if the currently visible list of pages does not start
+ *     at the first page.
+ *   - next: Present if the visible list of pages ends before the last page.
+ *
+ * @see template_preprocess_pager()
+ */
+#}
+
+{{ attach_library('ncc/pager-numbers') }}
+{% set pager_numbers_base_class = 'pager-numbers' %}
+
+{% if items %}
+  <nav {{ bem(pager_numbers_base_class, pager_numbers_modifiers, pager_numbers_blockname, pager_numbers_extra_classes) }} role="navigation" aria-labelledby="pagination-heading">
+    {# Hidden title still present for accessibility reasons #}
+    <h3 id="pagination-heading" class="sr-only">{{ pager_numbers_title|default('Pagination'|t) }}</h3>
+
+    {# Print previous item if we are not on the first page. #}
+    {% if items.previous %}
+      <div {{ bem('item', ['prev'], pager_numbers_base_class) }}>
+        {% include "@atoms/link/link.twig" with {
+          link_content: 'Previous'|t,
+          link_url: items.previous.href,
+          link_icon: true,
+          link_icon_before: true,
+          link_icon_name: 'chevron-round',
+          link_attributes: { 'aria-label': 'Go to the previous results page'|t, 'rel': 'prev' }
+        } %}
+      </div>
+    {% endif %}
+
+    {# Main pager #}
+    <ul {{ bem('items', [], pager_numbers_base_class, ['list--unstyled']) }}>
+      {% for key, item in items.pages %}
+        <li {{ bem('item', current == key ? ['active'] : '', pager_numbers_base_class) }}>
+          {% if current == key %}
+            {% set label = 'Current page'|t %}
+          {% else %}
+            {% set label = 'Go to page @key'|t({'@key': key}) %}
+          {% endif %}
+{#          {% include "@atoms/link/link.twig" with {#}
+{#            link_content: key,#}
+{#            link_url: items.href,#}
+{#            link_attributes: { 'aria-label': title }#}
+{#          } %}#}
+          <a
+            class="link"
+            href="{{ item.href }}"
+            aria-label="{{ current == key ? 'Current page'|t : 'Go to page'|t }} {{ key }}"
+          >
+            {{- key -}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {# Print next item if we are not on the last page. #}
+    {% if items.next %}
+      <div {{ bem('item', ['next'], pager_numbers_base_class) }}>
+        {% include "@atoms/link/link.twig" with {
+          link_content: 'Next'|t,
+          link_url: items.next.href,
+          link_icon: true,
+          link_icon_name: 'chevron-round',
+          link_attributes: { 'aria-label': 'Go to the next results page'|t, 'rel': 'next' }
+        } %}
+      </div>
+    {% endif %}
+  </nav>
+{% endif %}

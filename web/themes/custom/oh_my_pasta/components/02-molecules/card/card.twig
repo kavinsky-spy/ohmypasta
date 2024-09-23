@@ -1,0 +1,117 @@
+{#
+/** Available variables:
+ * - card_base_class: base classname of the wrapper.
+ * - card_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - card_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - card_extra_classes: extra classes, optional for the component.
+ *
+ * - card_image: true to display an image
+ *
+ * - card_heading: the content of the title component
+ * - card_heading_level: (default: 3) what level of heading to show on the card
+ * - card_heading_size: (default: sub) size of the heading level
+ * - card_link: url of the card
+ *
+ * - card_text: the content of the body component
+ *
+ * - card_date: (optional) Show a date field in the card
+ * - card_date_icon: allows to modify the default icon (calendar)
+ *
+ * - card_tags: (optional) Tags, mainly used in news cards
+ *
+ * Available blocks:
+ * - card_image_block
+ * - card_text_block
+ * - card_date_block
+ * - card_tags_block
+ */
+#}
+{{ attach_library('ncc/card') }}
+
+{% set card_base_class = 'card' %}
+{% set card_modifiers = card_modifiers|default([]) %}
+
+{% if 'news' in card_modifiers %}
+  {{ attach_library('ncc/card--news') }}
+{% endif %}
+
+{% if 'school' in card_modifiers %}
+  {{ attach_library('ncc/card--school') }}
+{% endif %}
+
+<div {{ bem(card_base_class, card_modifiers, card_blockname, card_extra_classes) }}>
+  {# Image #}
+  {% if card_image %}
+    <div {{ bem('image', [], card_base_class) }}>
+      {% block card_image_block %}
+        {% include "@atoms/image/image.twig" with {
+          mobile_size: card_image_mobile,
+          tablet_size: card_image_tablet,
+          desktop_size: card_image_desktop,
+        } %}
+      {% endblock %}
+    </div>
+  {% endif %}
+  {# Content - Heading + optional text + optional date #}
+  <div {{ bem('content', [], card_base_class) }}>
+    {# Heading #}
+    {% if card_heading %}
+      {% include "@atoms/heading/heading.twig" with {
+        heading: card_heading,
+        heading_url: card_link,
+        heading_level: card_heading_level|default(3),
+        heading_size_override: card_heading_size|default('sub'),
+        heading_extra_classes: ['card__heading'],
+      } %}
+    {% endif %}
+    {# Body #}
+    {% if card_text %}
+      {% block card_text_block %}
+        {% include "@atoms/paragraph/paragraph.twig" with {
+          paragraph_content: card_text,
+          paragraph_blockname: card_base_class,
+        } %}
+      {% endblock %}
+    {% endif %}
+    {# Date #}
+    {% if card_date %}
+      {% block card_date_block %}
+        <span {{ bem('date', [], card_base_class) }}>
+          {% include "@atoms/icon/icon.twig" with {
+            icon_name: card_date_icon|default('calendar'),
+            icon_role: item.role,
+            icon_decorative: true,
+          } %}
+          {{ card_date }}
+        </span>
+      {% endblock %}
+    {% endif %}
+    {# Tags #}
+    {% if card_tags %}
+      {% block card_tags_block %}
+        <div {{ bem('tags', [], card_base_class) }}>
+          {% for tag in card_tags %}
+            <span {{ bem('tag', [], card_base_class) }}>{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endblock %}
+    {% endif %}
+    {# Details #}
+    {% block card_details %}
+      <div class="card__details">
+        {% if card_address %}
+          <strong>{{ 'Location:'|t }}</strong><span>{{ card_address }}</span>
+        {% endif %}
+        {% if card_website %}
+          <strong>{{ 'Website:'|t }}</strong><span>{{ card_website }}</span>
+        {% endif %}
+        {% if card_email %}
+          <strong>{{ 'Email:'|t }}</strong><span>{{ card_email }}</span>
+        {% endif %}
+        {% if card_phone %}
+          <strong>{{ 'Phone:'|t }}</strong><span>{{ card_phone }}</span>
+        {% endif %}
+      </div>
+    {% endblock %}
+  </div>
+</div>

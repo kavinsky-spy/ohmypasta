@@ -1,0 +1,105 @@
+{#
+/** Available variables:
+ * - call_out_box_base_class: base classname of the wrapper.
+ * - call_out_box_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - call_out_box_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - call_out_box_extra_classes: extra classes, optional for the component.
+ *
+ * - call_out_box_icon: true if component has an icon - optional.
+ * - call_out_box_heading: heading of the component.
+ * - call_out_box_heading_level: heading level of the component.
+ * - call_out_box_text: main text of the component.
+ * - call_out_box_cta_text: CTA text of the component - optional.
+ * - call_out_box_cta_url: CTA URL of the component - optional.
+ * - call_out_box_cta_new_window: true for the link to open on a new window.
+ * - call_out_box_search: true if search is needed - optional.
+ *
+ * - call_out_box_color: color of the component - green, pink, blue.
+ * - call_out_box_large: true for large variation (find my nearest & SLP).
+ *
+ * Available blocks:
+ * - call_out_box_icon_block - block to replace the icon.
+ * - call_out_box_search_block - search block for the find my nearest.
+ */
+#}
+
+{{ attach_library('ncc/call-out-box') }}
+
+{% set call_out_box_base_class = 'call-out-box' %}
+{% set call_out_box_modifiers = call_out_box_modifiers|default([]) %}
+{% set call_out_box_extra_classes = call_out_box_extra_classes|default([]) %}
+
+{# Set green as the default colour and override if field has a value #}
+{% set color = call_out_box_color|default('green') %}
+{% set call_out_box_modifiers = call_out_box_modifiers|merge([color]) %}
+{% set button_color = 'outline-' ~ color %}
+
+{# Large variation #}
+{% if call_out_box_large %}
+  {% set call_out_box_modifiers = call_out_box_modifiers|merge(['large']) %}
+  {% set call_out_box_extra_classes = call_out_box_extra_classes|merge(['container']) %}
+{% else %}
+  {% set call_out_box_modifiers = call_out_box_modifiers|merge(['small']) %}
+{% endif %}
+
+<div {{ bem(call_out_box_base_class, call_out_box_modifiers, call_out_box_blockname, call_out_box_extra_classes) }}>
+  <div {{ bem('wrapper', [], call_out_box_base_class) }}>
+    <div {{ bem('inner', [], call_out_box_base_class) }}>
+      {# Content - Heading & text #}
+      <div {{ bem('content', [], call_out_box_base_class) }}>
+        <div {{ bem('heading', [], call_out_box_base_class) }}>
+          {% if call_out_box_icon %}
+            <div {{ bem('icon', [], call_out_box_base_class) }}>
+              {% block call_out_box_icon_block %}
+                {% include "@atoms/icon/icon.twig" with {
+                  icon_name: 'map',
+                  icon_decorative: true,
+                } %}
+              {% endblock %}
+            </div>
+          {% endif %}
+          {% include "@atoms/heading/heading.twig" with {
+            heading: call_out_box_heading,
+            heading_level: call_out_box_heading_level|default(2),
+            heading_size_override: 'main',
+          } %}
+        </div>
+        <div {{ bem('text', [], call_out_box_base_class) }}>
+          {{ call_out_box_text }}
+          {# Search / CTA placed inside of the text content in the large variation #}
+          {% if call_out_box_large and (call_out_box_cta_url or call_out_box_search) %}
+            {% if call_out_box_search %}
+              <div {{ bem('search', [], call_out_box_base_class) }}>
+                {% block call_out_box_search_block %}
+                  <form class="find-my-nearest-form" data-drupal-selector="find-my-nearest-form" action="/node/1" method="post" id="find-my-nearest-form" accept-charset="UTF-8">
+                    <div class="js-form-item form-item form-item--textfield__item">
+                      <input data-drupal-selector="edit-postcode" type="text" id="edit-postcode" name="postcode" value="" size="60" maxlength="128" placeholder="Enter your postcode..." class="form-text form-item__textfield">
+                    </div>
+                    <button data-drupal-selector="edit-find-my-nearest-submit" type="submit" id="edit-find-my-nearest-submit" name="op" value="Search" class="button js-form-submit form-submit">Search</button>
+                  </form>
+                {% endblock %}
+              </div>
+            {% elseif call_out_box_cta_url %}
+              {% include "@atoms/button/button.twig" with {
+                button_content: call_out_box_cta_text,
+                button_url: call_out_box_cta_url,
+                button_modifiers: ['outline', button_color],
+                button_attributes: call_out_box_cta_new_window ? {target: '_blank', rel: 'noopener noreferrer'},
+              } %}
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+
+      {# CTA placed outside of the text content in regular variation #}
+      {% if not call_out_box_large and call_out_box_cta_url %}
+        {% include "@atoms/button/button.twig" with {
+          button_content: call_out_box_cta_text,
+          button_url: call_out_box_cta_url,
+          button_modifiers: ['outline', button_color],
+          button_attributes: call_out_box_cta_new_window ? {target: '_blank', rel: 'noopener noreferrer'},
+        } %}
+      {% endif %}
+    </div>
+  </div>
+</div>

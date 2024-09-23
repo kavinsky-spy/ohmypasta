@@ -1,0 +1,19 @@
+{#
+/**
+* @file
+* Default theme implementation for the guides_contents_block block.
+*/
+#}
+
+{# TODO: Check if it works after BE changes #}
+{% if switch_theme_to_election %}
+  {% set mini_hub_type = 'horizontal' %}
+{% endif %}
+
+{% if links %}
+  <div class="container">
+    {% include "@molecules/mini-hub/mini-hub.twig" with {
+      mini_hub_links: links,
+    } %}
+  </div>
+{% endif %}

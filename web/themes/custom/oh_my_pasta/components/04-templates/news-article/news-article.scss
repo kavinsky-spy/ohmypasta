@@ -1,0 +1,27 @@
+@import '../../imports.scss';
+
+.news-article {
+  .page-title__summary {
+    color: var(--dark-grey);
+    margin-bottom: var(--padding-large);
+  }
+}
+
+.news-article__content {
+  max-width: 73.5rem;
+}
+
+.news-article__content,
+.news-article__back {
+  margin-bottom: var(--padding-large);
+}
+
+.news-article__back .link .icon {
+  transform: rotateZ(180deg);
+}
+
+.news-article__components {
+  .call-out-box {
+    padding: 0;
+  }
+}

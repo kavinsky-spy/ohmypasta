@@ -1,0 +1,41 @@
+@import '../../imports.scss';
+
+.webform__inner {
+  max-width: 73.4rem;
+}
+
+.webform__heading {
+  margin: var(--padding-default) 0 var(--padding-large) 0;
+}
+
+.webform__form {
+  .form-item__textfield:not(.form-item__textarea) {
+    max-width: 32.8rem;
+  }
+
+  .webform-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .webform-button--submit {
+    order: -1;
+  }
+
+  .webform-button--previous {
+    margin: var(--padding-large) 0 0 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: var(--brand-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+    font-family: var(--font-body);
+    font-weight: var(--font-medium);
+  }
+
+  .webform-confirmation__back {
+    margin: var(--padding-large) 0 0 0;
+  }
+}

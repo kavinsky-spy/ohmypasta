@@ -1,0 +1,53 @@
+{#
+/** Available variables:
+ * - tile_base_class: base classname of the wrapper.
+ * - tile_modifiers: array of modifiers to add to the base classname of the wrapper.
+ * - tile_blockname: blockname prepended to the base classname of the wrapper(s) and each component.
+ * - tile_extra_classes: extra classes, optional for the component.
+ *
+ * - tile_icon: true if component has an icon - optional.
+ * - tile_heading: heading of the component.
+ * - tile_heading_level: heading level of the component.
+ * - tile_url: link of the component.
+ * - tile_url_new_window: true if link needs to open in a new window.
+ * - tile_description: optional text of the component.
+ *
+ * Available blocks:
+ * - tile_icon_block - block to replace the icon.
+ */
+#}
+
+{{ attach_library('ncc/tile') }}
+
+{% set tile_base_class = 'tile' %}
+{% set tile_modifiers = tile_modifiers|default([]) %}
+{% set tile_extra_classes = tile_extra_classes|default([]) %}
+
+<div {{ bem(tile_base_class, tile_modifiers, tile_blockname, tile_extra_classes) }}>
+  {# Optional tile icon #}
+  {% if tile_icon %}
+    <div {{ bem('icon', [], tile_base_class) }}>
+      {% block tile_icon_block %}
+        <img src="{{ 'icons/eye.svg' }}" alt="">
+      {% endblock %}
+    </div>
+  {% endif %}
+  {# Tile title / link #}
+  {% include "@atoms/heading/heading.twig" with {
+    heading: tile_heading,
+    heading_level: tile_heading_level|default(3),
+    heading_url: tile_url,
+    heading_link_icon: true,
+    heading_link_attributes: tile_url_new_window ? {'target': '_blank', 'rel': 'noopener noreferrer'} : {},
+    heading_blockname: tile_base_class,
+    heading_size_override: 'sub',
+  } %}
+  {# Optional description #}
+  {% if tile_description %}
+    {% include "@atoms/paragraph/paragraph.twig" with {
+      paragraph_content: tile_description,
+      paragraph_blockname: tile_base_class,
+      paragraph_base_class: 'description',
+    } %}
+  {% endif %}
+</div>

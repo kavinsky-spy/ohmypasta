@@ -1,0 +1,51 @@
+@import '../../imports.scss';
+
+.language-switcher {
+  .language-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--body-large);
+    font-family: var(--font-heading);
+    font-weight: var(--font-bold);
+    text-decoration-thickness: 0.1rem;
+    text-underline-offset: 0.25em;
+
+    &.is-active {
+      display: none;
+    }
+
+    &::before {
+      content: none;
+      height: 2.4rem;
+      width: 2.4rem;
+      margin-right: var(--padding-small);
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &[hreflang*="cy"]::before {
+      background-image: url(#{$images}/icons/flag-cy.svg);
+    }
+
+    &[hreflang*="en"]::before {
+      background-image: url(#{$images}/icons/flag-en.svg);
+    }
+  }
+}
+
+@include large {
+  .language-switcher .language-link {
+    text-decoration: none;
+
+    &:hover {
+      color: var(--secondary-green);
+      text-decoration: underline;
+      text-decoration-thickness: 0.1rem;
+    }
+
+    &::before {
+      content: '';
+    }
+  }
+}

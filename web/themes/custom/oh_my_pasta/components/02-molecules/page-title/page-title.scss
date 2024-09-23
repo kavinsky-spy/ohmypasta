@@ -1,0 +1,24 @@
+@import '../../imports.scss';
+
+.page-title__content {
+  max-width: 73.5rem;
+}
+
+.page-title__heading {
+  margin: 0 0 var(--padding-large) 0;
+  padding: var(--padding-default) 0 0 0;
+}
+
+.page-title__summary {
+  margin-bottom: var(--space-double);
+
+  p:last-child {
+    margin: 0;
+  }
+}
+
+@include large {
+  .page-title__summary {
+    margin-bottom: var(--padding-large);
+  }
+}

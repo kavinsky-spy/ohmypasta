@@ -1,0 +1,9 @@
+@import '../../imports.scss';
+
+.menu {
+  @include list-reset;
+}
+
+.menu__item {
+  margin: 0;
+}

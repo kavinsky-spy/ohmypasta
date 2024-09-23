@@ -1,0 +1,30 @@
+@import '../../imports.scss';
+
+.service-page {
+  .related-content {
+    .heading {
+      margin-bottom: var(--space-double);
+    }
+
+    .related-content__items {
+      display: flex;
+      flex-direction: column;
+
+      .tile:not(:last-child) {
+        margin-bottom: var(--padding-medium);
+      }
+    }
+  }
+}
+
+.service-page__sidebar > * {
+  flex-grow: 0;
+}
+
+@include medium {
+  .service-page {
+    .related-content .related-content__items .tile:not(:last-child) {
+      margin-bottom: var(--padding-large);
+    }
+  }
+}

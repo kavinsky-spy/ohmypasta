@@ -1,0 +1,38 @@
+{#
+/**
+ * Available variables:
+ * - image_with_caption_base_class: the base classname
+ * - image_with_caption_modifiers: array of modifiers to add to the base classname
+ *   by default, videos are expected to be 16x9, include the modifier "full" to support a 4x3 video
+ * - image_with_caption_blockname: blockname prepended to the base classname
+ * - image_with_caption_extra_classes: array of extra classes, used to add container class if video isn't going to be
+ *   displayed as full size.
+ *
+ * - image_with_caption_text: caption of the image
+ *
+ * Available blocks:
+ * - image_with_caption_image_block: used to replace the image
+ */
+#}
+
+{{ attach_library('ncc/image-with-caption') }}
+{% set image_with_caption_base_class = image_with_caption_base_class|default('image-with-caption') %}
+{% set image_with_caption_extra_classes = image_with_caption_extra_classes|default([])|merge(['container']) %}
+
+<div {{ bem(image_with_caption_base_class, image_with_caption_modifiers, image_with_caption_blockname, image_with_caption_extra_classes) }}>
+  <div {{ bem('image', [], image_with_caption_base_class) }}>
+    {% block image_with_caption_image_block %}
+      {% include "@atoms/image/image.twig" with {
+        mobile_size: '480x320',
+        tablet_size: '780x364',
+        desktop_size: '1920x896',
+      } %}
+    {% endblock %}
+  </div>
+  <div {{ bem('text', [], image_with_caption_base_class) }}>
+    {% include "@atoms/paragraph/paragraph.twig" with {
+      paragraph_content: image_with_caption_text,
+      paragraph_modifiers: ['small'],
+    } %}
+  </div>
+</div>

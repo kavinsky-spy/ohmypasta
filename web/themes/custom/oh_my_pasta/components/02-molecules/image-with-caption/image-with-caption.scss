@@ -1,0 +1,19 @@
+@import '../../imports.scss';
+
+.image-with-caption {
+  margin-bottom: var(--padding-large);
+}
+
+.image-with-caption__image {
+  overflow: hidden;
+  border-radius: 0.8rem;
+}
+
+.image-with-caption__text {
+  margin-top: var(--space);
+
+  .paragraph {
+    margin: 0;
+    color: var(--dark-grey);
+  }
+}
