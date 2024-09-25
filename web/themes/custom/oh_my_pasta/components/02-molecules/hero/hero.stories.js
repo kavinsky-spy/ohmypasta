@@ -20,6 +20,6 @@ export default {
 export const hero = {
   render: Template,
   args: {
-    hero_heading: 'Welcome to Newport City Council',
+    hero_heading: 'Welcome to Oh My Pasta',
   },
 };

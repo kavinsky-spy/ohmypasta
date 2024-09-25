@@ -25,8 +25,8 @@ const Template = (args) => (
 export const PageTitle = {
   render: Template,
   args: {
-    page_title_heading: 'Schools and education',
+    page_title_heading: 'Wine and Sauce',
     page_title_summary:
-      '<p>Includes how to claim benefits, who to contact if you need help and where to get advice on your financial situation.</p>',
+      '<p>Pasta ipsum dolor sit amet gnocchi capunti fedelini fiorentine penne lisce pasta al ceppo bucatini lasagnotte calamarata lagane.</p>',
   },
 };
