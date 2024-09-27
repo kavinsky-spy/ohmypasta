@@ -16,6 +16,7 @@
   --secondary-orange: #CE491F;
   --secondary-green: #124F12;
   --secondary-green-tint: #166615;
+  --secondary-green-light: #25C720;
   --secondary-deep-peach: #F4CCA4;
   --secondary-blue: #26A1FF;
 
@@ -54,9 +55,9 @@
   --button-outline-default: var(--black);
 
   /* Secondary Button. */
-  --button-secondary-bg: var(--white);
-  --button-secondary-color: var(--brand-primary);
-  --button-secondary-hover-bg: var(--brand-primary);
+  --button-secondary-bg: var(--secondary-green);
+  --button-secondary-color: var(--white);
+  --button-secondary-hover-bg: var(--secondary-green-light);
   --button-secondary-hover-color: var(--white);
 
   /* Tables. */

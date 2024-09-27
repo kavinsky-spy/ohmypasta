@@ -44,7 +44,7 @@
 /* Secondary buttons */
 .button--secondary {
   background-color: var(--button-secondary-bg);
-  border-color: var(--button-secondary-color);
+  border-color: var(--button-secondary-bg);
   color: var(--button-secondary-color);
 
   &:visited {
