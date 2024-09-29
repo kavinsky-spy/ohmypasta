@@ -7,9 +7,9 @@ global:
   dependencies:
     - core/drupal
     - core/drupal.tabbingmanager
-    - ncc/lato
-    - ncc/catamaran
-    - ncc/tables
+    - oh_my_pasta/lato
+    - oh_my_pasta/catamaran
+    - oh_my_pasta/tables
 
 lato:
   version: VERSION
@@ -40,9 +40,9 @@ accessible-slick:
     gpl-compatible: true
   css:
     theme:
-      /themes/custom/ncc/libraries/accessible-slick/slick/slick.min.css: {}
+      /themes/custom/oh_my_pasta/libraries/accessible-slick/slick/slick.min.css: {}
   js:
-    /themes/custom/ncc//libraries/accessible-slick/slick/slick.min.js: {}
+    /themes/custom/oh_my_pasta//libraries/accessible-slick/slick/slick.min.js: {}
   dependencies:
     - core/drupal
     - core/jquery

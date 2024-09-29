@@ -22,14 +22,14 @@
  */
 #}
 
-{{ attach_library('ncc/grid') }}
+{{ attach_library('oh_my_pasta/grid') }}
 
 {% if grid_type == 'faq-full' or grid_type == 'faq-columns' %}
-  {{ attach_library('ncc/accordion-faq') }}
+  {{ attach_library('oh_my_pasta/accordion-faq') }}
 {% elseif grid_type == 'expand' %}
-  {{ attach_library('ncc/grid--expand') }}
+  {{ attach_library('oh_my_pasta/grid--expand') }}
 {% elseif grid_type == 'graphic' %}
-  {{ attach_library('ncc/grid--graphic') }}
+  {{ attach_library('oh_my_pasta/grid--graphic') }}
 {% endif %}
 
 {% set grid_base_class = 'grid' %}

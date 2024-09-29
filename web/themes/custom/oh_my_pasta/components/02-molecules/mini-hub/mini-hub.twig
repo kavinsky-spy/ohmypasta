@@ -16,7 +16,7 @@
  */
 #}
 
-{{ attach_library('ncc/mini-hub') }}
+{{ attach_library('oh_my_pasta/mini-hub') }}
 
 {% set mini_hub_base_class = 'mini-hub' %}
 {% set mini_hub_extra_classes = mini_hub_extra_classes|default([])|merge(['container']) %}
@@ -25,7 +25,7 @@
 
 {# Attach the JS and CSS tweaks if the type is horizontal #}
 {% if mini_hub_type == 'horizontal' %}
-  {{ attach_library('ncc/mini-hub--horizontal') }}
+  {{ attach_library('oh_my_pasta/mini-hub--horizontal') }}
   {% set mini_hub_modifiers = mini_hub_modifiers|merge(['horizontal']) %}
   {% set mini_hub_extra_classes = mini_hub_extra_classes|merge(['js-minihub']) %}
   {% set mini_hub_list_type = 'ul' %}

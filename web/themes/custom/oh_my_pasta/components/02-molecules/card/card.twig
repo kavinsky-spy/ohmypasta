@@ -26,17 +26,17 @@
  * - card_tags_block
  */
 #}
-{{ attach_library('ncc/card') }}
+{{ attach_library('oh_my_pasta/card') }}
 
 {% set card_base_class = 'card' %}
 {% set card_modifiers = card_modifiers|default([]) %}
 
 {% if 'news' in card_modifiers %}
-  {{ attach_library('ncc/card--news') }}
+  {{ attach_library('oh_my_pasta/card--news') }}
 {% endif %}
 
 {% if 'school' in card_modifiers %}
-  {{ attach_library('ncc/card--school') }}
+  {{ attach_library('oh_my_pasta/card--school') }}
 {% endif %}
 
 <div {{ bem(card_base_class, card_modifiers, card_blockname, card_extra_classes) }}>

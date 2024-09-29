@@ -21,7 +21,7 @@ regions:
 logo: images/logo.svg
 
 libraries:
-  - 'ncc/global'
+  - 'oh_my_pasta/global'
 
 ckeditor5-stylesheets:
   - dist/ckeditor.css

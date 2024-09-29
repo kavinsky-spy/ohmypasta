@@ -48,7 +48,7 @@
     </div>
   {% else %}
     {% for item in items %}
-      {# NCC-407: Checks only if the body field is empty or not. Doesnt take into account the Summary.  #}
+      {# oh_my_pasta-407: Checks only if the body field is empty or not. Doesnt take into account the Summary.  #}
       {% if item.content['#text'] is not empty %}
         <div{{ attributes.addClass('text-long') }}>{{ item.content }}</div>
       {% endif %}

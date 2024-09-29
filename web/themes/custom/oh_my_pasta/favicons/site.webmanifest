@@ -3,12 +3,12 @@
     "short_name": "Newport City Council",
     "icons": [
         {
-            "src": "/themes/custom/ncc/favicons/android-chrome-192x192.png",
+            "src": "/themes/custom/oh_my_pasta/favicons/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/themes/custom/ncc/favicons/android-chrome-512x512.png",
+            "src": "/themes/custom/oh_my_pasta/favicons/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
