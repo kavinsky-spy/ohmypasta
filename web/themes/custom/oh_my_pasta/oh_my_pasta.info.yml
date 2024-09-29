@@ -1,7 +1,7 @@
-name: Newport City Council
+name: Oh My Pasta
 type: theme
-description: Theme for the Newport City Council
-base theme: localgov_base
+description: Theme for the Oh My Pasta
+base theme: stable9
 core_version_requirement: ^10
 
 regions:
@@ -29,12 +29,6 @@ ckeditor5-stylesheets:
 libraries-override:
   system/base: false
   system/component: false
-  localgov_base/global: false
-  localgov_subsites_paragraphs/localgov_subsites_paragraphs: false
-  localgov_alert_banner/alert_banner:
-    css:
-      component:
-        css/localgov-alert-banner.css: false
 
 components:
   namespaces:
