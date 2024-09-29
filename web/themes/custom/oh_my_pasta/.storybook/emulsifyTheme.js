@@ -8,5 +8,5 @@ export default create({
   brandTitle: 'Digital Styleguide for Oh My Pasta',
   brandUrl: '#',
   brandImage:
-    'logo.svg',
+    'logo.png',
 });
