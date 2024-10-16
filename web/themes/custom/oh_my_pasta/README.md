@@ -1,6 +1,6 @@
-# Newport City Council
+# OH MY PASTA Theme
 
-This repository contains the files for the Newport City Council multilingual site. Listed below are some requirements / useful information about the project.
+This repository contains the files for the Oh My Pasta multilingual site. Listed below are some requirements / useful information about the project.
 
 ## FE Theme 🖊️
 ### Requirements 📋
