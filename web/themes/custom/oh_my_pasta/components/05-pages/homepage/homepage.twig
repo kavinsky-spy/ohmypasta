@@ -1,0 +1,45 @@
+{{ attach_library('oh-my-pasta/homepage') }}
+
+<header class="header">
+  <div class="logo">
+    {{ logo }}
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="#">Sign In</a></li>
+      <li><a href="#">Sign Up</a></li>
+      <!-- Add other menu links -->
+    </ul>
+  </nav>
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <h1>{{ 'Food delivery and more' }}</h1>
+    <p>{{ 'Fast delivery from your favorite local restaurants' }}</p>
+    <form>
+      <input type="text" placeholder="Enter your address">
+      <button type="submit">Find Food</button>
+    </form>
+  </div>
+</section>
+<section class="featured-items">
+  <h2>Featured Restaurants</h2>
+  <div class="cards">
+    {% for restaurant in restaurants %}
+      <div class="card">
+        <img src="{{ restaurant.image }}" alt="{{ restaurant.name }}">
+        <h3>{{ restaurant.name }}</h3>
+        <p>{{ restaurant.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-nav">
+    <ul>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+  </div>
+</footer>

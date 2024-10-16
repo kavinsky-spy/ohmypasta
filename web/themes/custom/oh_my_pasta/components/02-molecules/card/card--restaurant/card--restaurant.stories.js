@@ -2,7 +2,7 @@ import React from 'react';
 import template from '../card.twig';
 
 export default {
-  title: 'Molecules/Cards/School Card',
+  title: 'Molecules/Cards/Restaurant Card',
   argTypes: {
     card_modifiers: {
       table: {
@@ -49,25 +49,25 @@ export default {
       },
     },
     card_address: {
-      description: 'School location',
+      description: 'Restaurant location',
       table: {
         type: { summary: 'HTML markup' },
       },
     },
     card_website: {
-      description: 'School website URL',
+      description: 'Restaurant website URL',
       table: {
         type: { summary: 'HTML markup' },
       },
     },
     card_email: {
-      description: 'School email address',
+      description: 'Restaurant email address',
       table: {
         type: { summary: 'HTML markup' },
       },
     },
     card_phone: {
-      description: 'School phone number',
+      description: 'Restaurant phone number',
       table: {
         type: { summary: 'HTML markup' },
       },
@@ -81,19 +81,19 @@ const Template = (args) => (
   />
 );
 
-export const SchoolCard = {
+export const RestaurantCard = {
   render: Template,
   args: {
-    card_modifiers: ['school'],
+    card_modifiers: ['restaurant'],
     card_image: true,
     card_image_mobile: '330x180',
     card_image_tablet: '300x300',
     card_image_desktop: '300x300',
-    card_heading: 'Alway Primary School',
+    card_heading: 'Alway Primary Restaurant',
     card_link: '#',
     card_address: 'Aberthaw Road',
-    card_website: 'https://alwayprimaryschool.co.uk',
-    card_email: 'info@newport.gov.uk',
+    card_website: 'https://alwayprimaryRestaurant.co.uk',
+    card_email: 'info@ohmypasta.gov.uk',
     card_phone: '998998088098',
   },
 };

@@ -39,7 +39,7 @@ export const GraphicCard = {
   render: Template,
   args: {
     graphic_card_number: '18',
-    graphic_card_text: 'Welsh Labour',
+    graphic_card_text: 'Italian labour',
     graphic_card_color: 'labour',
   },
 };

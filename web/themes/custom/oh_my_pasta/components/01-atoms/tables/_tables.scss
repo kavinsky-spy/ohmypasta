@@ -49,6 +49,10 @@ table:not(.table--small-content) {
     font-family: var(--font-heading);
     font-weight: var(--font-extrabold);
     line-height: 1.35;
+
+    span {
+      color: var(--text-light);
+    }
   }
 
   th,
@@ -72,7 +76,7 @@ table:not(.table--small-content) {
   th {
     border: 0.1rem solid var(--secondary-orange);
     border-width: 0.1rem 0 0;
-    color: var(--text);
+    color: var(--text-light);
     text-align: end;
   }
 

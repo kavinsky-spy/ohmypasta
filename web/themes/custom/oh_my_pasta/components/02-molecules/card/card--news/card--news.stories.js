@@ -84,6 +84,6 @@ export const NewsCard = {
       'Lorem ipsum dolor sit amet consectetur. Duis pharetra scelerisque ultricies eget est. Vitae neque pretium etiam tristique. Habitant pretium id nibh placerat pretium nulla sed elementum.',
     card_link: '#',
     card_date: '19 September 2023',
-    card_tags: ['Education', 'Children'],
+    card_tags: ['Pasta', 'Sauce'],
   },
 };

@@ -1,6 +1,6 @@
 @import '../../../imports.scss';
 
-.card.card--school {
+.card.card--restaurant {
   margin-bottom: var(--space-double);
 
   .card__image {
@@ -36,7 +36,7 @@
 }
 
 @include medium {
-  .card.card--school {
+  .card.card--restaurant {
     flex-direction: row;
 
     .card__image {
@@ -51,7 +51,7 @@
 }
 
 @include medium {
-  .card.card--school {
+  .card.card--restaurant {
     margin-bottom: var(--padding-large);
   }
 }

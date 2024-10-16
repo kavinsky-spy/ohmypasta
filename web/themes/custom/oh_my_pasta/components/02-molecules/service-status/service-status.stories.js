@@ -43,7 +43,7 @@ export const ServiceStatus = {
   render: Template,
   args: {
     service_status_date: '1700643689',
-    service_status_heading: 'Schools closure',
+    service_status_heading: 'Restaurants closure',
     service_status_heading_level: 3,
     service_status_heading_url: '#',
     service_status_description:
