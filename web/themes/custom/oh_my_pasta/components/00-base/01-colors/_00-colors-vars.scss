@@ -11,12 +11,13 @@
   --brand-primary: #B20D12;
   --brand-primary-tint: #F4CCA4;
   --brand-primary-tint-light: #FF6166;
+  --brand-primary-tint-dark: #e91118;
 
   /* Secondary Colours. */
   --secondary-orange: #CE491F;
   --secondary-green: #124F12;
   --secondary-green-tint: #166615;
-  --secondary-green-light: #25C720;
+  --secondary-green-light: #249f38;
   --secondary-deep-peach: #F4CCA4;
   --secondary-blue: #26A1FF;
 
@@ -50,8 +51,8 @@
   /* Primary Button. */
   --button-bg-default: var(--brand-primary);
   --button-text-default: var(--white);
-  --button-hover-bg-default: var(--white);
-  --button-hover-text-default: var(--brand-primary);
+  --button-hover-bg-default: var(--brand-primary-tint-dark);
+  --button-hover-text-default: var(--white);
   --button-outline-default: var(--black);
 
   /* Secondary Button. */

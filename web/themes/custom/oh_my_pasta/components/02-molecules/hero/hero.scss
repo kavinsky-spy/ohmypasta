@@ -5,6 +5,14 @@
   padding-bottom: var(--space-triple);
   max-width: 192rem; /* Avoids making it huge on ultrawide screens */
   margin: 0 auto;
+
+  .hero__background-img {
+    background-image: url("https://dummyimage.com/1920x650/d9d9d9/242424");     
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 500px;
+  }
 }
 
 .hero__image {
@@ -47,9 +55,9 @@
     @include search-form($padding: var(--padding-default) var(--space), $button-size: 6rem);
   }
 
-  form .form-item__textfield {
-    box-shadow: 0 0 0 0.4rem var(--white);
-  }
+  // form .form-item__textfield {
+  //   box-shadow: 0 0 0 0.4rem var(--white);
+  // }
 }
 
 @include medium {

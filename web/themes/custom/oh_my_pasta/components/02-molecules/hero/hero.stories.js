@@ -20,6 +20,6 @@ export default {
 export const hero = {
   render: Template,
   args: {
-    hero_heading: 'Welcome to Oh My Pasta',
+    hero_heading: 'Discover flavours never tasted before.',
   },
 };

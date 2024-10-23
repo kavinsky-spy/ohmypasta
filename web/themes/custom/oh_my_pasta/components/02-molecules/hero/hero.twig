@@ -17,20 +17,13 @@
 
 {{ attach_library('oh_my_pasta/hero') }}
 {% set hero_base_class = 'hero' %}
+{% set hero_background_type = hero_background_type|default([false]) %}
 
 <div {{ bem(hero_base_class, hero_modifiers|default([]), hero_blockname, hero_extra_classes) }}>
   {# Hero background image #}
-  <div {{ bem('image', [], hero_base_class) }}>
-    {% block hero_image_block %}
-      {% include "@atoms/image/image.twig" with {
-        mobile_size: '490x350',
-        tablet_size: '1440x350',
-        desktop_size: '1920x467',
-      } %}
-    {% endblock %}
-  </div>
-  {# Content - Title + search form #}
-  <div {{ bem('content', [], hero_base_class, ['container']) }}>
+  {% if hero_background_type %}
+  <div {{ bem('background-img', [], hero_base_class) }}>
+      <div {{ bem('content', [], hero_base_class, ['container']) }}>
     {% include "@atoms/heading/heading.twig" with {
       heading: hero_heading,
       heading_level: hero_heading_level|default(1),
@@ -48,4 +41,39 @@
       </div>
     </div>
   </div>
+
+  
+    
+  </div>
+  {% else %}
+  <div {{ bem('image', [], hero_base_class) }}>
+    {% block hero_image_block %}
+      {% include "@atoms/image/image.twig" with {
+        mobile_size: '490x350',
+        tablet_size: '1440x350',
+        desktop_size: '1920x650',
+      } %}
+    {% endblock %}
+  </div>
+    <div {{ bem('content', [], hero_base_class, ['container']) }}>
+    {% include "@atoms/heading/heading.twig" with {
+      heading: hero_heading,
+      heading_level: hero_heading_level|default(1),
+    } %}
+    <div class="row">
+      <div {{ bem('form', [], hero_base_class, ['col-lg-10']) }}>
+        {% block hero_search_block %}
+          <form class="quick-search-form" data-drupal-selector="quick-search-form" action="/node/3" method="post" id="quick-search-form" accept-charset="UTF-8">
+            <div class="js-form-item form-item form-item--textfield__item">
+              <input type="text" id="edit-keywords" name="keywords" value="" size="60" maxlength="128" placeholder="How can we help you?" class="form-text form-item__textfield">
+            </div>
+            <button type="submit" id="edit-quick-search-submit" name="op" value="Search" class="button js-form-submit form-submit">Search</button>
+          </form>
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {# Content - Title + search form #}
+
 </div>

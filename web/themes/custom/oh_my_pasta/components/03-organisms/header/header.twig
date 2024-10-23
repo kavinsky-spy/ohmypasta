@@ -26,7 +26,7 @@
 
 {% set header_base_class = 'header' %}
 {% set header_extra_classes = header_extra_classes|default([])|merge(['js-header']) %}
-{% set header_logo_src = directory ? '/' ~ directory ~ '/images/logo.svg' : 'logo.svg' %}
+{% set header_logo_src = directory ? '/' ~ directory ~ '/images/logo.png' : 'logo.png' %}
 
 <header {{ bem(header_base_class, header_modifier, header_blockname, header_extra_classes) }}>
   <div {{ bem('inner', [], header_base_class, ['container']) }}>
@@ -34,7 +34,7 @@
     <div {{ bem('logo', [], header_base_class) }}>
       {% block header_logo_block %}
         <a href="{{ header_logo_link|default('/') }}">
-          <img class="header__logo" src="{{ header_logo_src }}" alt="{{ 'Newport City Council logo' }}">
+          <img class="header__logo" src="{{ header_logo_src }}" alt="{{ 'Oh My Pasta logo' }}">
         </a>
       {% endblock %}
     </div>
@@ -55,7 +55,7 @@
           {% block header_desktop_account_block %}
             {% include "@atoms/button/button.twig" with {
               button_content: header_account_text|default('My account'|t),
-              button_url: header_account_url|default('https://my.newport.gov.uk/'),
+              button_url: header_account_url|default('#'),
             } %}
           {% endblock %}
         </div>
@@ -81,12 +81,12 @@
               } %}
             {% endblock %}
           </div>
-          {# Mobile my.newport button #}
+          {# Mobile button #}
           <div {{ bem('account--mobile', [], header_base_class) }}>
             {% block header_mobile_account_block %}
               {% include "@atoms/button/button.twig" with {
                 button_content: header_account_text|default('My account'|t),
-                button_url: header_account_url|default('https://my.newport.gov.uk/'),
+                button_url: header_account_url|default('#'),
               } %}
             {% endblock %}
           </div>

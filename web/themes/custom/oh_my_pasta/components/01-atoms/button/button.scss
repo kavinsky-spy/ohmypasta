@@ -79,8 +79,8 @@
   &.button--outline-red {
     &:hover,
     &:focus-visible  {
-      color: var(--brand-primary-tint-light);
-      border-color: var(--brand-primary-tint-light);
+      color: var(--button-hover-bg-default);
+      border-color: var(--button-hover-bg-default);
     }
   }
 
