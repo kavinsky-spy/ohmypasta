@@ -1,0 +1,17 @@
+
+.cta-sections {
+
+    &.container {
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        height: 100%;
+        flex-direction: column;
+
+
+        @media (min-width: 1114px) {
+            flex-direction: row;
+        }
+    }
+
+}

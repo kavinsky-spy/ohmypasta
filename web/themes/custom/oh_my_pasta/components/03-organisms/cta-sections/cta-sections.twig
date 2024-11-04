@@ -1,0 +1,15 @@
+
+
+
+<div class="cta-sections container">
+    {% block sections_items_block %}
+        {% for item in section_items %}
+            {% include "@molecules/section-cta/cta-section.twig" with {
+            section_title: item.title,
+            section_image: item.image,
+            section_text: item.text,
+            section_cta_text: item.cta_text,
+            } %}
+        {% endfor %}
+    {% endblock %}
+</div>
