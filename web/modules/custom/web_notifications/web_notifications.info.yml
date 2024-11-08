@@ -1,0 +1,9 @@
+name: Web Notifications
+type: module
+description: 'Provides notification functionality for users and mobile app integration'
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - drupal:user
+  - drupal:views
+

@@ -1,0 +1,30 @@
+notifications.admin_dashboard:
+  path: '/admin/notifications/dashboard'
+  defaults:
+    _controller: '\Drupal\web_notifications\Controller\NotificationsController::dashboard'
+    _title: 'Notifications Dashboard'
+  requirements:
+    _permission: 'administer notifications'
+
+notifications.send_form:
+  path: '/admin/notifications/send'
+  defaults:
+    _form: '\Drupal\web_notifications\Form\NotificationSendForm'
+    _title: 'Send Notification'
+  requirements:
+    _permission: 'administer notifications'
+
+notifications.user_notifications:
+  path: '/user/{user}/notifications'
+  defaults:
+    _controller: '\Drupal\web_notifications\Controller\NotificationsController::userNotifications'
+    _title: 'My Notifications'
+  requirements:
+    _permission: 'access notifications'
+
+notifications.api.check:
+  path: '/api/notifications/check/{user}'
+  defaults:
+    _controller: '\Drupal\web_notifications\Controller\NotificationsApiController::checkNotifications'
+  requirements:
+    _permission: 'access content'

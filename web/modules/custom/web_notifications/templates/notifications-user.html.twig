@@ -1,0 +1,11 @@
+<div class="notifications-user">
+  <h2>{{ 'My Notifications'|t }}</h2>
+  <div class="notifications-list">
+    {% for notification in notifications %}
+      <div class="notification {{ notification.read.value ? 'read' : 'unread' }}">
+        <div class="notification-message">{{ notification.message.value }}</div>
+        <div class="notification-date">{{ notification.created.value|date('Y-m-d H:i') }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

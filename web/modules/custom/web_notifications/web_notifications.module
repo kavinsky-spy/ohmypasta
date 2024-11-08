@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function web_notifications_theme() {
+  return [
+    'notifications_dashboard' => [
+      'variables' => [
+        'notifications' => [],
+      ],
+    ],
+    'notifications_user' => [
+      'variables' => [
+        'notifications' => [],
+      ],
+    ],
+  ];
+}

@@ -1,0 +1,23 @@
+<div class="notifications-dashboard">
+  <h2>{{ 'Recent Notifications'|t }}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>{{ 'User'|t }}</th>
+        <th>{{ 'Message'|t }}</th>
+        <th>{{ 'Date'|t }}</th>
+        <th>{{ 'Status'|t }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for notification in notifications %}
+        <tr>
+          <td>{{ notification.user_id.entity.name.value }}</td>
+          <td>{{ notification.message.value }}</td>
+          <td>{{ notification.created.value|date('Y-m-d H:i') }}</td>
+          <td>{{ notification.read.value ? 'Read'|t : 'Unread'|t }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

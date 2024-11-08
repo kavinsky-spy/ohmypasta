@@ -1,0 +1,8 @@
+administer notifications:
+  title: 'Administer notifications'
+  description: 'Send and manage notifications'
+  restrict access: true
+
+access notifications:
+  title: 'Access notifications'
+  description: 'View own notifications'
