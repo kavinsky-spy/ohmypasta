@@ -24,7 +24,7 @@
 	hero_heading: "Check new flavours",
 	hero_background_type: true,
 } %}
-	
+
 {% endembed %}
 
 {% embed "@organisms/cta-sections/cta-sections.twig" %}
@@ -50,24 +50,20 @@
 	{% endblock %}
 {% endembed %}
 
-<section class="featured-items">
-	<h2>Featured Restaurants</h2>
-	<div class="cards">
-		{% for restaurant in restaurants %}
-			<div class="card">
-				<img src="{{ restaurant.image }}" alt="{{ restaurant.name }}">
-				<h3>{{ restaurant.name }}</h3>
-				<p>{{ restaurant.description }}</p>
-			</div>
-		{% endfor %}
-	</div>
-</section>
-<footer class="footer">
-	<div class="footer-nav">
-		<ul>
-			<li><a href="#">About Us</a></li>
-			<li><a href="#">Contact</a></li>
-			<li><a href="#">Privacy Policy</a></li>
-		</ul>
-	</div>
-</footer>
+{% include "@molecules/media-text-cta/media-text-cta.twig" with {
+	media_text_cta_side: false,
+	media_text_cta_title: 'Homepage Media Text CTA',
+	media_text_cta_subtitle: 'Subtitle Media Text CTA',
+	media_text_cta_text: 'Controls the component orientation by setting the side of the Call-to-Action (CTA) text in relation to the media element. Toggle to choose either left or right alignment of the CTA text, enhancing layout flexibility and visual balance based on the component\'s surrounding content.',
+	media_text_cta_cta: 'Find anything',
+	media_text_cta_image: 'https://picsum.photos/727/523/'
+} %}
+
+{% include "@molecules/media-text-cta/media-text-cta.twig" with {
+	media_text_cta_side: true,
+	media_text_cta_title: 'Homepage Media Text CTA',
+	media_text_cta_subtitle: 'Subtitle Media Text CTA',
+	media_text_cta_text: 'Controls the component orientation by setting the side of the Call-to-Action (CTA) text in relation to the media element. Toggle to choose either left or right alignment of the CTA text, enhancing layout flexibility and visual balance based on the component\'s surrounding content.',
+	media_text_cta_cta: 'Find anything',
+	media_text_cta_image: 'https://picsum.photos/727/523/'
+} %}
