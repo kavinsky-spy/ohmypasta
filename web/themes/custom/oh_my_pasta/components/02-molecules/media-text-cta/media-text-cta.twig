@@ -1,0 +1,38 @@
+{{ attach_library('oh_my_pasta/media-text-cta') }}
+
+{% set media_text_cta_side = media_text_cta_side|default(true) %}
+
+{% if media_text_cta_side %}
+	<div class="media-text-cta media-text-cta__left">
+	{% else %}
+	<div class="media-text-cta">
+{% endif %}
+		<div class="media-text-cta__text">
+			{% include "@atoms/heading/heading.twig" with {
+                heading: media_text_cta_title,
+                heading_level: 2,
+            } %}
+
+  		<span class="media-text-cta__subtitle">
+				{{ media_text_cta_subtitle }}
+			</span>
+
+
+			<span class="media-text-cta__text-content">
+				{{ media_text_cta_text }}
+			</span>
+
+
+			{% include "@atoms/button/button.twig" with {
+          button_content: media_text_cta_cta|default('Find Restaurant'|t),
+          button_url: media_text_cta_url|default('#'),
+      } %}
+
+
+		</div>
+		<div class="media-text-cta__image">
+			<img src="{{ media_text_cta_image }}"/>
+		</div>
+
+
+	</div>

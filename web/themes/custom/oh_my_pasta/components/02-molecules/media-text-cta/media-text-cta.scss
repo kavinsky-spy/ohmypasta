@@ -1,0 +1,44 @@
+.media-text-cta {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 20px;
+
+  .media-text-cta__text {
+    h2 {
+      color: var(--black);
+    }
+
+    a {
+      margin-top: 20px;
+    }
+
+    .media-text-cta__subtitle {
+      font-size: 1.8rem;
+      color: var(--black);
+      font-weight: 700;
+      width: auto;
+      margin: 0 0 1.6rem;
+      line-height: 1.2;
+      display: block;
+    }
+
+    .media-text-cta__text-content {
+      display: block;
+    }
+  }
+
+  .media-text-cta__image {
+    padding-bottom: 20px;
+  }
+
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 60px;
+
+    &__left {
+        flex-direction: row-reverse;
+      }
+  }
+}
+
