@@ -27,25 +27,20 @@
     max-width: 100%;
     display: block;
 
-    h2 {
+    h2,
+    h3 {
       color: var(--black);
       text-transform: none;
-      text-align: center;
       display: block;
       text-align: left;
 
       @media (min-width: 1114px) {
-        text-align: center; 
+        text-align: center;
       }
     }
 
     h3 {
-      color: var(--black);
       font-size: 18px;
-      text-transform: none;
-      text-align: center;
-      display: block;
-      text-align: left;
     }
   }
 
