@@ -23,9 +23,7 @@
 {% embed "@molecules/hero/hero.twig" with {
 	hero_heading: "Check new flavours",
 	hero_background_type: true,
-} %}
-
-{% endembed %}
+} %}{% endembed %}
 
 {% embed "@organisms/cta-sections/cta-sections.twig" %}
 	{% block sections_items_block %}
@@ -66,4 +64,13 @@
 	media_text_cta_text: 'Controls the component orientation by setting the side of the Call-to-Action (CTA) text in relation to the media element. Toggle to choose either left or right alignment of the CTA text, enhancing layout flexibility and visual balance based on the component\'s surrounding content.',
 	media_text_cta_cta: 'Find anything',
 	media_text_cta_image: 'https://picsum.photos/727/523/'
+} %}
+
+{% include "@molecules/cta-splash/cta-splash.twig" with {
+	cta_splash_image: 'https://picsum.photos/1285/640',
+  cta_splash_title: 'Get grocery and convenience store essentials',
+  cta_splash_subtitle: 'Grocery delivery, exactly how you want it.',
+  cta_splash_description: 'Shop from home and fill your cart with fresh produce, frozen entrees, deli delights and more.',
+  cta_splash_cta: 'Shop Groceries',
+  cta_splash_url: '#',
 } %}
