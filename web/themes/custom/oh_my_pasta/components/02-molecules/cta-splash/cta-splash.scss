@@ -1,0 +1,49 @@
+.cta-splash {
+
+  &__container {
+    background-color: rgba(30, 30, 30, 0.6);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 550px;
+
+    .cta-splash__heading {
+      max-width: 90%;
+      margin-top: 20px;
+      color: var(--white);
+      display: block;
+    }
+
+    .cta-splash__subtitle {
+      margin-bottom: 10px;
+      font-size: 2rem;
+      text-align: center;
+      color: var(--white);
+      filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 2px 8px);
+    }
+
+    .cta-splash__description {
+      font-size: 1.6rem;
+      margin-bottom: 30px;
+      text-align: center;
+      color: var(--white);
+      filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 2px 8px);
+    }
+  }
+
+}
