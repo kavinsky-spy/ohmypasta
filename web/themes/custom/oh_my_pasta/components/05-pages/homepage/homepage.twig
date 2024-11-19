@@ -74,3 +74,55 @@
   cta_splash_cta: 'Shop Groceries',
   cta_splash_url: '#',
 } %}
+
+{% include "@molecules/media-text-cta/media-text-cta.twig" with {
+	media_text_cta_side: true,
+	media_text_cta_title: 'Convenience stores at your doorstep',
+	media_text_cta_subtitle: '',
+	media_text_cta_text: 'Stock up on snacks, household essentials, candy, or vitamins — all delivered in under an hour.',
+	media_text_cta_cta: 'Shop Now',
+	media_text_cta_image: 'https://picsum.photos/727/523/'
+} %}
+
+{% embed "@organisms/cta-sections-grid/cta-sections-grid.twig" with {
+cta_sections_grid_title: 'Helping you with to-dos and gifting',
+
+} %}
+	{% block cta_sections_grid_block %}
+		<div class="cta-sections-grid__scrollable-group">
+
+			{% include "@molecules/section-cta/cta-section.twig" with {
+				section_title: 'Return packages from home',
+				section_image: 'https://picsum.photos/727/523/',
+				section_text: 'Request a package pickup with just a few taps and get your returns dropped off at carriers like UPS, FedEx, and USPS.',
+				section_cta_text: 'Shop Alcohol',
+				cta_section_modifier_class: cta_sections_grid_base_class,
+			} %}
+
+			{% include "@molecules/section-cta/cta-section.twig" with {
+				section_title: 'Restock the minibar',
+				section_image: 'https://picsum.photos/727/523/',
+				section_text: 'Hosting a get-together or need or need a special cocktail ingredient? Get liquor, beer, mixers, champagne and wine delivered fast.*',
+				section_cta_text: 'Shop Alcohol',
+				cta_section_modifier_class: cta_sections_grid_base_class,
+			} %}
+
+			{% include "@molecules/section-cta/cta-section.twig" with {
+				section_title: 'Return packages from home',
+				section_image: 'https://picsum.photos/727/523/',
+				section_text: 'Request a package pickup with just a few taps and get your returns dropped off at carriers like UPS, FedEx, and USPS.',
+				section_cta_text: 'Shop Alcohol',
+				cta_section_modifier_class: cta_sections_grid_base_class,
+			} %}
+
+			{% include "@molecules/section-cta/cta-section.twig" with {
+				section_title: 'Restock the minibar',
+				section_image: 'https://picsum.photos/727/523/',
+				section_text: 'Hosting a get-together or need or need a special cocktail ingredient? Get liquor, beer, mixers, champagne and wine delivered fast.*',
+				section_cta_text: 'Shop Alcohol',
+				cta_section_modifier_class: cta_sections_grid_base_class,
+			} %}
+		</div>
+
+	{% endblock %}
+{% endembed %}
