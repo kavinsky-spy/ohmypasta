@@ -1,0 +1,31 @@
+{{ attach_library('oh_my_pasta/cta-sections-grid') }}
+
+{% set cta_sections_grid_base_class = cta_sections_grid_base_class|default([])|merge(['cta-sections-grid']) %}
+{% set cta_sections_grid_extra_classes = cta_sections_grid_extra_classes|default([])|merge(['container'])  %}
+
+{% set cta_sections_grid_modifier_class = cta_sections_grid_modifier_class|default('') %}
+
+
+<div {{ bem(cta_sections_grid_base_class, cta_sections_grid_modifier_class, cta_sections_grid_blockname, cta_sections_grid_extra_classes )}}>
+
+	{% include "@atoms/heading/heading.twig" with {
+        heading: cta_sections_grid_title,
+        heading_level: 2,
+        heading_blockname: cta_sections_grid_base_class,
+
+    } %}
+
+	{% block cta_sections_grid_block %}
+		<div class="cta-sections-grid__scrollable-group">
+			{% for item in cta_sections_grid_items %}
+				{% include "@molecules/section-cta/cta-section.twig" with {
+                    section_title: item.title,
+                    section_image: item.image,
+                    section_text: item.text,
+                    section_cta_text: item.cta_text,
+                    cta_section_modifier_class: cta_sections_grid_base_class,
+                } %}
+			{% endfor %}
+		</div>
+	{% endblock %}
+</div>
