@@ -48,81 +48,107 @@
 	{% endblock %}
 {% endembed %}
 
-{% include "@molecules/media-text-cta/media-text-cta.twig" with {
-	media_text_cta_side: false,
-	media_text_cta_title: 'Homepage Media Text CTA',
-	media_text_cta_subtitle: 'Subtitle Media Text CTA',
-	media_text_cta_text: 'Controls the component orientation by setting the side of the Call-to-Action (CTA) text in relation to the media element. Toggle to choose either left or right alignment of the CTA text, enhancing layout flexibility and visual balance based on the component\'s surrounding content.',
-	media_text_cta_cta: 'Find anything',
-	media_text_cta_image: 'https://picsum.photos/727/523/'
-} %}
+<section class="container">
 
-{% include "@molecules/media-text-cta/media-text-cta.twig" with {
-	media_text_cta_side: true,
-	media_text_cta_title: 'Homepage Media Text CTA',
-	media_text_cta_subtitle: 'Subtitle Media Text CTA',
-	media_text_cta_text: 'Controls the component orientation by setting the side of the Call-to-Action (CTA) text in relation to the media element. Toggle to choose either left or right alignment of the CTA text, enhancing layout flexibility and visual balance based on the component\'s surrounding content.',
-	media_text_cta_cta: 'Find anything',
-	media_text_cta_image: 'https://picsum.photos/727/523/'
-} %}
+	{% include "@molecules/media-text-cta/media-text-cta.twig" with {
+		media_text_cta_side: false,
+		media_text_cta_title: 'Homepage Media Text CTA',
+		media_text_cta_subtitle: 'Subtitle Media Text CTA',
+		media_text_cta_text: 'Controls the component orientation by setting the side of the Call-to-Action (CTA) text in relation to the media element. Toggle to choose either left or right alignment of the CTA text, enhancing layout flexibility and visual balance based on the component\'s surrounding content.',
+		media_text_cta_cta: 'Find anything',
+		media_text_cta_image: 'https://picsum.photos/727/523/'
+	} %}
 
-{% include "@molecules/cta-splash/cta-splash.twig" with {
-	cta_splash_image: 'https://picsum.photos/1285/640',
-  cta_splash_title: 'Get grocery and convenience store essentials',
-  cta_splash_subtitle: 'Grocery delivery, exactly how you want it.',
-  cta_splash_description: 'Shop from home and fill your cart with fresh produce, frozen entrees, deli delights and more.',
-  cta_splash_cta: 'Shop Groceries',
-  cta_splash_url: '#',
-} %}
+	{% include "@molecules/media-text-cta/media-text-cta.twig" with {
+		media_text_cta_side: true,
+		media_text_cta_title: 'Homepage Media Text CTA',
+		media_text_cta_subtitle: 'Subtitle Media Text CTA',
+		media_text_cta_text: 'Controls the component orientation by setting the side of the Call-to-Action (CTA) text in relation to the media element. Toggle to choose either left or right alignment of the CTA text, enhancing layout flexibility and visual balance based on the component\'s surrounding content.',
+		media_text_cta_cta: 'Find anything',
+		media_text_cta_image: 'https://picsum.photos/727/523/'
+	} %}
 
-{% include "@molecules/media-text-cta/media-text-cta.twig" with {
-	media_text_cta_side: true,
-	media_text_cta_title: 'Convenience stores at your doorstep',
-	media_text_cta_subtitle: '',
-	media_text_cta_text: 'Stock up on snacks, household essentials, candy, or vitamins — all delivered in under an hour.',
-	media_text_cta_cta: 'Shop Now',
-	media_text_cta_image: 'https://picsum.photos/727/523/'
-} %}
+	{% include "@molecules/cta-splash/cta-splash.twig" with {
+		cta_splash_image: 'https://picsum.photos/1285/640',
+		cta_splash_title: 'Get grocery and convenience store essentials',
+		cta_splash_subtitle: 'Grocery delivery, exactly how you want it.',
+		cta_splash_description: 'Shop from home and fill your cart with fresh produce, frozen entrees, deli delights and more.',
+		cta_splash_cta: 'Shop Groceries',
+		cta_splash_url: '#',
+	} %}
 
-{% embed "@organisms/cta-sections-grid/cta-sections-grid.twig" with {
-cta_sections_grid_title: 'Helping you with to-dos and gifting',
+	{% include "@molecules/media-text-cta/media-text-cta.twig" with {
+		media_text_cta_side: true,
+		media_text_cta_title: 'Convenience stores at your doorstep',
+		media_text_cta_subtitle: '',
+		media_text_cta_text: 'Stock up on snacks, household essentials, candy, or vitamins — all delivered in under an hour.',
+		media_text_cta_cta: 'Shop Now',
+		media_text_cta_image: 'https://picsum.photos/727/523/'
+	} %}
 
-} %}
-	{% block cta_sections_grid_block %}
-		<div class="cta-sections-grid__scrollable-group">
+	{% embed "@organisms/cta-sections-grid/cta-sections-grid.twig" with {
+		cta_sections_grid_title: 'Helping you with to-dos and gifting',
+	} %}
+		{% block cta_sections_grid_block %}
+			<div class="cta-sections-grid__scrollable-group">
 
-			{% include "@molecules/section-cta/cta-section.twig" with {
-				section_title: 'Return packages from home',
-				section_image: 'https://picsum.photos/727/523/',
-				section_text: 'Request a package pickup with just a few taps and get your returns dropped off at carriers like UPS, FedEx, and USPS.',
-				section_cta_text: 'Shop Alcohol',
-				cta_section_modifier_class: cta_sections_grid_base_class,
-			} %}
+				{% include "@molecules/section-cta/cta-section.twig" with {
+					section_title: 'Return packages from home',
+					section_image: 'https://picsum.photos/727/523/',
+					section_text: 'Request a package pickup with just a few taps and get your returns dropped off at carriers like UPS, FedEx, and USPS.',
+					section_cta_text: 'Shop Alcohol',
+					cta_section_modifier_class: cta_sections_grid_base_class,
+				} %}
 
-			{% include "@molecules/section-cta/cta-section.twig" with {
-				section_title: 'Restock the minibar',
-				section_image: 'https://picsum.photos/727/523/',
-				section_text: 'Hosting a get-together or need or need a special cocktail ingredient? Get liquor, beer, mixers, champagne and wine delivered fast.*',
-				section_cta_text: 'Shop Alcohol',
-				cta_section_modifier_class: cta_sections_grid_base_class,
-			} %}
+				{% include "@molecules/section-cta/cta-section.twig" with {
+					section_title: 'Restock the minibar',
+					section_image: 'https://picsum.photos/727/523/',
+					section_text: 'Hosting a get-together or need or need a special cocktail ingredient? Get liquor, beer, mixers, champagne and wine delivered fast.*',
+					section_cta_text: 'Shop Alcohol',
+					cta_section_modifier_class: cta_sections_grid_base_class,
+				} %}
 
-			{% include "@molecules/section-cta/cta-section.twig" with {
-				section_title: 'Return packages from home',
-				section_image: 'https://picsum.photos/727/523/',
-				section_text: 'Request a package pickup with just a few taps and get your returns dropped off at carriers like UPS, FedEx, and USPS.',
-				section_cta_text: 'Shop Alcohol',
-				cta_section_modifier_class: cta_sections_grid_base_class,
-			} %}
+				{% include "@molecules/section-cta/cta-section.twig" with {
+					section_title: 'Return packages from home',
+					section_image: 'https://picsum.photos/727/523/',
+					section_text: 'Request a package pickup with just a few taps and get your returns dropped off at carriers like UPS, FedEx, and USPS.',
+					section_cta_text: 'Shop Alcohol',
+					cta_section_modifier_class: cta_sections_grid_base_class,
+				} %}
 
-			{% include "@molecules/section-cta/cta-section.twig" with {
-				section_title: 'Restock the minibar',
-				section_image: 'https://picsum.photos/727/523/',
-				section_text: 'Hosting a get-together or need or need a special cocktail ingredient? Get liquor, beer, mixers, champagne and wine delivered fast.*',
-				section_cta_text: 'Shop Alcohol',
-				cta_section_modifier_class: cta_sections_grid_base_class,
-			} %}
-		</div>
+				{% include "@molecules/section-cta/cta-section.twig" with {
+					section_title: 'Restock the minibar',
+					section_image: 'https://picsum.photos/727/523/',
+					section_text: 'Hosting a get-together or need or need a special cocktail ingredient? Get liquor, beer, mixers, champagne and wine delivered fast.*',
+					section_cta_text: 'Shop Alcohol',
+					cta_section_modifier_class: cta_sections_grid_base_class,
+				} %}
+			</div>
 
-	{% endblock %}
-{% endembed %}
+		{% endblock %}
+	{% endembed %}
+
+	{% include "@atoms/heading/heading.twig" with {
+			heading: 'Unlocking opportunity for Dashers and businesses',
+    	heading_level: 2,
+    } %}
+
+	{% include "@molecules/media-text-cta/media-text-cta.twig" with {
+		media_text_cta_side: false,
+		media_text_cta_title: 'Homepage Media Text CTA',
+		media_text_cta_subtitle: 'Subtitle Media Text CTA',
+		media_text_cta_text: 'Controls the component orientation by setting the side of the Call-to-Action (CTA) text in relation to the media element. Toggle to choose either left or right alignment of the CTA text, enhancing layout flexibility and visual balance based on the component\'s surrounding content.',
+		media_text_cta_cta: 'Find anything',
+		media_text_cta_image: 'https://picsum.photos/727/523/'
+	} %}
+
+	{% include "@molecules/media-text-cta/media-text-cta.twig" with {
+		media_text_cta_side: true,
+		media_text_cta_title: 'Homepage Media Text CTA',
+		media_text_cta_subtitle: 'Subtitle Media Text CTA',
+		media_text_cta_text: 'Controls the component orientation by setting the side of the Call-to-Action (CTA) text in relation to the media element. Toggle to choose either left or right alignment of the CTA text, enhancing layout flexibility and visual balance based on the component\'s surrounding content.',
+		media_text_cta_cta: 'Find anything',
+		media_text_cta_image: 'https://picsum.photos/727/523/'
+	} %}
+
+</section>

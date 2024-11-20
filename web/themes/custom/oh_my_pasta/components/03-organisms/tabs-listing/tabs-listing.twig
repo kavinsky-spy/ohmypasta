@@ -1,0 +1,39 @@
+{% set tabs_listing_base_class = tabs_listing_base_class|default([])|merge(['tabs-listing']) %}
+
+<div {{ bem(tabs_listing_base_class, tabs_listing_modifier_class, tabs_listing_blockname, tabs_listing_extra_classes)}}>
+
+	{% include "@atoms/heading/heading.twig" with {
+        heading: tabs_listing_title,
+        heading_level: 2,
+      } %}
+
+	<div {{ bem('tabs-group', tabs_listing_modifier_class, tabs_listing_base_class, tabs_listing_extra_classes)}}>
+		{% block tabs_group_block %}
+			{% for item in tabs_list %}
+				<div class="table-item">
+					<span class="table-item__title">{{ item.title_tab }}</span>
+
+				</div>
+
+			{% endfor %}
+
+		{% endblock %}
+
+	</div>
+
+	<div {{ bem('list-group', tabs_listing_modifier_class, tabs_listing_base_class, tabs_listing_extra_classes)}}>
+		{% for item in title_list %}
+			{% for item_list in list_titles %}
+
+				<div class="list-item">
+					<span class="list-item__title">{{ item_list.title_list }}</span>
+
+
+				</div>
+			{% endfor %}
+
+		{% endfor %}
+
+	</div>
+
+</div>

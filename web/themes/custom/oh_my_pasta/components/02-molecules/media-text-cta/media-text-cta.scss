@@ -31,14 +31,24 @@
     padding-bottom: 20px;
   }
 
-
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 60px;
 
     &__left {
-        flex-direction: row-reverse;
-      }
+      flex-direction: row-reverse;
+    }
+
+    .media-text-cta__text {
+          max-width: 400px;
+            margin-top: auto;
+            margin-bottom: auto;
+    }
+
+    .media-text-cta__image img {
+      height: 500px;
+      object-fit: cover;
+      width: 100%;
+    }
   }
 }
-
