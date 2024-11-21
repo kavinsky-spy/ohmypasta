@@ -1,8 +1,9 @@
 import React from 'react';
 import template from './tabs-listing.twig';
+import './tabs-listing';
 
 export default {
-  title: 'Tabs Listing',
+  title: 'Organisms/Tabs Listing',
   argsTypes: {
     tabs_listing_title: {
       description: 'Title of Tabs Listing',
