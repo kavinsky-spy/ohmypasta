@@ -21,14 +21,16 @@
 	</div>
 
 	<div {{ bem('list-group', tabs_listing_modifier_class, tabs_listing_base_class, tabs_listing_extra_classes)}}>
-		{% for item in tabs_list %}
-			<div class="tab-list" data-tab-id="{{ loop.index }}">
-				{% for item_list in item.list_titles %}
-					<div class="list-item">
-						<span class="list-item__title">{{ item_list.title_list }}</span>
-					</div>
-				{% endfor %}
-			</div>
-		{% endfor %}
+		{% block tabs_list_group_block %}
+			{% for item in tabs_list %}
+				<div class="tab-list" data-tab-id="{{ loop.index }}">
+					{% for item_list in item.list_titles %}
+						<div class="list-item">
+							<span class="list-item__title">{{ item_list.title_list }}</span>
+						</div>
+					{% endfor %}
+				</div>
+			{% endfor %}
+		{% endblock %}
 	</div>
 </div>

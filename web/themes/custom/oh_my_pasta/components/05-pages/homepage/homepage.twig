@@ -1,5 +1,7 @@
 {{ attach_library('oh_my_pasta/homepage') }}
 
+{% set tabs_list = tabs_list|default([]) %}
+
 {% embed "@organisms/header/header.twig" with {
     hero_background_type: true
 } %}
@@ -150,5 +152,11 @@
 		media_text_cta_cta: 'Find anything',
 		media_text_cta_image: 'https://picsum.photos/727/523/'
 	} %}
+
+	{% include "@organisms/tabs-listing/tabs-listing.twig" with {
+		tabs_listing_title: 'Get more from your neighborhood homepage',
+		tab_list: tabs_list,
+	} %}
+
 
 </section>
