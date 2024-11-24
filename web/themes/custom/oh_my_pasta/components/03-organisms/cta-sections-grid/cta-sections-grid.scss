@@ -47,6 +47,7 @@
     .cta-sections-grid__scrollable-group {
       flex-flow: wrap;
       justify-content: center;
+      overflow-x: auto;
       max-width: 1184px;
 
       .cta-section--cta-sections-grid {

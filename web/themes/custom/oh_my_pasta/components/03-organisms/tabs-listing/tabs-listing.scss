@@ -15,9 +15,7 @@
       width: 33.33%;
       display: flex;
       height: 40px;
-      -webkit-box-pack: center;
       justify-content: center;
-      -webkit-box-align: center;
       align-items: center;
       text-align: center;
       background: rgb(255, 255, 255);
@@ -34,7 +32,7 @@
 
       &.active {
         font-weight: bold;
-        text-decoration: underline;
+        border-bottom: 2px solid black;
       }
     }
   }

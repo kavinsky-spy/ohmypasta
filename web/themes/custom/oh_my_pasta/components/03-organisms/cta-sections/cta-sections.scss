@@ -1,17 +1,21 @@
-
 .cta-sections {
+  margin-top: 40px;
+  margin-bottom: 40px;
 
-    &.container {
-        display: flex;
-        -webkit-box-pack: center;
-        justify-content: center;
-        height: 100%;
-        flex-direction: column;
+  &.container {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
 
-
-        @media (min-width: 1114px) {
-            flex-direction: row;
-        }
+    @media (min-width: 1114px) {
+      flex-direction: row;
     }
+  }
 
+  @media (min-width: 1114px) {
+    margin-top: 96px;
+    margin-bottom: 96px;
+  }
 }
