@@ -11,7 +11,7 @@ Drupal.behaviors.tabsListing = {
     if (tabsGroup && listGroup) {
       // Add click event to all tab items
       tabsGroup.querySelectorAll('.table-item').forEach((tab) => {
-        tab.addEventListener('click', function () {
+        tab.addEventListener('click', function initiateTabs() {
           const tabId = this.getAttribute('data-tab-id');
 
           tabsGroup.querySelectorAll('.table-item').forEach((item) => {

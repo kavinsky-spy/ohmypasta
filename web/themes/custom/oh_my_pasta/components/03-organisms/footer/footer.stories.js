@@ -52,7 +52,6 @@ const Template = (args) => (
 export const Footer = {
   render: Template,
   args: {
-    footer_feedback_heading: 'Help us improve our website by giving feedback',
     footer_feedback_content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     footer_social_menu_heading: 'Follow us',

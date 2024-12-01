@@ -3,17 +3,6 @@
 
 <footer {{ bem(footer_base_class, footer_modifier, footer_blockname, footer_extra_classes) }}>
   {# Footer top - Page feedback #}
-  <div {{ bem('top', [], footer_base_class) }}>
-    <div class="container">
-      {% block footer_feedback_block %}
-        {% include "@molecules/accordion/accordion.twig" with {
-          accordion_heading: footer_feedback_heading,
-          accordion_heading_level: 2,
-          accordion_content: footer_feedback_content,
-        } %}
-      {% endblock %}
-    </div>
-  </div>
 
   {# Footer main - Contact us, follow us, our address & accessibility #}
   <div {{ bem('main', [], footer_base_class) }}>
