@@ -9,12 +9,12 @@
     }
   },
   {
-    "text": "Cymraeg",
+    "text": "Italian",
     "url": "#",
-    "icon": "flag-cy",
+    "icon": "flag-it",
     "class": "",
     "attributes": {
-      "hreflang": "cy"
+      "hreflang": "it"
     }
   }
 ]

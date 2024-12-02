@@ -24,8 +24,8 @@
       background-repeat: no-repeat;
     }
 
-    &[hreflang*="cy"]::before {
-      background-image: url(#{$images}/icons/flag-cy.svg);
+    &[hreflang*="it"]::before {
+      background-image: url(#{$images}/icons/flag-it.svg);
     }
 
     &[hreflang*="en"]::before {

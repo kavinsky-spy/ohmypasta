@@ -23,9 +23,9 @@
   <div {{ bem('image', [], image_with_caption_base_class) }}>
     {% block image_with_caption_image_block %}
       {% include "@atoms/image/image.twig" with {
-        mobile_size: '480x320',
-        tablet_size: '780x364',
-        desktop_size: '1920x896',
+        mobile_size: '480/320',
+        tablet_size: '780/364',
+        desktop_size: '1920/896',
       } %}
     {% endblock %}
   </div>
