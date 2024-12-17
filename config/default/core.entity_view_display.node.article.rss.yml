@@ -7,7 +7,10 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+<<<<<<< HEAD
     - field.field.node.article.field_paragraphs
+=======
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
     - field.field.node.article.field_tags
     - node.type.article
   module:
@@ -26,5 +29,8 @@ hidden:
   body: true
   comment: true
   field_image: true
+<<<<<<< HEAD
   field_paragraphs: true
+=======
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
   field_tags: true

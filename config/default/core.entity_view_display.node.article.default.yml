@@ -7,13 +7,19 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+<<<<<<< HEAD
     - field.field.node.article.field_paragraphs
+=======
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
     - field.field.node.article.field_tags
     - image.style.wide
     - node.type.article
   module:
     - comment
+<<<<<<< HEAD
     - entity_reference_revisions
+=======
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
     - image
     - text
     - user
@@ -44,13 +50,19 @@ content:
     type: image
     label: hidden
     settings:
+<<<<<<< HEAD
       image_link: ''
       image_style: wide
+=======
+      image_style: wide
+      image_link: ''
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
       image_loading:
         attribute: lazy
     third_party_settings: {  }
     weight: -1
     region: content
+<<<<<<< HEAD
   field_paragraphs:
     type: entity_reference_revisions_entity_view
     label: hidden
@@ -60,6 +72,8 @@ content:
     third_party_settings: {  }
     weight: 111
     region: content
+=======
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
   field_tags:
     type: entity_reference_label
     label: above

@@ -7,7 +7,10 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+<<<<<<< HEAD
     - field.field.node.article.field_paragraphs
+=======
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
     - field.field.node.article.field_tags
     - image.style.medium
     - node.type.article
@@ -34,8 +37,13 @@ content:
     type: image
     label: hidden
     settings:
+<<<<<<< HEAD
       image_link: content
       image_style: medium
+=======
+      image_style: medium
+      image_link: content
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
       image_loading:
         attribute: lazy
     third_party_settings: {  }
@@ -55,5 +63,8 @@ content:
 hidden:
   comment: true
   field_image: true
+<<<<<<< HEAD
   field_paragraphs: true
+=======
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
   field_tags: true

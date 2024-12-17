@@ -6,14 +6,20 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+<<<<<<< HEAD
     - field.field.node.article.field_paragraphs
+=======
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
     - field.field.node.article.field_tags
     - image.style.thumbnail
     - node.type.article
   module:
     - comment
     - image
+<<<<<<< HEAD
     - paragraphs
+=======
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
     - path
     - text
 _core:
@@ -53,6 +59,7 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
+<<<<<<< HEAD
   field_paragraphs:
     type: paragraphs
     weight: 121
@@ -71,6 +78,8 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
+=======
+>>>>>>> a2ab0c4c (OMP-13: export config and add settings)
   field_tags:
     type: entity_reference_autocomplete_tags
     weight: 3
