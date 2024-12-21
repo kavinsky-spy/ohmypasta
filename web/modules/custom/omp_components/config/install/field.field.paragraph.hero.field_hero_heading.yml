@@ -1,0 +1,21 @@
+uuid: a093d587-b476-45f8-bb37-2ab5203d1ecf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_heading
+    - paragraphs.paragraphs_type.hero
+  module:
+    - text
+id: paragraph.hero.field_hero_heading
+field_name: field_hero_heading
+entity_type: paragraph
+bundle: hero
+label: 'Hero Heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text
