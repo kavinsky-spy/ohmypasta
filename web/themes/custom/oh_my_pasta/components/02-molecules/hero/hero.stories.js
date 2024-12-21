@@ -14,6 +14,18 @@ export default {
         type: { summary: 'string' },
       },
     },
+    hero_search_enable: {
+      description: 'Hero Search Eanbled or not',
+      table: {
+        type: { summary: 'boolean' },
+      },
+    },
+    hero_background_type: {
+      description: 'Background Show or not',
+      table: {
+        type: { summary: 'boolean' },
+      },
+    },
   },
 };
 
@@ -21,5 +33,7 @@ export const hero = {
   render: Template,
   args: {
     hero_heading: 'Discover flavours never tasted before.',
+    hero_background_type: true,
+    hero_search_enable: true,
   },
 };
