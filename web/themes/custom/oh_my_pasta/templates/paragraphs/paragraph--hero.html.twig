@@ -1,0 +1,10 @@
+
+{% embed '@molecules/hero/hero.twig' with {
+  hero_heading: content.field_hero_heading.0,
+  hero_background_type: content.field_hero_background_type.0['#markup'],
+  hero_search_enable: content.field_hero_search,
+} %}
+  {% block hero_image_block %}
+    {{ content.field_hero_image.0 }}
+  {% endblock %}
+{% endembed %}
