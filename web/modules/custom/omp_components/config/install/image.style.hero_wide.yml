@@ -1,0 +1,15 @@
+uuid: bebb4bc7-1f0f-4bed-bee2-153b361101f5
+langcode: en
+status: true
+dependencies: {  }
+name: hero_wide
+label: 'Hero Wide'
+effects:
+  f418d1ec-34fd-4a32-b09b-bccf565fd2a8:
+    uuid: f418d1ec-34fd-4a32-b09b-bccf565fd2a8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1440
+      height: 640
+      anchor: center-center
