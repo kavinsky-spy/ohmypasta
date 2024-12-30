@@ -1,15 +1,17 @@
-uuid: e0821b21-ceda-400c-9e5c-d369a8d50174
+uuid: 3bd8c1cd-c514-4bf5-9805-2e5dedc853eb
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_background_image
+    - field.storage.paragraph.field_hero_search
     - paragraphs.paragraphs_type.hero
-id: paragraph.hero.field_background_image
-field_name: field_background_image
+_core:
+  default_config_hash: W7aFRPdubMVH8Q0WFdIh7v1Ug9oEClvQiQ14Wrz3T-Y
+id: paragraph.hero.field_hero_search
+field_name: field_hero_search
 entity_type: paragraph
 bundle: hero
-label: 'Background image'
+label: 'Hero Search'
 description: ''
 required: false
 translatable: false

@@ -1,11 +1,13 @@
-uuid: a93edf1a-c011-4e83-8e18-a93562f103fe
+uuid: 89eae1c4-439b-4c87-bcaf-b9cae96c48ff
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-id: paragraph.field_background_image
-field_name: field_background_image
+_core:
+  default_config_hash: AvkWASOiQdlXSl0uDxntTn-oX-jJmXopHlYW7ElqPco
+id: paragraph.field_hero_background_type
+field_name: field_hero_background_type
 entity_type: paragraph
 type: boolean
 settings: {  }

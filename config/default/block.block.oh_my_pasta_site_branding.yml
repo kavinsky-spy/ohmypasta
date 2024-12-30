@@ -1,0 +1,25 @@
+uuid: af660587-5cfa-472e-b175-3c35a8033a09
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - oh_my_pasta
+_core:
+  default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
+id: oh_my_pasta_site_branding
+theme: oh_my_pasta
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

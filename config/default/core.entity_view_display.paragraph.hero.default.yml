@@ -3,29 +3,33 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.hero.field_background_image
-    - field.field.paragraph.hero.field_heading
+    - field.field.paragraph.hero.field_hero_background_type
+    - field.field.paragraph.hero.field_hero_heading
     - field.field.paragraph.hero.field_hero_image
+    - field.field.paragraph.hero.field_hero_search
     - paragraphs.paragraphs_type.hero
+    - responsive_image.styles.hero_responsive
   module:
-    - image
+    - responsive_image
     - text
+_core:
+  default_config_hash: 34rb_XwZwSAEADJJQaVl2LIHmnRnMb8pcHmo0S-i8Fc
 id: paragraph.hero.default
 targetEntityType: paragraph
 bundle: hero
 mode: default
 content:
-  field_background_image:
+  field_hero_background_type:
     type: boolean
     label: hidden
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      format: true-false
+      format_custom_false: 'FALSE'
+      format_custom_true: 'TRUE'
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
-  field_heading:
+  field_hero_heading:
     type: text_default
     label: hidden
     settings: {  }
@@ -33,14 +37,24 @@ content:
     weight: 0
     region: content
   field_hero_image:
-    type: image
+    type: responsive_image
     label: hidden
     settings:
+      responsive_image_style: hero_responsive
       image_link: ''
-      image_style: ''
       image_loading:
-        attribute: lazy
+        attribute: eager
     third_party_settings: {  }
-    weight: 2
+    weight: 1
+    region: content
+  field_hero_search:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden: {  }

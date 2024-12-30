@@ -1,0 +1,20 @@
+uuid: 450f47e1-a38b-4a77-b908-d002295bedef
+langcode: en
+status: true
+dependencies:
+  theme:
+    - oh_my_pasta
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: oh_my_pasta_page_title
+theme: oh_my_pasta
+region: banner
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

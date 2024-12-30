@@ -3,27 +3,30 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.hero.field_background_image
-    - field.field.paragraph.hero.field_heading
+    - field.field.paragraph.hero.field_hero_background_type
+    - field.field.paragraph.hero.field_hero_heading
     - field.field.paragraph.hero.field_hero_image
+    - field.field.paragraph.hero.field_hero_search
     - image.style.thumbnail
     - paragraphs.paragraphs_type.hero
   module:
     - image
     - text
+_core:
+  default_config_hash: F0dAMuy_9QA8pfnlnxWPojVcj3a90Krbdddy7M_Zx1A
 id: paragraph.hero.default
 targetEntityType: paragraph
 bundle: hero
 mode: default
 content:
-  field_background_image:
+  field_hero_background_type:
     type: boolean_checkbox
-    weight: 1
+    weight: 2
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
-  field_heading:
+  field_hero_heading:
     type: text_textfield
     weight: 0
     region: content
@@ -33,11 +36,18 @@ content:
     third_party_settings: {  }
   field_hero_image:
     type: image_image
-    weight: 2
+    weight: 1
     region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_hero_search:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
 hidden:
   created: true

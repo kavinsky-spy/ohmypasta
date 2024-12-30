@@ -1,11 +1,13 @@
-uuid: 44af326e-2d65-4d09-82ff-f8c05f1f3930
+uuid: 23c6bde4-027f-484a-ac2d-5be1fd1bca3e
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_paragraphs
     - node.type.page
   module:
+    - entity_reference_revisions
     - text
     - user
 _core:
@@ -21,6 +23,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
     region: content
   links:
     weight: 101

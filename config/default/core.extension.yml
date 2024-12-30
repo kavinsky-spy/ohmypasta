@@ -1,6 +1,7 @@
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
+  admin_toolbar: 0
   automated_cron: 0
   big_pipe: 0
   block: 0
@@ -8,6 +9,7 @@ module:
   breakpoint: 0
   ckeditor5: 0
   comment: 0
+  components: 0
   config: 0
   contact: 0
   contextual: 0
@@ -15,6 +17,7 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  emulsify_tools: 0
   entity_reference_revisions: 0
   field: 0
   field_ui: 0
@@ -28,10 +31,13 @@ module:
   menu_ui: 0
   mysql: 0
   node: 0
+  omp_components: 0
   options: 0
   page_cache: 0
   path: 0
   path_alias: 0
+  phpass: 0
+  responsive_image: 0
   search: 0
   shortcut: 0
   system: 0
@@ -39,6 +45,7 @@ module:
   text: 0
   toolbar: 0
   tour: 0
+  twig_tweak: 0
   update: 0
   user: 0
   views_ui: 0
@@ -48,4 +55,6 @@ module:
 theme:
   olivero: 0
   claro: 0
+  stable9: 0
+  oh_my_pasta: 0
 profile: standard

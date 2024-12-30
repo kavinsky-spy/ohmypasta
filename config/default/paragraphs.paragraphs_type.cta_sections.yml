@@ -4,6 +4,8 @@ status: true
 dependencies:
   content:
     - 'file:file:06447ab4-bd16-4d15-aef9-290a6e24f85d'
+_core:
+  default_config_hash: eQ0qlP3Ezg4dvLkX23IlhZH_G9QtVzxas26ZItlW9oU
 id: cta_sections
 label: 'CTA Sections'
 icon_uuid: 06447ab4-bd16-4d15-aef9-290a6e24f85d

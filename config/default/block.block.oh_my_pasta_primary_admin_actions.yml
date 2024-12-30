@@ -1,0 +1,20 @@
+uuid: 819ec884-1a0e-41c5-9842-3c0b76d0bb79
+langcode: en
+status: true
+dependencies:
+  theme:
+    - oh_my_pasta
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: oh_my_pasta_primary_admin_actions
+theme: oh_my_pasta
+region: banner
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

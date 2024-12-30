@@ -1,4 +1,4 @@
-uuid: 3494f5e3-8031-4a0f-9add-535754c7677f
+uuid: 2ae6a458-aab2-4b21-a4a2-ef02f5d11bb2
 langcode: en
 status: true
 dependencies:
@@ -7,13 +7,11 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
-    - field.field.node.article.field_paragraphs
     - field.field.node.article.field_tags
     - image.style.wide
     - node.type.article
   module:
     - comment
-    - entity_reference_revisions
     - image
     - text
     - user
@@ -44,21 +42,12 @@ content:
     type: image
     label: hidden
     settings:
-      image_link: ''
       image_style: wide
+      image_link: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }
     weight: -1
-    region: content
-  field_paragraphs:
-    type: entity_reference_revisions_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 111
     region: content
   field_tags:
     type: entity_reference_label

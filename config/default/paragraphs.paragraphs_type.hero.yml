@@ -4,6 +4,8 @@ status: true
 dependencies:
   content:
     - 'file:file:a7295138-6f63-4b0c-b599-a6409babb0c1'
+_core:
+  default_config_hash: CiQfYP5lQOWyOhdGCCcHLTDRWal9KI-RAloUe7tkJFE
 id: hero
 label: Hero
 icon_uuid: a7295138-6f63-4b0c-b599-a6409babb0c1

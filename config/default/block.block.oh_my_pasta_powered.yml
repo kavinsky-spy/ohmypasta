@@ -1,0 +1,22 @@
+uuid: 67ccd2ed-95da-499d-8c6c-22ec44241959
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - oh_my_pasta
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: oh_my_pasta_powered
+theme: oh_my_pasta
+region: disabled
+weight: -5
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

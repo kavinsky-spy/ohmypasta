@@ -1,17 +1,19 @@
-uuid: 942a6b8f-8f81-4e02-8385-19e5f0617abb
+uuid: a093d587-b476-45f8-bb37-2ab5203d1ecf
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_heading
+    - field.storage.paragraph.field_hero_heading
     - paragraphs.paragraphs_type.hero
   module:
     - text
-id: paragraph.hero.field_heading
-field_name: field_heading
+_core:
+  default_config_hash: AWiam_SbkG7T_b-5JZdEmhS-GxFXWVGAKR7a_LGT6Uk
+id: paragraph.hero.field_hero_heading
+field_name: field_hero_heading
 entity_type: paragraph
 bundle: hero
-label: Heading
+label: 'Hero Heading'
 description: ''
 required: false
 translatable: false

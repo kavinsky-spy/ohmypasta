@@ -1,16 +1,17 @@
-uuid: 1b8b1161-34e4-4f0b-8e89-cfb18ad2bcab
+uuid: 2d5ab4e7-0d09-473b-8547-b04c6471df89
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-    - text
-id: paragraph.field_section_text
-field_name: field_section_text
+_core:
+  default_config_hash: BrY1p3bEDdclxLwWw53UyMB8K27LfEziy37y8tZ04ZI
+id: paragraph.field_hero_search
+field_name: field_hero_search
 entity_type: paragraph
-type: text_long
+type: boolean
 settings: {  }
-module: text
+module: core
 locked: false
 cardinality: 1
 translatable: true

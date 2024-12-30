@@ -1,0 +1,23 @@
+uuid: 5b73495c-e655-40ea-946e-5684d6bb9b68
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  theme:
+    - oh_my_pasta
+_core:
+  default_config_hash: 0gq3VPg-_UM69FCCWurLFIrrnIjC2HLKhwo9iQNtcUo
+id: oh_my_pasta_syndicate
+theme: oh_my_pasta
+region: disabled
+weight: -4
+provider: null
+plugin: node_syndicate_block
+settings:
+  id: node_syndicate_block
+  label: 'RSS feed'
+  label_display: '0'
+  provider: node
+  block_count: 10
+visibility: {  }

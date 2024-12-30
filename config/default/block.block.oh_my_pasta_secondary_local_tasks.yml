@@ -1,0 +1,22 @@
+uuid: 055526bc-46fa-4767-80b9-df05c4a96f00
+langcode: en
+status: true
+dependencies:
+  theme:
+    - oh_my_pasta
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: oh_my_pasta_secondary_local_tasks
+theme: oh_my_pasta
+region: banner
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

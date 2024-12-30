@@ -1,4 +1,4 @@
-uuid: 5199822f-f81e-4cb9-9d02-dcfb7beaa7af
+uuid: 92467030-81fe-4a94-ae18-da9e917569ea
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.hero
   module:
     - image
+_core:
+  default_config_hash: mwvgp_E9160m7dL5LO_2YmhmQ6Hku2biNLLPxL7Cj7g
 id: paragraph.hero.field_hero_image
 field_name: field_hero_image
 entity_type: paragraph
