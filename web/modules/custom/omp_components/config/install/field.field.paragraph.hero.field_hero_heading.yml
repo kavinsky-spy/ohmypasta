@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.hero
   module:
     - text
+_core:
+  default_config_hash: AWiam_SbkG7T_b-5JZdEmhS-GxFXWVGAKR7a_LGT6Uk
 id: paragraph.hero.field_hero_heading
 field_name: field_hero_heading
 entity_type: paragraph

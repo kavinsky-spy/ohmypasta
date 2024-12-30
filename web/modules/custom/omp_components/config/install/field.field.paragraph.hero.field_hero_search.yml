@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.paragraph.field_hero_search
     - paragraphs.paragraphs_type.hero
+_core:
+  default_config_hash: W7aFRPdubMVH8Q0WFdIh7v1Ug9oEClvQiQ14Wrz3T-Y
 id: paragraph.hero.field_hero_search
 field_name: field_hero_search
 entity_type: paragraph
