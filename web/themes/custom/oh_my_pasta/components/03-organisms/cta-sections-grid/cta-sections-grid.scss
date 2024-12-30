@@ -1,12 +1,23 @@
 .cta-sections-grid {
   padding-bottom: 2rem;
 
+  &--wrapper {
+    background-color: rgb(254, 241, 238);
+  }
+
+  .heading--cta-sections-grid {
+    text-align: center;
+    color: var(--dark-grey);
+    max-width: 500px;
+    margin: auto;
+    padding-top: var(--padding-xl);
+  }
+
   .cta-sections-grid__scrollable-group {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
     width: 100%;
-    background-color: rgb(254, 241, 238);
 
     .cta-section--cta-sections-grid {
       display: flex;
