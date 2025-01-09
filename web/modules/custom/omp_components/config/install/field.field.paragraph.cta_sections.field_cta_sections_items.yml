@@ -1,17 +1,18 @@
-uuid: a21251d8-7149-4e00-8205-b6a4bac21012
+uuid: ea8e334a-b0b2-4453-a854-5787765233d6
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_paragraphs
-    - node.type.page
+    - field.storage.paragraph.field_cta_sections_items
+    - paragraphs.paragraphs_type.cta_section
+    - paragraphs.paragraphs_type.cta_sections
   module:
     - entity_reference_revisions
-id: node.page.field_paragraphs
-field_name: field_paragraphs
-entity_type: node
-bundle: page
-label: Paragraphs
+id: paragraph.cta_sections.field_cta_sections_items
+field_name: field_cta_sections_items
+entity_type: paragraph
+bundle: cta_sections
+label: 'CTA Sections Items'
 description: ''
 required: false
 translatable: false
@@ -20,12 +21,13 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    target_bundles: null
+    target_bundles:
+      cta_section: cta_section
     negate: 0
     target_bundles_drag_drop:
       cta_section:
         weight: 4
-        enabled: false
+        enabled: true
       cta_sections:
         weight: 5
         enabled: false
