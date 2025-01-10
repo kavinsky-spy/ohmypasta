@@ -8,7 +8,11 @@ dependencies:
   module:
     - text
 _core:
+<<<<<<< HEAD
   default_config_hash: AWiam_SbkG7T_b-5JZdEmhS-GxFXWVGAKR7a_LGT6Uk
+=======
+  default_config_hash: lvhQdpNk7X6O3f-8QK4jqQkawcdIggDFLHgD13AP4jA
+>>>>>>> 57a32f38 (OMP-13: fix hero field)
 id: paragraph.hero.field_hero_heading
 field_name: field_hero_heading
 entity_type: paragraph
@@ -19,5 +23,10 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
+<<<<<<< HEAD
 settings: {  }
+=======
+settings:
+  allowed_formats: {  }
+>>>>>>> 57a32f38 (OMP-13: fix hero field)
 field_type: text

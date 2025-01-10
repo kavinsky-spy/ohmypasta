@@ -6,7 +6,11 @@ dependencies:
     - field.storage.paragraph.field_hero_background_type
     - paragraphs.paragraphs_type.hero
 _core:
+<<<<<<< HEAD
   default_config_hash: iep3NxPVA-v1jap07ugoJa5yzxhgSvauohaAZRyP91U
+=======
+  default_config_hash: pMzWtq-h017gFkLHGrDWILSPNhjNPxE_RZd2yT-CrvM
+>>>>>>> 57a32f38 (OMP-13: fix hero field)
 id: paragraph.hero.field_hero_background_type
 field_name: field_hero_background_type
 entity_type: paragraph
