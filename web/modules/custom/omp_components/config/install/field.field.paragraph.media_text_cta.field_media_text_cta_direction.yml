@@ -1,0 +1,21 @@
+uuid: 5bc8cfaf-6f51-436c-8b7c-c72723d0fc9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_text_cta_direction
+    - paragraphs.paragraphs_type.media_text_cta
+id: paragraph.media_text_cta.field_media_text_cta_direction
+field_name: field_media_text_cta_direction
+entity_type: paragraph
+bundle: media_text_cta
+label: 'Media Text CTA Direction'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Left
+  off_label: Right
+field_type: boolean

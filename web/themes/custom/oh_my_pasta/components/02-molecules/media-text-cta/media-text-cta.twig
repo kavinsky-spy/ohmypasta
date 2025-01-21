@@ -1,17 +1,16 @@
 {{ attach_library('oh_my_pasta/media-text-cta') }}
 
-{% set media_text_cta_side = media_text_cta_side|default(true) %}
+{{ dump(media_text_cta_side) }}
 
-{% if media_text_cta_side %}
-	<div class="media-text-cta media-text-cta__left">
-	{% else %}
-	<div class="media-text-cta">
-{% endif %}
+
+{% set media_text_cta_side = media_text_cta_side|default('right') %}
+
+<div class="media-text-cta media-text-cta__{{ media_text_cta_side }}">
 		<div class="media-text-cta__text">
 			{% include "@atoms/heading/heading.twig" with {
-                heading: media_text_cta_title,
-                heading_level: 2,
-            } %}
+          heading: media_text_cta_title,
+          heading_level: 2,
+      } %}
 
   		<span class="media-text-cta__subtitle">
 				{{ media_text_cta_subtitle }}
@@ -30,9 +29,10 @@
 
 
 		</div>
+	{% block media_text_cta_image %}
 		<div class="media-text-cta__image">
 			<img src="{{ media_text_cta_image }}"/>
 		</div>
-
+	{% endblock %}
 
 	</div>
