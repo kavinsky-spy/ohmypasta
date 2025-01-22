@@ -16,6 +16,12 @@
     .icon {
       margin-left: var(--space);
     }
+
+    &:first-child {
+      width: 220px;
+      justify-content: center;
+      padding-left: 24px;
+    }
   }
 
   .menu__link {
@@ -89,6 +95,7 @@
   .menu--main {
     flex-direction: row;
     gap: var(--padding-medium);
+    padding-top: 24px;
 
     & > .menu__item:not(:last-child) {
       margin: 0;
