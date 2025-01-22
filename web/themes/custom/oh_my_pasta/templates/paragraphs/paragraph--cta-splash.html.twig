@@ -1,0 +1,9 @@
+{% embed "@molecules/cta-splash/cta-splash.twig" with {
+    cta_splash_title: content.field_title.0,
+    cta_splash_subtitle: content.field_subtitle.0,
+    cta_splash_description: content.field_description.0,
+    cta_splash_cta: content.field_cta_link.0['#title'],
+    cta_splash_url: content.field_cta_link.0['#url']|render,
+    cta_splash_image: content.field_image.0['#media']|file_url,
+} %}
+{% endembed %}
