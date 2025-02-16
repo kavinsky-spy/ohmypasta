@@ -57,6 +57,14 @@ export default {
         },
       },
     },
+    card_cta: {
+      description: 'Call to action button',
+      table: {
+        type: {
+          summary: 'Array',
+        },
+      },
+    },
   },
 };
 const Template = (args) => (
@@ -70,14 +78,16 @@ export const Card = {
   render: Template,
   args: {
     card_image: true,
-    card_image_mobile: '600x400',
-    card_image_tablet: '600x400',
-    card_image_desktop: '600x400',
-    card_heading: 'Newport City Dogs Home wins two RSPCA gold awards',
+    card_image_mobile: '600/400',
+    card_image_tablet: '600/400',
+    card_image_desktop: '600/400',
+    card_heading: 'Focaccia',
     card_text:
-      'Newport City Dogs Home has won gold in two categories at the 2023 RSPCA Cymru PawPrint Awards for their work with stray dogs.',
+      'Focaccia originated in Liguria, Italy. This food, which can be eaten at every meal with its bread-like structure, has spread rapidly all over the world.',
     card_link: '#',
     card_date: '19 September 2023',
     card_tags: [],
+    card_cta_url: '#',
+    card_cta_title: 'Read more',
   },
 };

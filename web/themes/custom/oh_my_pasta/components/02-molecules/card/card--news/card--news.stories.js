@@ -76,9 +76,9 @@ export const NewsCard = {
   args: {
     card_modifiers: ['news'],
     card_image: true,
-    card_image_mobile: '250x300',
-    card_image_tablet: '300x300',
-    card_image_desktop: '300x300',
+    card_image_mobile: '250/300',
+    card_image_tablet: '300/300',
+    card_image_desktop: '300/300',
     card_heading: 'Headline 1',
     card_text:
       'Lorem ipsum dolor sit amet consectetur. Duis pharetra scelerisque ultricies eget est. Vitae neque pretium etiam tristique. Habitant pretium id nibh placerat pretium nulla sed elementum.',
