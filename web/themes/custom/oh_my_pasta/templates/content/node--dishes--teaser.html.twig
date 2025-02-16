@@ -1,0 +1,17 @@
+
+{% embed "@molecules/card/card.twig" with {
+    card_image: content.field_image,
+    card_heading: label,
+    card_text: content.field_caption.0,
+    card_cta: content.field_cta.0,
+    card_cta_url: content.field_cta.0['#url'],
+} %}
+    {% block card_image_block %}
+     {{ content.field_image }}
+    {% endblock %}
+    {% block card_cta_block %}
+      <div {{ bem('cta', card_modifiers, card_base_class, card_blockname, card_extra_classes) }}>
+        <a href="{{ content.field_cta.0['#url'] }}" class="button">{{ content.field_cta.0['#title'] }}</a>
+      </div>
+    {% endblock %}
+{% endembed %}
