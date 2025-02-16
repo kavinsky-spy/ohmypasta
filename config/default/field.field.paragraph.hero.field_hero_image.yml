@@ -8,7 +8,7 @@ dependencies:
   module:
     - image
 _core:
-  default_config_hash: mwvgp_E9160m7dL5LO_2YmhmQ6Hku2biNLLPxL7Cj7g
+  default_config_hash: oZNMBoPCtlWcPhtR4Mw0j1ugva6r3qQYbwum_UCo5ZQ
 id: paragraph.hero.field_hero_image
 field_name: field_hero_image
 entity_type: paragraph

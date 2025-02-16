@@ -2,6 +2,8 @@ uuid: 743d923a-ec62-47b4-9b1b-fe859c5bafe4
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: 3F5_gXSZJasIbQ-JjiNLShl4D_gBU0obHy_fhVQgicU
 name: hero_small
 label: 'Hero Small'
 effects:

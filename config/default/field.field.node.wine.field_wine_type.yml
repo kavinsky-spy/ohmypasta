@@ -1,0 +1,21 @@
+uuid: 477882a0-dbbb-4d37-b2d1-57140adb2734
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wine_type
+    - node.type.wine
+  module:
+    - options
+id: node.wine.field_wine_type
+field_name: field_wine_type
+entity_type: node
+bundle: wine
+label: 'Wine Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

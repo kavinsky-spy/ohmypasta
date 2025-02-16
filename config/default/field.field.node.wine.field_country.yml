@@ -1,0 +1,21 @@
+uuid: a5e28657-a4af-42b4-bd64-83c6e7d47302
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_country
+    - node.type.wine
+  module:
+    - options
+id: node.wine.field_country
+field_name: field_country
+entity_type: node
+bundle: wine
+label: Country
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

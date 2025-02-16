@@ -1,0 +1,65 @@
+uuid: 0fdfbb0a-08e4-46d9-ac9f-7d51c646b098
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.cta_splash.field_cta_link
+    - field.field.paragraph.cta_splash.field_description
+    - field.field.paragraph.cta_splash.field_image
+    - field.field.paragraph.cta_splash.field_subtitle
+    - field.field.paragraph.cta_splash.field_title
+    - paragraphs.paragraphs_type.cta_splash
+  module:
+    - link
+    - text
+id: paragraph.cta_splash.preview
+targetEntityType: paragraph
+bundle: cta_splash
+mode: preview
+content:
+  field_cta_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_subtitle:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

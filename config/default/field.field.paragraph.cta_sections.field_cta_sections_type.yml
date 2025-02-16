@@ -1,0 +1,21 @@
+uuid: 5a05d3a4-ab72-4142-b083-a7a19db8d8ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cta_sections_type
+    - paragraphs.paragraphs_type.cta_sections
+id: paragraph.cta_sections.field_cta_sections_type
+field_name: field_cta_sections_type
+entity_type: paragraph
+bundle: cta_sections
+label: 'CTA Sections Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Grid
+  off_label: Default
+field_type: boolean

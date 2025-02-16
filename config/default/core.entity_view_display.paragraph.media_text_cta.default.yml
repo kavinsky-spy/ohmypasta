@@ -1,0 +1,78 @@
+uuid: 07d830f6-2baa-4ba1-8457-a146958027bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.media_text_cta.field_media_text_cta_description
+    - field.field.paragraph.media_text_cta.field_media_text_cta_direction
+    - field.field.paragraph.media_text_cta.field_media_text_cta_image
+    - field.field.paragraph.media_text_cta.field_media_text_cta_link
+    - field.field.paragraph.media_text_cta.field_media_text_cta_subtitle
+    - field.field.paragraph.media_text_cta.field_media_text_cta_title
+    - image.style.max_650x650
+    - paragraphs.paragraphs_type.media_text_cta
+  module:
+    - image
+    - link
+id: paragraph.media_text_cta.default
+targetEntityType: paragraph
+bundle: media_text_cta
+mode: default
+content:
+  field_media_text_cta_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_media_text_cta_direction:
+    type: boolean
+    label: hidden
+    settings:
+      format: custom
+      format_custom_false: Right
+      format_custom_true: Left
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_media_text_cta_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: max_650x650
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_media_text_cta_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_media_text_cta_subtitle:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_media_text_cta_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

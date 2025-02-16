@@ -1,0 +1,30 @@
+uuid: cf41c10c-0a4c-46b4-989d-a0f2e6746690
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_wine_type
+field_name: field_wine_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: white
+      label: White
+    -
+      value: red
+      label: Red
+    -
+      value: rose
+      label: Rosé
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

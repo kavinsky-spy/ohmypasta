@@ -8,6 +8,8 @@ dependencies:
     - image.style.hero_wide
   theme:
     - oh_my_pasta
+_core:
+  default_config_hash: L1TKNlLMVomr_2-EEkYkfuKh-68sErz4uQOYZJE8Vyo
 id: hero_responsive
 label: 'Hero Responsive'
 image_style_mappings:

@@ -8,9 +8,8 @@ dependencies:
     - field.field.paragraph.hero.field_hero_image
     - field.field.paragraph.hero.field_hero_search
     - paragraphs.paragraphs_type.hero
-    - responsive_image.styles.hero_responsive
   module:
-    - responsive_image
+    - image
     - text
 _core:
   default_config_hash: 34rb_XwZwSAEADJJQaVl2LIHmnRnMb8pcHmo0S-i8Fc
@@ -21,37 +20,37 @@ mode: default
 content:
   field_hero_background_type:
     type: boolean
-    label: hidden
+    label: above
     settings:
       format: true-false
-      format_custom_false: 'FALSE'
-      format_custom_true: 'TRUE'
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     weight: 2
     region: content
   field_hero_heading:
     type: text_default
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
   field_hero_image:
-    type: responsive_image
-    label: hidden
+    type: image
+    label: above
     settings:
-      responsive_image_style: hero_responsive
       image_link: ''
+      image_style: ''
       image_loading:
-        attribute: eager
+        attribute: lazy
     third_party_settings: {  }
     weight: 1
     region: content
   field_hero_search:
     type: boolean
-    label: hidden
+    label: above
     settings:
-      format: default
+      format: true-false
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }

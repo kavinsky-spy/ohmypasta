@@ -2,6 +2,8 @@ uuid: bebb4bc7-1f0f-4bed-bee2-153b361101f5
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: 12qRhKQQJIydMa0lkL_UWNSH2LVfIfcPmNaPZsnue2U
 name: hero_wide
 label: 'Hero Wide'
 effects:

@@ -1,0 +1,19 @@
+uuid: 92571214-28c2-4074-bdf3-4c7d2a2b39c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_caption
+    - node.type.dishes
+id: node.dishes.field_caption
+field_name: field_caption
+entity_type: node
+bundle: dishes
+label: Caption
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

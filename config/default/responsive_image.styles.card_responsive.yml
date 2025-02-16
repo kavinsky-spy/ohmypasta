@@ -1,0 +1,19 @@
+uuid: deb2db74-7118-45b6-a96f-092b4b912404
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.card_medium
+    - image.style.card_small
+  theme:
+    - oh_my_pasta
+id: card_responsive
+label: 'Card Responsive'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: card_medium
+    breakpoint_id: oh_my_pasta.sm_lg
+    multiplier: 1x
+breakpoint_group: oh_my_pasta
+fallback_image_style: card_small

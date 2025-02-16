@@ -1,0 +1,23 @@
+uuid: e9d9e34a-327d-4273-a165-57d964392101
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_alcohol_content
+    - node.type.wine
+id: node.wine.field_alcohol_content
+field_name: field_alcohol_content
+entity_type: node
+bundle: wine
+label: 'Alcohol Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 5.5
+  max: 25.0
+  prefix: ''
+  suffix: '%'
+field_type: float

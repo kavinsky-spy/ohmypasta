@@ -1,0 +1,61 @@
+uuid: 9af3c7ec-a81a-47fc-b991-f018cb2930d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.hero.field_hero_background_type
+    - field.field.paragraph.hero.field_hero_heading
+    - field.field.paragraph.hero.field_hero_image
+    - field.field.paragraph.hero.field_hero_search
+    - paragraphs.paragraphs_type.hero
+  module:
+    - image
+    - text
+_core:
+  default_config_hash: 34rb_XwZwSAEADJJQaVl2LIHmnRnMb8pcHmo0S-i8Fc
+id: paragraph.hero.preview
+targetEntityType: paragraph
+bundle: hero
+mode: preview
+content:
+  field_hero_background_type:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_hero_heading:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_hero_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_hero_search:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

@@ -20,11 +20,10 @@ bundle: hero
 mode: default
 content:
   field_hero_background_type:
-    type: boolean_checkbox
+    type: options_buttons
     weight: 2
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   field_hero_heading:
     type: text_textfield
@@ -43,11 +42,10 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
   field_hero_search:
-    type: boolean_checkbox
+    type: options_buttons
     weight: 3
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
 hidden:
   created: true
