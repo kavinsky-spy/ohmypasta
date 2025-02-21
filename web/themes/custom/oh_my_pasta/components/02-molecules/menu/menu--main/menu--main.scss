@@ -18,9 +18,22 @@
     }
 
     &:first-child {
-      width: 220px;
+      // width: 220px;
       justify-content: center;
       padding-left: 24px;
+
+      ::before {
+        content: '';
+        background-image: url('../images/logo.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: block;
+        position: absolute;
+        left: 30px;
+        top: 0;
+        width: 8rem;
+        height: 8rem;
+      }
     }
   }
 
@@ -34,7 +47,7 @@
       text-decoration: none;
 
       &:hover,
-      &[aria-expanded="true"] {
+      &[aria-expanded='true'] {
         color: var(--secondary-green);
         text-decoration: underline;
       }
@@ -85,8 +98,13 @@
 
     /* Adds higher padding to compensate for dvh not working and vh hiding the last links */
     @supports not (height: 100dvh) {
-      padding: var(--padding-large) var(--padding-medium) 12.8rem var(--padding-medium);
+      padding: var(--padding-large) var(--padding-medium) 12.8rem
+        var(--padding-medium);
     }
+  }
+
+  & > #search-block-form {
+    display: none;
   }
 }
 
@@ -96,6 +114,7 @@
     flex-direction: row;
     gap: var(--padding-medium);
     padding-top: 24px;
+    min-height: 7.8rem;
 
     & > .menu__item:not(:last-child) {
       margin: 0;
@@ -159,5 +178,32 @@
     top: 0;
     right: 0;
     left: 0;
+  }
+}
+
+.search-block-form {
+  position: relative;
+  display: flex;
+
+  .form-item {
+    margin-top: 1rem;
+
+    #edit-search-block-form--2 {
+      width: 300px;
+    }
+  }
+
+  .form-actions {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  @include medium {
+    left: 10%;
+  }
+
+  @include large {
+    left: 22%;
+    padding-top: 2rem;
   }
 }

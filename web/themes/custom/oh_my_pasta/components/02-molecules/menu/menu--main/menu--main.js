@@ -14,6 +14,29 @@ Drupal.behaviors.mainMenu = {
 
     let tabContext;
     const menuExpanders = menu.querySelectorAll('.js-menu-sub-expand');
+    const searchItem = Array.from(menu.querySelectorAll('a')).filter(
+      (item) =>
+        item.textContent.trim() === 'Search' ||
+        item.getAttribute('href') === '/search',
+    );
+
+    const homeItem = Array.from(menu.querySelectorAll('a')).filter(
+      (item) =>
+      item.textContent.trim() === 'Home' || item.getAttribute('href') === '/',
+    );
+
+    homeItem.forEach((item) => {
+      item.parentElement.classList.add('home-menu-item');
+    });
+
+    searchItem.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const searchForm = document.querySelector('.search-block-form');
+        searchForm.classList.toggle('visually-hidden');
+        searchForm.querySelector('input').focus();
+      });
+    });
 
     // Add the required functionality to all submenus.
     if (menuExpanders.length > 0) {

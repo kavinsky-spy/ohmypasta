@@ -1,0 +1,9 @@
+uuid: dbbf9a97-06dc-4f24-a123-6d69b01ae188
+langcode: en
+status: true
+dependencies: {  }
+name: 'Taste profile'
+vid: taste_profile
+description: 'Savory, Creamy, whatever you like'
+weight: 0
+new_revision: false

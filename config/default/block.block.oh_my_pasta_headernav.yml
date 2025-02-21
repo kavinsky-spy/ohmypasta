@@ -1,0 +1,25 @@
+uuid: 4b5eeead-f78a-4681-89c5-2e67bd850395
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.header-nav
+  module:
+    - system
+  theme:
+    - oh_my_pasta
+id: oh_my_pasta_headernav
+theme: oh_my_pasta
+region: banner
+weight: 0
+provider: null
+plugin: 'system_menu_block:header-nav'
+settings:
+  id: 'system_menu_block:header-nav'
+  label: 'Header Nav'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }
