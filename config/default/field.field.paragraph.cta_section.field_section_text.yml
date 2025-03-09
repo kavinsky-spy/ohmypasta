@@ -1,0 +1,21 @@
+uuid: 3667116d-7616-490a-bc9f-7c13c3870017
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_text
+    - paragraphs.paragraphs_type.cta_section
+  module:
+    - text
+id: paragraph.cta_section.field_section_text
+field_name: field_section_text
+entity_type: paragraph
+bundle: cta_section
+label: 'Section Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
