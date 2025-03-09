@@ -5,9 +5,9 @@
   flex-flow: row;
   justify-content: center;
   padding: 16px;
+  gap: 20px;
 
   &__image {
-
     @media (min-width: 1114px) {
       display: flex;
       justify-content: center;

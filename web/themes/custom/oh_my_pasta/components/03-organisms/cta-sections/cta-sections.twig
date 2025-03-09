@@ -1,15 +1,16 @@
+{{ attach_library('oh_my_pasta/cta-sections') }}
+{% set cta_sections_modifier_class = cta_sections_modifier_class|default(['icon']) %}
+{% set cta_sections_extra_classes = cta_sections_extra_classes|default(['container']) %}
 
-
-
-<div class="cta-sections container">
-    {% block sections_items_block %}
-        {% for item in section_items %}
-            {% include "@molecules/section-cta/cta-section.twig" with {
+<div {{ bem('cta-sections', cta_sections_modifier_class, cta_sections_base_class, cta_sections_extra_classes)}}>
+	{% block sections_items_block %}
+		{% for item in section_items %}
+			{% include "@molecules/cta-section/cta-section.twig" with {
             section_title: item.title,
             section_image: item.image,
             section_text: item.text,
             section_cta_text: item.cta_text,
             } %}
-        {% endfor %}
-    {% endblock %}
+		{% endfor %}
+	{% endblock %}
 </div>

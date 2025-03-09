@@ -1,0 +1,22 @@
+{% set cta_sections_grid = content.field_cta_sections_type.0['#markup']|default('Default') %}
+{% set cta_section_modifier_class = cta_section_modifier_class|default(['icon']) %}
+
+{% if cta_sections_grid == 'Default' %}
+	{% embed "@organisms/cta-sections/cta-sections.twig" with {
+    cta_section_modifier_class: cta_section_modifier_class
+  } %}
+		{% block sections_items_block %}
+			{{ content.field_cta_sections_items }}
+		{% endblock %}
+	{% endembed %}
+{% else %}
+	{% embed "@organisms/cta-sections-grid/cta-sections-grid.twig" with {
+    cta_sections_grid_title: content.field_cta_sections_title.0,
+  } %}
+		{% block cta_sections_grid_block %}
+			<div class="cta-sections-grid__scrollable-group">
+				{{ content.field_cta_sections_items }}
+			</div>
+		{% endblock %}
+	{% endembed %}
+{% endif %}
