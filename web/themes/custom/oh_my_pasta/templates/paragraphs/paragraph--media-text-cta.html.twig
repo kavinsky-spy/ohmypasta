@@ -1,0 +1,14 @@
+{% embed "@molecules/media-text-cta/media-text-cta.twig" with {
+  media_text_cta_title: content.field_media_text_cta_title.0,
+  media_text_cta_subtitle: content.field_media_text_cta_subtitle.0,
+  media_text_cta_text: content.field_media_text_cta_description.0,
+  media_text_cta_cta: content.field_media_text_cta_link.0['#title'],
+  media_text_cta_url: content.field_media_text_cta_link.0['#url']|render,
+  media_text_cta_side: content.field_media_text_cta_direction.0['#markup']|lower,
+} %}
+  {% block media_text_cta_image %}
+    <div class="media-text-cta__image">
+      {{ content.field_media_text_cta_image }}
+    </div>
+  {% endblock %}
+{% endembed %}
