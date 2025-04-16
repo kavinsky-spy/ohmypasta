@@ -2,7 +2,7 @@
 
 {% set media_text_cta_side = media_text_cta_side|default('right') %}
 
-<div class="media-text-cta media-text-cta__{{ media_text_cta_side }}">
+<div class="media-text-cta container media-text-cta__{{ media_text_cta_side }}">
 		<div class="media-text-cta__text">
 			{% include "@atoms/heading/heading.twig" with {
           heading: media_text_cta_title,
