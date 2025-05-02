@@ -25,7 +25,7 @@
 	{# Hero background image #}
 	{% if hero_background_type == "True" %}
 		<div {{ bem('background-img', [], hero_base_class) }} style='
-									        background-image: url("{{content.field_hero_image.0[' #item'].entity.uri.value|file_url}}");
+									          background-image: url("{{content.field_hero_image.0['#item'].entity.uri.value|file_url}}");
 												    background-size: cover;
 												    background-repeat: no-repeat;
 												    background-position: center center;
