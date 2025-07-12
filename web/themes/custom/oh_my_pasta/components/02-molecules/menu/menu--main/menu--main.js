@@ -22,7 +22,7 @@ Drupal.behaviors.mainMenu = {
 
     const homeItem = Array.from(menu.querySelectorAll('a')).filter(
       (item) =>
-      item.textContent.trim() === 'Home' || item.getAttribute('href') === '/',
+        item.textContent.trim() === 'Home' || item.getAttribute('href') === '/',
     );
 
     homeItem.forEach((item) => {
