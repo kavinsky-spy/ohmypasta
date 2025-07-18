@@ -9,7 +9,7 @@
   align-items: flex-end;
 
   .home-mobile__link img {
-    width: var(--space-quadruple);
+    width: 6rem;
   }
 
   @include large {
@@ -26,8 +26,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--space-triple);
-  height: var(--space-triple);
+  width: var(--space-quintuple);
+  height: var(--space-quintuple);
   padding: 12px;
   background-color: var(--white);
   border: 2px solid var(--primary-green);
@@ -38,8 +38,8 @@
   transition: all 0.2s ease-in-out;
 
   svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 6rem;
+    height: 6rem;
     color: var(--primary-green);
 
     .line {
