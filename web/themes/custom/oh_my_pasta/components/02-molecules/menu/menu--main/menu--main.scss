@@ -5,18 +5,18 @@
   width: 100%;
   min-height: 80px;
   display: flex;
-  padding: var(--space);
-  align-items: flex-end;
+  align-items: center;
 
-  .home-mobile__link img {
-    width: 6rem;
+  .home-mobile__link svg {
+    display: block;
+    width: 14rem;
   }
 
-  @include large {
-    .home-mobile__link {
-      display: none;
-    }
-  }
+  // @include large {
+  //   .home-mobile__link {
+  //     display: none;
+  //   }
+  // }
 }
 
 .menu__hamburger {
@@ -140,7 +140,7 @@
       width: auto;
 
       &:nth-of-type(6) {
-        margin-left: 43rem;
+        margin-left: 40rem;
       }
 
     }

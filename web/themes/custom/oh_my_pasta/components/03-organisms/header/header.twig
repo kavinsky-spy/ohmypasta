@@ -26,7 +26,7 @@
 
 {% set header_base_class = 'header' %}
 {% set header_extra_classes = header_extra_classes|default([])|merge(['js-header']) %}
-{% set header_logo_src = directory ? '/' ~ directory ~ '/images/logo.png' : 'logo.png' %}
+{% set header_logo_src = directory ? '/' ~ directory ~ '/images/OhMyPastaLogo.svg' : 'OhMyPastaLogo.svg' %}
 
 <header {{ bem(header_base_class, header_modifier, header_blockname, header_extra_classes) }}>
   <div {{ bem('inner', [], header_base_class, ['container']) }}>

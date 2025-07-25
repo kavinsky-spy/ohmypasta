@@ -28,7 +28,9 @@
 
 <a {{ bem(link_base_class, link_modifiers|default([]), link_blockname, link_extra_classes) }} {% for attribute, value in link_attributes %} {{ attribute }}="{{ value }}" {% endfor %} href="{{ link_url }}">
 	{% if is_home_icon %}
-		<img src="{{ directory ~ '/images/logo.svg' }}" alt="{{ 'Home'|t }}" class="link__icon link__icon--home"/>
+	<div class="link__icon link__icon--home">
+		{% include "@atoms/icons/OhMyPastaLogo.svg" %}
+	</div>
 	{% else %}
 		{% if link_icon and link_icon_before %}
 			{% include "@atoms/icon/icon.twig" with {
