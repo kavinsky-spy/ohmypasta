@@ -21,66 +21,21 @@
 {% set hero_search_enable = hero_search_enable|default([false]) %}
 
 <div
-	{{ bem(hero_base_class, hero_modifiers|default([]), hero_blockname, hero_extra_classes) }}>
-	{# Hero background image #}
-	{% if hero_background_type == "True" %}
-		<div {{ bem('background-img', [], hero_base_class) }} style='
-									          background-image: url("{{content.field_hero_image.0['#item'].entity.uri.value|file_url}}");
-												    background-size: cover;
-												    background-repeat: no-repeat;
-												    background-position: center center;
-												    height: 500px;'>
-			<div {{ bem('content', [], hero_base_class, ['container']) }}>
-				{% include "@atoms/heading/heading.twig" with {
-          heading: hero_heading,
-          heading_level: hero_heading_level|default(1),
-        } %}
-				{% if hero_search_enable  == 'True' %}
+  {{ bem(hero_base_class, hero_modifiers|default([]), hero_blockname, hero_extra_classes) }}>
+	  {# Hero background image #}
+		<div class="hero__image">
+			{{ content.field_hero_image }}
+		</div>
 
-					<div class="row">
-						<div {{ bem('form', [], hero_base_class, ['col-lg-6']) }}>
-							{% block hero_search_block_background %}
-								<form class="quick-search-form" data-drupal-selector="quick-search-form" action="/node/3" method="post" id="quick-search-form" accept-charset="UTF-8">
-									<div class="js-form-item form-item form-item--textfield__item">
-										<input type="text" id="edit-keywords" name="keywords" value="" size="60" maxlength="128" placeholder="How can we help you?" class="form-text form-item__textfield">
-									</div>
-									<button type="submit" id="edit-quick-search-submit" name="op" value="Search" class="button js-form-submit form-submit">Search</button>
-								</form>
-							{% endblock %}
-						</div>
-					</div>
-				{% endif %}
+		<div {{ bem('content', hero_modifiers|default([]), hero_base_class, hero_extra_classes) }}>
+			<div class="hero__subheading">
+				<h2>{{ content.field_hero_subheading }}</h2>
+			</div>
+			<div class="hero__heading">
+				<h3>{{ content.field_hero_heading }}</h3>
+			</div>
+			<div class="hero__description">
+				<p>{{ content.field_hero_description }}</p>
 			</div>
 		</div>
-	{% else %}
-		<div {{ bem('image', [], hero_base_class) }}>
-			{% block hero_image_block %}
-				{% include "@atoms/image/image.twig" with {
-          mobile_size: '490/350',
-          tablet_size: '1440/350',
-          desktop_size: '1920/650',
-        } %}
-			{% endblock %}
-		</div>
-		<div {{ bem('content', [], hero_base_class, ['container']) }}>
-			{% include "@atoms/heading/heading.twig" with {
-        heading: hero_heading,
-        heading_level: hero_heading_level|default(1),
-      } %}
-			{% if hero_search_enable == 'True' %}
-				<div class="row">
-					<div {{ bem('form', [], hero_base_class, ['col-lg-10']) }}>
-						{% block hero_search_block %}
-							<form class="quick-search-form" data-drupal-selector="quick-search-form" action="/node/3" method="post" id="quick-search-form" accept-charset="UTF-8">
-								<div class="js-form-item form-item form-item--textfield__item">
-									<input type="text" id="edit-keywords" name="keywords" value="" size="60" maxlength="128" placeholder="How can we help you?" class="form-text form-item__textfield">
-								</div>
-								<button type="submit" id="edit-quick-search-submit" name="op" value="Search" class="button js-form-submit form-submit">Search</button>
-							</form>
-						{% endblock %}
-					</div>
-				</div>
-			{% endif %}
-		</div>
-	{% endif %}
 </div>
