@@ -125,14 +125,6 @@ function oh_my_pasta_preprocess_breadcrumb(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_HOOK() for cta-sections-grid.twig.
- */
-function oh_my_pasta_preprocess_cta_sections_grid(&$variables) {
-  // Add your custom variable.
-  $variables['new_variable'] = 'fooodase';
-}
-
-/**
  *
  */
 function oh_my_pasta_preprocess_paragraph(&$variables) {
@@ -152,7 +144,6 @@ function oh_my_pasta_preprocess_paragraph(&$variables) {
       if ($field_cta_sections_type_value) {
         $variables['cta_section_extra_classes'] = 'cta-section--cta-sections-grid';
       }
-
     }
   }
 }
