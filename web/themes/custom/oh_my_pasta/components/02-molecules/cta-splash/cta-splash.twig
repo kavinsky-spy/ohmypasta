@@ -18,19 +18,17 @@
 				  ">
 
 	<div class="cta-splash__container">
-
 		<div class="cta-splash__content">
+
+			<span class="cta-splash__subtitle">
+				{{ cta_splash_subtitle }}
+			</span>
 
 			{% include "@atoms/heading/heading.twig" with {
         heading: cta_splash_title,
         heading_level: 2,
         heading_blockname: "cta-splash",
-
     } %}
-
-			<span class="cta-splash__subtitle">
-				{{ cta_splash_subtitle }}
-			</span>
 
 			<span class="cta-splash__description">
 				{{ cta_splash_description }}
@@ -40,9 +38,6 @@
             button_content: cta_splash_cta|default('Find Restaurant'|t),
             button_url: cta_splash_url|default('#'),
         } %}
-
 		</div>
-
-
 	</div>
 </div>

@@ -22,6 +22,12 @@
     flex-direction: row;
     overflow-x: scroll;
     width: 100%;
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
+
+    &::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+    }
 
     .cta-section--cta-sections-grid {
       display: flex;
