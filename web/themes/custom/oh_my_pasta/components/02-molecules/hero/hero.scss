@@ -22,6 +22,7 @@
 
 .hero__image {
   position: absolute;
+  justify-self: center;
 
   img {
     filter: brightness(0.8);
@@ -64,6 +65,10 @@
   @include xxl {
     padding-left: 12rem;
     padding-top: 12rem;
+  }
+
+  @media (min-width: 1992px) {
+    padding-bottom: 18rem;
   }
 
   h2,

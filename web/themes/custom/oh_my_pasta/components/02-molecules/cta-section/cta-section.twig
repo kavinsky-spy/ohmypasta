@@ -1,12 +1,17 @@
 {{ attach_library('oh_my_pasta/cta-section') }}
 {% set cta_section_base_class = cta_section_base_class|default('cta-section') %}
 {% set cta_section_modifier_class = cta_section_modifier_class|default('') %}
+{% set is_grid = is_grid|default(false) %}
 
 <div {{ bem(cta_section_base_class, cta_section_modifier_class, cta_section_blockname, cta_section_extra_classes)}}>
 
 	<div {{ bem('image', cta_section_modifier_class, cta_section_base_class)}}>
-		{% block cta_section_image %}
-				<img src="{{ section_image }}"/>
+		{% block cta_section_image_block %}
+			{% if is_grid %}
+				{{ cta_section_grid_image }}
+			{% else %}
+				{{ content.field_cta_section_image }}
+			{% endif %}
 		{% endblock %}
 	</div>
 

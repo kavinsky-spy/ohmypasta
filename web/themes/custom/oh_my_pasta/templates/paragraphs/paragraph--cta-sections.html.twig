@@ -1,9 +1,9 @@
 {% set cta_sections_grid = content.field_cta_sections_type.0['#markup']|default('Default') %}
 {% set cta_section_modifier_class = cta_section_modifier_class|default(['icon']) %}
 
-{% if cta_sections_grid == 'Default' %}
+{% if cta_sections_grid == "Default" %}
 	{% embed "@organisms/cta-sections/cta-sections.twig" with {
-    cta_section_modifier_class: cta_section_modifier_class
+    cta_section_modifier_class: cta_section_modifier_class,
   } %}
 		{% block sections_items_block %}
 			{{ content.field_cta_sections_items }}

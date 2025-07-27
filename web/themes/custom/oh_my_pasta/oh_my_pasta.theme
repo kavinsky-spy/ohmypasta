@@ -4,6 +4,7 @@
  * @file
  */
 
+use Drupal\file\FileInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 
 /**
@@ -143,6 +144,20 @@ function oh_my_pasta_preprocess_paragraph(&$variables) {
       // Add a condition based on the field value.
       if ($field_cta_sections_type_value) {
         $variables['cta_section_extra_classes'] = 'cta-section--cta-sections-grid';
+
+        if ($paragraph->hasField('field_cta_section_image') && !$paragraph->get('field_cta_section_image')->isEmpty()) {
+          $image = $paragraph->get('field_cta_section_image')->entity;
+          if ($image instanceof FileInterface && file_exists($image->getFileUri())) {
+            $variables['cta_section_grid_image'] = [
+              '#theme' => 'responsive_image',
+              '#responsive_image_style_id' => 'section_grid',
+              '#uri' => $image->getFileUri(),
+              '#alt' => '',
+              '#title' => '',
+            ];
+          }
+        }
+        $variables['is_grid'] = TRUE;
       }
     }
   }
