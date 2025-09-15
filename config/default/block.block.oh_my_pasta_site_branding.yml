@@ -1,6 +1,6 @@
-uuid: af660587-5cfa-472e-b175-3c35a8033a09
+uuid: 89644bfe-fdcd-4285-8942-4a799e2071f7
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,7 +10,7 @@ _core:
   default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
 id: oh_my_pasta_site_branding
 theme: oh_my_pasta
-region: header
+region: breadcrumb
 weight: 0
 provider: null
 plugin: system_branding_block

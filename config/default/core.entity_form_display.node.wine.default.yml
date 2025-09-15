@@ -7,10 +7,12 @@ dependencies:
     - field.field.node.wine.field_alcohol_content
     - field.field.node.wine.field_caption
     - field.field.node.wine.field_country
+    - field.field.node.wine.field_image
     - field.field.node.wine.field_taste_profile
     - field.field.node.wine.field_wine_type
     - node.type.wine
   module:
+    - media_library
     - path
     - text
 id: node.wine.default
@@ -54,6 +56,13 @@ content:
     weight: 123
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 4
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_taste_profile:
     type: entity_reference_autocomplete

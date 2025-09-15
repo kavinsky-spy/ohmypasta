@@ -1,6 +1,6 @@
-uuid: 67ccd2ed-95da-499d-8c6c-22ec44241959
+uuid: 73f0446c-4509-4fd6-afed-58f158e83c19
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,8 +10,8 @@ _core:
   default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
 id: oh_my_pasta_powered
 theme: oh_my_pasta
-region: disabled
-weight: -5
+region: banner
+weight: 5
 provider: null
 plugin: system_powered_by_block
 settings:

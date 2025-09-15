@@ -8,7 +8,7 @@ dependencies:
     - field.field.paragraph.cta_section.field_cta_section_image
     - field.field.paragraph.cta_section.field_cta_section_text
     - field.field.paragraph.cta_section.field_cta_section_title
-    - image.style.thumbnail
+    - image.style.medium
     - paragraphs.paragraphs_type.cta_section
   module:
     - image
@@ -39,8 +39,8 @@ content:
     weight: 4
     region: content
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      progress_indicator: bar
+      preview_image_style: medium
     third_party_settings: {  }
   field_cta_section_text:
     type: string_textarea

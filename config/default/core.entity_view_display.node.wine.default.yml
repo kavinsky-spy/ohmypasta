@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.wine.field_alcohol_content
     - field.field.node.wine.field_caption
     - field.field.node.wine.field_country
+    - field.field.node.wine.field_image
     - field.field.node.wine.field_taste_profile
     - field.field.node.wine.field_wine_type
     - node.type.wine
@@ -51,6 +52,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_taste_profile:
     type: entity_reference_label

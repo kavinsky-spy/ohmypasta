@@ -1,0 +1,18 @@
+uuid: 01e58cad-9b85-44e4-a0ab-9bb697a193fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.section_grid_small
+  theme:
+    - oh_my_pasta
+id: section_grid
+label: 'Section grid'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: section_grid_small
+    breakpoint_id: oh_my_pasta.xs
+    multiplier: 1x
+breakpoint_group: oh_my_pasta
+fallback_image_style: section_grid_small

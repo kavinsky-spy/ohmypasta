@@ -1,0 +1,15 @@
+uuid: 68000a8e-851e-4b4e-963a-cc0edd2a4da3
+langcode: en
+status: true
+dependencies: {  }
+name: section_grid_small
+label: 'Section grid small'
+effects:
+  565a3f62-0510-45c4-a86e-30737be1e323:
+    uuid: 565a3f62-0510-45c4-a86e-30737be1e323
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 520
+      height: 328
+      anchor: center-center

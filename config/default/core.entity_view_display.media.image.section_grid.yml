@@ -1,0 +1,35 @@
+uuid: 70d81504-8c12-4dd0-a731-f8e3d4e791a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.section_grid
+    - field.field.media.image.field_media_image
+    - media.type.image
+    - responsive_image.styles.section_grid
+  module:
+    - responsive_image
+_core:
+  default_config_hash: 73xaTNkI5J6sfFcBmNYeuk070X3mQS_iwwWaPYyfG2M
+id: media.image.section_grid
+targetEntityType: media
+bundle: image
+mode: section_grid
+content:
+  field_media_image:
+    type: responsive_image
+    label: visually_hidden
+    settings:
+      responsive_image_style: section_grid
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

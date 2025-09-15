@@ -1,4 +1,4 @@
-uuid: 9478bf16-a1b4-4edc-bdb0-d5beaa080b05
+uuid: a8dc7e27-76af-4977-9a83-e24bdb98800c
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ _core:
 id: oh_my_pasta_primary_local_tasks
 theme: oh_my_pasta
 region: banner
-weight: -4
+weight: -5
 provider: null
 plugin: local_tasks_block
 settings:

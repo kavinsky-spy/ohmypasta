@@ -1,4 +1,4 @@
-uuid: e7a36c14-8c25-43f8-8325-3d336fee6659
+uuid: 8c620f57-d0cd-4b74-a9d4-a11867e5f3c0
 langcode: en
 status: true
 dependencies:
@@ -9,11 +9,12 @@ dependencies:
     - contact
     - file
     - filter
+    - media
     - search
     - shortcut
     - system
 _core:
-  default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
+  default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
 id: authenticated
 label: 'Authenticated user'
 weight: 1
@@ -28,3 +29,4 @@ permissions:
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'
+  - 'view media'

@@ -9,11 +9,11 @@ dependencies:
     - field.field.paragraph.media_text_cta.field_media_text_cta_link
     - field.field.paragraph.media_text_cta.field_media_text_cta_subtitle
     - field.field.paragraph.media_text_cta.field_media_text_cta_title
-    - image.style.max_650x650
     - paragraphs.paragraphs_type.media_text_cta
+    - responsive_image.styles.cta_media
   module:
-    - image
     - link
+    - responsive_image
 id: paragraph.media_text_cta.default
 targetEntityType: paragraph
 bundle: media_text_cta
@@ -37,11 +37,11 @@ content:
     weight: 5
     region: content
   field_media_text_cta_image:
-    type: image
+    type: responsive_image
     label: hidden
     settings:
+      responsive_image_style: cta_media
       image_link: ''
-      image_style: max_650x650
       image_loading:
         attribute: lazy
     third_party_settings: {  }
@@ -75,4 +75,5 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+hidden:
+  search_api_excerpt: true

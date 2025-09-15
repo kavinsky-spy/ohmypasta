@@ -1,4 +1,4 @@
-uuid: 48d80aab-b25b-43d8-abaa-258ce2217e5d
+uuid: 56e29c58-d8aa-415f-9e6f-a5a393b1e6de
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ _core:
 id: oh_my_pasta_help
 theme: oh_my_pasta
 region: banner
-weight: 0
+weight: -2
 provider: null
 plugin: help_block
 settings:

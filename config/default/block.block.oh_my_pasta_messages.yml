@@ -1,4 +1,4 @@
-uuid: ca66092d-895f-4447-b33f-1353da6d653a
+uuid: 02fd89ea-4d4b-4bd9-a478-3b0c4fc656c2
 langcode: en
 status: true
 dependencies:
@@ -10,8 +10,8 @@ _core:
   default_config_hash: BZ5tpW7H8X4PVGRm3MImTIHd2tN0eF7zOtp4SpRYUA0
 id: oh_my_pasta_messages
 theme: oh_my_pasta
-region: messages
-weight: -7
+region: banner
+weight: -6
 provider: null
 plugin: system_messages_block
 settings:

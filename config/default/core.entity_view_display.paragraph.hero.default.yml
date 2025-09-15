@@ -3,14 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.hero.field_hero_background_type
+    - field.field.paragraph.hero.field_hero_description
     - field.field.paragraph.hero.field_hero_heading
     - field.field.paragraph.hero.field_hero_image
     - field.field.paragraph.hero.field_hero_search
+    - field.field.paragraph.hero.field_hero_subheading
     - paragraphs.paragraphs_type.hero
+    - responsive_image.styles.hero_responsive
   module:
-    - image
-    - text
+    - responsive_image
 _core:
   default_config_hash: 34rb_XwZwSAEADJJQaVl2LIHmnRnMb8pcHmo0S-i8Fc
 id: paragraph.hero.default
@@ -18,37 +19,35 @@ targetEntityType: paragraph
 bundle: hero
 mode: default
 content:
-  field_hero_background_type:
-    type: boolean
-    label: above
-    settings:
-      format: true-false
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_hero_heading:
-    type: text_default
+  field_hero_description:
+    type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 7
     region: content
-  field_hero_image:
-    type: image
+  field_hero_heading:
+    type: string
     label: above
     settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_hero_image:
+    type: responsive_image
+    label: visually_hidden
+    settings:
+      responsive_image_style: hero_responsive
       image_link: ''
-      image_style: ''
       image_loading:
-        attribute: lazy
+        attribute: eager
     third_party_settings: {  }
     weight: 1
     region: content
   field_hero_search:
     type: boolean
-    label: above
+    label: visually_hidden
     settings:
       format: true-false
       format_custom_false: ''
@@ -56,4 +55,13 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-hidden: {  }
+  field_hero_subheading:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  search_api_excerpt: true

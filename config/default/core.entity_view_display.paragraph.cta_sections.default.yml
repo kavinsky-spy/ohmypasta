@@ -16,7 +16,7 @@ mode: default
 content:
   field_cta_sections_items:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: visually_hidden
     settings:
       view_mode: default
       link: ''
@@ -25,7 +25,7 @@ content:
     region: content
   field_cta_sections_title:
     type: string
-    label: above
+    label: visually_hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -33,7 +33,7 @@ content:
     region: content
   field_cta_sections_type:
     type: boolean
-    label: above
+    label: visually_hidden
     settings:
       format: default
       format_custom_false: ''
@@ -41,4 +41,5 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-hidden: {  }
+hidden:
+  search_api_excerpt: true

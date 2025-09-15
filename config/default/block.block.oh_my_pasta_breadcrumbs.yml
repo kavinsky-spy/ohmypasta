@@ -1,4 +1,4 @@
-uuid: 190e589b-f8d8-475c-a295-067484af6ebd
+uuid: 40dd558c-f691-4172-b916-43c4d6c7740d
 langcode: en
 status: true
 dependencies:
@@ -10,8 +10,8 @@ _core:
   default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
 id: oh_my_pasta_breadcrumbs
 theme: oh_my_pasta
-region: breadcrumb
-weight: 0
+region: content
+weight: -9
 provider: null
 plugin: system_breadcrumb_block
 settings:

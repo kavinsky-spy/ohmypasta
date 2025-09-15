@@ -1,6 +1,6 @@
-uuid: 450f47e1-a38b-4a77-b908-d002295bedef
+uuid: 124743c0-62b5-4e96-bfe5-6070957ba7bf
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - oh_my_pasta
@@ -9,7 +9,7 @@ _core:
 id: oh_my_pasta_page_title
 theme: oh_my_pasta
 region: banner
-weight: -5
+weight: 2
 provider: null
 plugin: page_title_block
 settings:

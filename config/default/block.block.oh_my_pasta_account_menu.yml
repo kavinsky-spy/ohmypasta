@@ -1,6 +1,6 @@
-uuid: a3a88003-5f9a-4578-87e4-e1b03cc7f0d7
+uuid: be6cf4c6-fad6-4d92-9e2a-779a01dbb5a7
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.account
@@ -13,7 +13,7 @@ _core:
 id: oh_my_pasta_account_menu
 theme: oh_my_pasta
 region: banner
-weight: -4
+weight: 0
 provider: null
 plugin: 'system_menu_block:account'
 settings:

@@ -1,0 +1,11 @@
+uuid: c1eb740e-5993-44bb-83cb-f3088e812c11
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.section_grid
+label: 'Section grid'
+description: ''
+targetEntityType: media
+cache: true

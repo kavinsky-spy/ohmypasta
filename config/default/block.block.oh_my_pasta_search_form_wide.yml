@@ -1,6 +1,6 @@
-uuid: 8851e228-fd4d-49f9-bd9a-0471ee675a9d
+uuid: 6609ecec-6f78-4cf9-a88b-3ee321a48125
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - search
@@ -10,8 +10,8 @@ _core:
   default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
 id: oh_my_pasta_search_form_wide
 theme: oh_my_pasta
-region: disabled
-weight: -7
+region: banner
+weight: 3
 provider: null
 plugin: search_form_block
 settings:
