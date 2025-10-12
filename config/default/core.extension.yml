@@ -36,6 +36,9 @@ module:
   help: 0
   history: 0
   image: 0
+  jsonapi: 0
+  jsonapi_extras: 0
+  jsonapi_image_styles: 0
   link: 0
   media: 0
   media_library: 0
@@ -53,6 +56,7 @@ module:
   search_api: 0
   search_api_db: 0
   search_api_db_defaults: 0
+  serialization: 0
   shortcut: 0
   svg_image: 0
   system: 0

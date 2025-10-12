@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db7826991e46ae8c2e04e85a378d6a1a",
+    "content-hash": "039a1a1fb177b41acc496e83c03208fb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2293,6 +2293,71 @@
                 "source": "https://git.drupalcode.org/project/facets.git",
                 "issues": "https://www.drupal.org/project/issues/facets",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
+            }
+        },
+        {
+            "name": "drupal/jsonapi_image_styles",
+            "version": "3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/jsonapi_image_styles.git",
+                "reference": "3.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/jsonapi_image_styles-3.0.2.zip",
+                "reference": "3.0.2",
+                "shasum": "63d52eb96eb4b8df241ca9b1e1fbb06707ba8a6c"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11"
+            },
+            "require-dev": {
+                "drupal/coder": "^8.3",
+                "phpcompatibility/php-compatibility": "10.x-dev"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.2",
+                    "datestamp": "1727189318",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Alona O'neill",
+                    "homepage": "https://www.drupal.org/u/alonaoneill"
+                },
+                {
+                    "name": "Timo Kirkkala",
+                    "homepage": "https://www.drupal.org/u/kirkkala"
+                },
+                {
+                    "name": "Jeffrey Bertoen",
+                    "homepage": "https://www.drupal.org/u/jefuri"
+                },
+                {
+                    "name": "Chrsitopher C. Wells (wells)",
+                    "homepage": "https://www.drupal.org/user/2452278",
+                    "email": "drupal.org@chris-wells.net"
+                }
+            ],
+            "description": "JSON:API Image Styles provides a means to expose image styles to JSON:API.",
+            "homepage": "https://www.drupal.org/project/jsonapi_image_styles",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/jsonapi_image_styles",
+                "issues": "https://www.drupal.org/project/issues/jsonapi_image_styles"
             }
         },
         {
