@@ -1,0 +1,45 @@
+/* Estilos para MediaTextCta */
+.mediaTextCta {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.mediaTextCta.reverse {
+  flex-direction: row-reverse;
+}
+
+.mediaTextCtaImage {
+  flex: 1;
+}
+
+.mediaTextCtaContent {
+  flex: 1;
+  padding: 1rem;
+}
+
+.mediaTextCtaSubtitle {
+  margin-bottom: 1rem;
+}
+
+.mediaTextCtaTitle {
+  margin-bottom: 1rem;
+}
+
+.mediaTextCtaDescription {
+  margin-bottom: 1rem;
+}
+
+.mediaTextCtaLink {
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .mediaTextCta {
+    flex-direction: column;
+  }
+
+  .mediaTextCta.reverse {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,25 @@
+/* Estilos para Hero */
+.hero {
+  position: relative;
+  width: 100%;
+}
+
+.heroImage {
+  width: 100%;
+}
+
+.heroContent {
+  padding: 2rem;
+}
+
+.heroSubheading {
+  margin-bottom: 1rem;
+}
+
+.heroHeading {
+  margin-bottom: 1rem;
+}
+
+.heroDescription {
+  margin-bottom: 1rem;
+}

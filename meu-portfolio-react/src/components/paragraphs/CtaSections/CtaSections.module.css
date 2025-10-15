@@ -1,0 +1,48 @@
+/* Estilos para CtaSections */
+.ctaSections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.ctaSectionsGrid {
+  padding: 2rem 0;
+}
+
+.ctaSectionsGridTitle {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.ctaSectionsGridScrollableGroup {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.ctaSectionsGridScrollableGroup > * {
+  scroll-snap-align: start;
+}
+
+/* Scrollbar styling */
+.ctaSectionsGridScrollableGroup::-webkit-scrollbar {
+  height: 8px;
+}
+
+.ctaSectionsGridScrollableGroup::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.ctaSectionsGridScrollableGroup::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.ctaSectionsGridScrollableGroup::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
