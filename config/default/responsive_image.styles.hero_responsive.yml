@@ -1,0 +1,38 @@
+uuid: 1dc028bc-cae2-45f8-b557-b8ce0791344a
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.hero_large
+    - image.style.hero_medium
+    - image.style.hero_small
+    - image.style.hero_wide
+  theme:
+    - oh_my_pasta
+_core:
+  default_config_hash: L1TKNlLMVomr_2-EEkYkfuKh-68sErz4uQOYZJE8Vyo
+id: hero_responsive
+label: 'Hero Responsive'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: hero_large
+    breakpoint_id: oh_my_pasta.xxl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: hero_wide
+    breakpoint_id: oh_my_pasta.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: hero_medium
+    breakpoint_id: oh_my_pasta.sm_lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: hero_small
+    breakpoint_id: oh_my_pasta.sm
+    multiplier: 1x
+breakpoint_group: oh_my_pasta
+fallback_image_style: hero_small

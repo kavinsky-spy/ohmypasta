@@ -20,31 +20,31 @@
 #}
 {% set link_base_class = link_base_class|default('link') %}
 {% if link_icon %}
-  {% set link_modifiers = link_modifiers|default([])|merge(['icon']) %}
+	{% set link_modifiers = link_modifiers|default([])|merge(['icon']) %}
 {% endif %}
 {% if link_icon_before %}
-  {% set link_modifiers = link_modifiers|default([])|merge(['icon-before']) %}
+	{% set link_modifiers = link_modifiers|default([])|merge(['icon-before']) %}
 {% endif %}
 
-<a {{ bem(link_base_class, link_modifiers|default([]), link_blockname, link_extra_classes) }}
-  {% for attribute, value in link_attributes %}
-{{ attribute }}="{{ value }}"
-{% endfor %}
-href="{{ link_url }}"
->
-  {% if link_icon and link_icon_before %}
-    {% include "@atoms/icon/icon.twig" with {
+<a {{ bem(link_base_class, link_modifiers|default([]), link_blockname, link_extra_classes) }} {% for attribute, value in link_attributes %} {{ attribute }}="{{ value }}" {% endfor %} href="{{ link_url }}">
+	{% if is_home_icon %}
+	<div class="link__icon link__icon--home">
+		{% include "@atoms/icons/OhMyPastaLogo.svg" %}
+	</div>
+	{% else %}
+		{% if link_icon and link_icon_before %}
+			{% include "@atoms/icon/icon.twig" with {
       icon_name: link_icon_name|default('chevron'),
       icon_decorative: true,
     } %}
-  {% endif %}
-  {%- block link_content_block -%}
-    {{ link_content|raw }}
-  {%- endblock -%}
-  {% if link_icon and not link_icon_before %}
-    {% include "@atoms/icon/icon.twig" with {
+		{% endif %}
+		{%- block link_content_block -%}
+		{{ link_content|raw }}
+	{%- endblock -%}
+	{% if link_icon and not link_icon_before %}
+		{% include "@atoms/icon/icon.twig" with {
       icon_name: link_icon_name|default('chevron'),
       icon_decorative: TRUE
     } %}
-  {% endif %}
-</a>
+	{% endif %}
+{% endif %}</a>

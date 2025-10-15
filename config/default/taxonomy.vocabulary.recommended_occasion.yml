@@ -1,0 +1,9 @@
+uuid: 50050279-8ee1-4295-9163-b898e7cfd685
+langcode: en
+status: true
+dependencies: {  }
+name: 'Recommended occasion'
+vid: recommended_occasion
+description: null
+weight: 0
+new_revision: false

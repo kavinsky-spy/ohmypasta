@@ -1,0 +1,24 @@
+uuid: 0440bfb6-1442-4f28-8855-05a44037f865
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.wine
+  module:
+    - text
+id: node.wine.body
+field_name: body
+entity_type: node
+bundle: wine
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

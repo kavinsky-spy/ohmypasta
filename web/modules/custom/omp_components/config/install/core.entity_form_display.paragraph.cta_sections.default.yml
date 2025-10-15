@@ -1,0 +1,51 @@
+uuid: 1aae5e92-0867-4e43-b1a9-ca4df0890e0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cta_sections.field_cta_sections_items
+    - field.field.paragraph.cta_sections.field_cta_sections_title
+    - field.field.paragraph.cta_sections.field_cta_sections_type
+    - paragraphs.paragraphs_type.cta_sections
+  module:
+    - paragraphs
+id: paragraph.cta_sections.default
+targetEntityType: paragraph
+bundle: cta_sections
+mode: default
+content:
+  field_cta_sections_items:
+    type: paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_cta_sections_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cta_sections_type:
+    type: options_buttons
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -17,6 +17,7 @@
 $grid-breakpoints: (
   xs: 0,
   sm: 375px,
+  sm-sm: 425px,
   sm-md: 540px,
   md: 768px,
   lg: 1024px,
@@ -72,6 +73,14 @@ $max-width: $grid-breakpoints[xl];
 /// Allows easier @include small {} syntax
 @mixin small {
   @include media-breakpoint-up(sm) {
+    @content;
+  }
+}
+
+// Mixin - smallest small breakpoint before breaks to next
+/// Allows easier @include sm-sm {} syntax
+@mixin sm-sm {
+  @include media-breakpoint-up(sm-sm) {
     @content;
   }
 }

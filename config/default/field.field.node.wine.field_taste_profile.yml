@@ -1,0 +1,29 @@
+uuid: 3c8e521c-4c74-4230-9a8c-82848513c502
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_taste_profile
+    - node.type.wine
+    - taxonomy.vocabulary.taste_profile
+id: node.wine.field_taste_profile
+field_name: field_taste_profile
+entity_type: node
+bundle: wine
+label: 'Taste Profile'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      taste_profile: taste_profile
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

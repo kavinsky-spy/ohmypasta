@@ -1,0 +1,39 @@
+uuid: 2c76e312-a2df-4904-9a7a-3456c5776156
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_country
+field_name: field_country
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: france
+      label: France
+    -
+      value: usa
+      label: USA
+    -
+      value: new_zealand
+      label: 'New Zealand'
+    -
+      value: germany
+      label: Germany
+    -
+      value: argentina
+      label: Argentina
+    -
+      value: italy
+      label: Italy
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

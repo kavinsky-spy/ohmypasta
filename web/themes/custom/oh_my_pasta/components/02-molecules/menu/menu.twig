@@ -48,6 +48,7 @@
     {% endif %}
 
     {# Menu list #}
+    <nav>
     {% embed "@atoms/list/list.twig" with {
       list_base_class: menu_class,
       list_modifiers: menu_modifiers,
@@ -64,6 +65,7 @@
         {% endfor %}
       {% endblock %}
     {% endembed %}
+    </nav>
   {% endif %}
 {% endmacro %}
 

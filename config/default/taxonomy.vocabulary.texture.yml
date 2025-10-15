@@ -1,0 +1,9 @@
+uuid: ee03b746-f419-4fc2-b4c3-b583b2c895d7
+langcode: en
+status: true
+dependencies: {  }
+name: Texture
+vid: texture
+description: null
+weight: 0
+new_revision: false

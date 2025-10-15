@@ -1,0 +1,23 @@
+uuid: 0a2c8249-9f44-472c-b300-ee2070100725
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cta_section_cta_url
+    - paragraphs.paragraphs_type.cta_section
+  module:
+    - link
+id: paragraph.cta_section.field_cta_section_cta_url
+field_name: field_cta_section_cta_url
+entity_type: paragraph
+bundle: cta_section
+label: 'CTA Section CTA Url'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

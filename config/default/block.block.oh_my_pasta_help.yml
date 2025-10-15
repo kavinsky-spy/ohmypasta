@@ -1,0 +1,22 @@
+uuid: 56e29c58-d8aa-415f-9e6f-a5a393b1e6de
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - oh_my_pasta
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: oh_my_pasta_help
+theme: oh_my_pasta
+region: banner
+weight: -2
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

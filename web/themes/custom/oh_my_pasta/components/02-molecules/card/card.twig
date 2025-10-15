@@ -14,8 +14,6 @@
  *
  * - card_text: the content of the body component
  *
- * - card_date: (optional) Show a date field in the card
- * - card_date_icon: allows to modify the default icon (calendar)
  *
  * - card_tags: (optional) Tags, mainly used in news cards
  *
@@ -73,19 +71,6 @@
         } %}
       {% endblock %}
     {% endif %}
-    {# Date #}
-    {% if card_date %}
-      {% block card_date_block %}
-        <span {{ bem('date', [], card_base_class) }}>
-          {% include "@atoms/icon/icon.twig" with {
-            icon_name: card_date_icon|default('calendar'),
-            icon_role: item.role,
-            icon_decorative: true,
-          } %}
-          {{ card_date }}
-        </span>
-      {% endblock %}
-    {% endif %}
     {# Tags #}
     {% if card_tags %}
       {% block card_tags_block %}
@@ -113,5 +98,13 @@
         {% endif %}
       </div>
     {% endblock %}
+    {# CTA #}
+    {% if card_cta_url %}
+      {% block card_cta_block %}
+        <div {{ bem('cta', card_modifiers, card_base_class, card_blockname, card_extra_classes) }}>
+          <a href="{{ card_cta_url }}" class="button">{{ card_cta_title }}</a>
+        </div>
+      {% endblock %}
+    {% endif %}
   </div>
 </div>

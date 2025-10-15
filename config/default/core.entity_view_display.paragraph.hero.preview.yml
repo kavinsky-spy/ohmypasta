@@ -1,0 +1,47 @@
+uuid: 9af3c7ec-a81a-47fc-b991-f018cb2930d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.hero.field_hero_description
+    - field.field.paragraph.hero.field_hero_heading
+    - field.field.paragraph.hero.field_hero_image
+    - field.field.paragraph.hero.field_hero_search
+    - field.field.paragraph.hero.field_hero_subheading
+    - paragraphs.paragraphs_type.hero
+  module:
+    - image
+_core:
+  default_config_hash: 34rb_XwZwSAEADJJQaVl2LIHmnRnMb8pcHmo0S-i8Fc
+id: paragraph.hero.preview
+targetEntityType: paragraph
+bundle: hero
+mode: preview
+content:
+  field_hero_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_hero_search:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  field_hero_description: true
+  field_hero_heading: true
+  field_hero_subheading: true
+  search_api_excerpt: true

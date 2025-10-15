@@ -1,0 +1,29 @@
+uuid: ed08c892-5d2b-47dc-941e-6f0fd13296c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_taste_profile
+    - node.type.dishes
+    - taxonomy.vocabulary.taste_profile
+id: node.dishes.field_taste_profile
+field_name: field_taste_profile
+entity_type: node
+bundle: dishes
+label: 'Taste Profile'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      taste_profile: taste_profile
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

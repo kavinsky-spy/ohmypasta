@@ -1,2 +1,5 @@
 vendor
 web/sites/default/files/*
+node_modules
+
+*.sql

@@ -1,0 +1,7 @@
+name: 'omp_components'
+type: module
+description: 'All Oh My Pasta Components'
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - paragraphs:paragraphs

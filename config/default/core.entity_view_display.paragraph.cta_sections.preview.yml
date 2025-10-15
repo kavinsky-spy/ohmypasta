@@ -1,0 +1,45 @@
+uuid: e634f6a2-cec4-4b82-8a4a-b8b4d6f7f946
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.cta_sections.field_cta_sections_items
+    - field.field.paragraph.cta_sections.field_cta_sections_title
+    - field.field.paragraph.cta_sections.field_cta_sections_type
+    - paragraphs.paragraphs_type.cta_sections
+  module:
+    - entity_reference_revisions
+id: paragraph.cta_sections.preview
+targetEntityType: paragraph
+bundle: cta_sections
+mode: preview
+content:
+  field_cta_sections_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_cta_sections_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_cta_sections_type:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

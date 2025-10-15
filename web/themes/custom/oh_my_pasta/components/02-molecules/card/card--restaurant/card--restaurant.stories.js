@@ -86,9 +86,9 @@ export const RestaurantCard = {
   args: {
     card_modifiers: ['restaurant'],
     card_image: true,
-    card_image_mobile: '330x180',
-    card_image_tablet: '300x300',
-    card_image_desktop: '300x300',
+    card_image_mobile: '330/180',
+    card_image_tablet: '300/300',
+    card_image_desktop: '300/300',
     card_heading: 'Alway Primary Restaurant',
     card_link: '#',
     card_address: 'Aberthaw Road',

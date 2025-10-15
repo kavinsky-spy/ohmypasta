@@ -21,23 +21,26 @@ const CSSLoader = {
     {
       loader: 'css-loader',
       options: {
-        sourceMap: true,
+        sourceMap: process.env.NODE_ENV !== 'production',
         url: false,
       },
     },
     {
       loader: 'postcss-loader',
       options: {
-        sourceMap: true,
+        sourceMap: process.env.NODE_ENV !== 'production',
+        postcssOptions: {
+          env: process.env.NODE_ENV || 'development',
+        },
       },
     },
     {
       loader: 'sass-loader',
       options: {
-        sourceMap: true,
+        sourceMap: process.env.NODE_ENV !== 'production',
         sassOptions: {
           importer: globImporter(),
-          outputStyle: 'compressed',
+          outputStyle: process.env.NODE_ENV === 'production' ? 'compressed' : 'expanded',
         },
       },
     },

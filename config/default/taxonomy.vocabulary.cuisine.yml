@@ -1,0 +1,9 @@
+uuid: c2f8e116-16d8-4627-b233-b8c4e91bd5de
+langcode: en
+status: true
+dependencies: {  }
+name: Cuisine
+vid: cuisine
+description: 'Type of food'
+weight: 0
+new_revision: false

@@ -1,0 +1,19 @@
+uuid: fac862fd-6f31-4ac8-b0e7-8f09b0805f45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cta_section_text
+    - paragraphs.paragraphs_type.cta_section
+id: paragraph.cta_section.field_cta_section_text
+field_name: field_cta_section_text
+entity_type: paragraph
+bundle: cta_section
+label: 'CTA Section Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,59 @@
+uuid: 049287e7-d62e-45e6-ba7b-1395a38b3e5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.dishes.body
+    - field.field.node.dishes.field_best_paired_with
+    - field.field.node.dishes.field_caption
+    - field.field.node.dishes.field_cta
+    - field.field.node.dishes.field_cuisine
+    - field.field.node.dishes.field_image
+    - field.field.node.dishes.field_taste_profile
+    - field.field.node.dishes.field_texture
+    - node.type.dishes
+  module:
+    - link
+    - user
+id: node.dishes.teaser
+targetEntityType: node
+bundle: dishes
+mode: teaser
+content:
+  field_caption:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  field_best_paired_with: true
+  field_cuisine: true
+  field_taste_profile: true
+  field_texture: true
+  links: true

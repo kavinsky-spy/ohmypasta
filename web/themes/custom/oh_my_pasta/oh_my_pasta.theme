@@ -2,8 +2,10 @@
 
 /**
  * @file
- * Functions to support theming.
  */
+
+use Drupal\file\FileInterface;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Implements hook_library_info_build().
@@ -90,8 +92,14 @@ function oh_my_pasta_theme_suggestions_form_alter(&$suggestions, &$variables) {
 }
 
 /**
- * Implements hook_preprocess_breadcrumb().
+ * Implements hook_preprocess_HOOK() for menu.
  */
+function oh_my_pasta_preprocess_menu(&$variables) {
+  if ($variables['menu_name'] == 'main') {
+    $form = \Drupal::formBuilder()->getForm('Drupal\search\Form\SearchBlockForm');
+    $variables['search_form'] = \Drupal::service('renderer')->render($form);
+  }
+}
 
 /**
  * Implements hook_preprocess_breadcrumb().
@@ -114,5 +122,43 @@ function oh_my_pasta_preprocess_breadcrumb(&$variables) {
     $variables['#cache']['contexts'][] = 'route';
     $variables['#cache']['contexts'][] = 'languages';
     $variables['#cache']['contexts'][] = 'headers:Accept';
+  }
+}
+
+/**
+ *
+ */
+function oh_my_pasta_preprocess_paragraph(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  // Ensure this is for the 'cta_section' paragraph type.
+  if ($paragraph->bundle() === 'cta_section') {
+    // Get the parent entity of the paragraph.
+    $parent_paragraph = $paragraph->getParentEntity();
+
+    // Check if the parent entity is a paragraph and the parent is of type 'cta_sections'.
+    if ($parent_paragraph instanceof Paragraph && $parent_paragraph->bundle() === 'cta_sections') {
+      // Access a field on the parent paragraph.
+      $field_cta_sections_type_value = $parent_paragraph->get('field_cta_sections_type')->value;
+
+      // Add a condition based on the field value.
+      if ($field_cta_sections_type_value) {
+        $variables['cta_section_extra_classes'] = 'cta-section--cta-sections-grid';
+
+        if ($paragraph->hasField('field_cta_section_image') && !$paragraph->get('field_cta_section_image')->isEmpty()) {
+          $image = $paragraph->get('field_cta_section_image')->entity;
+          if ($image instanceof FileInterface && file_exists($image->getFileUri())) {
+            $variables['cta_section_grid_image'] = [
+              '#theme' => 'responsive_image',
+              '#responsive_image_style_id' => 'section_grid',
+              '#uri' => $image->getFileUri(),
+              '#alt' => '',
+              '#title' => '',
+            ];
+          }
+        }
+        $variables['is_grid'] = TRUE;
+      }
+    }
   }
 }

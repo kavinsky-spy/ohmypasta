@@ -1,0 +1,7 @@
+uuid: b7dcc9d7-29f9-4f51-b82a-8ce257d67f00
+langcode: en
+status: true
+dependencies: {  }
+name: section_grid_medium
+label: 'Section grid medium'
+effects: {  }

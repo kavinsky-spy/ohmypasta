@@ -1,0 +1,15 @@
+uuid: a7548d07-3422-409a-bd41-3f03b2e70759
+langcode: en
+status: true
+dependencies: {  }
+name: card_medium
+label: 'Card Medium'
+effects:
+  c6d8d47f-594f-4c53-a05a-fcbe9817b882:
+    uuid: c6d8d47f-594f-4c53-a05a-fcbe9817b882
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 580
+      height: 360
+      anchor: center-center

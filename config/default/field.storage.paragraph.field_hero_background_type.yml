@@ -1,0 +1,20 @@
+uuid: 89eae1c4-439b-4c87-bcaf-b9cae96c48ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: nCN5D4zvUdSoeGA27ACRlvcjGmQp6UlKC_sjxcSVFes
+id: paragraph.field_hero_background_type
+field_name: field_hero_background_type
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

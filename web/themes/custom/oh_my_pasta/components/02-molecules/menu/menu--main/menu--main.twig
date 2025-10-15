@@ -1,7 +1,22 @@
 {{ attach_library('oh_my_pasta/menu--main') }}
 
-{% include "@molecules/menu/menu.twig" with {
-  items: menu_items,
-  menu_type: 'main',
-  menu_extra_classes: ['js-main-menu'],
-} %}
+<div class="menu-wrapper">
+   {% include "@atoms/link/link.twig" with {
+      is_home_icon: true,
+      link_url: '/',
+      link_base_class: 'home-mobile__link',
+      link_modifiers: item_modifiers,
+    } %}
+  <button class="menu__hamburger js-menu-hamburger" aria-controls="main-menu" aria-expanded="false" aria-label="{{ 'Toggle menu'|t }}">
+    {% include "@atoms/icons/hamburger.svg" %}
+    <span class="visually-hidden">{{ 'Toggle menu'|t }}</span>
+  </button>
+  <div class="menu-container" id="main-menu">
+    {% include "@molecules/menu/menu.twig" with {
+      items: menu_items,
+      menu_type: 'main',
+      menu_extra_classes: ['js-main-menu'],
+    } %}
+  </div>
+</div>
+{{ search_form }}

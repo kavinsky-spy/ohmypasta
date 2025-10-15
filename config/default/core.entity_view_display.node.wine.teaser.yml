@@ -1,0 +1,57 @@
+uuid: 12b9d466-435d-441c-9fa8-4a8290a3061d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.wine.body
+    - field.field.node.wine.field_alcohol_content
+    - field.field.node.wine.field_caption
+    - field.field.node.wine.field_country
+    - field.field.node.wine.field_image
+    - field.field.node.wine.field_taste_profile
+    - field.field.node.wine.field_wine_type
+    - node.type.wine
+  module:
+    - text
+    - user
+id: node.wine.teaser
+targetEntityType: node
+bundle: wine
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_caption:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_alcohol_content: true
+  field_country: true
+  field_taste_profile: true
+  field_wine_type: true

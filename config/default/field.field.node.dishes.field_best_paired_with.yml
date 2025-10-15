@@ -1,0 +1,29 @@
+uuid: 09cf8ab1-1f72-45df-a17d-7d53e98bc6ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_best_paired_with
+    - node.type.dishes
+    - node.type.wine
+id: node.dishes.field_best_paired_with
+field_name: field_best_paired_with
+entity_type: node
+bundle: dishes
+label: 'Best Paired With'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      wine: wine
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: dishes
+field_type: entity_reference

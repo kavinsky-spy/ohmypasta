@@ -1,5 +1,6 @@
 :root {
   /* Mobile fonts */
+  --heading--title-large: 4.8rem;
   --heading--title: 3.2rem;
   --heading--main: 2.8rem;
   --heading--sub: 2.4rem;
@@ -12,6 +13,7 @@
 
   /* Desktop fonts */
   @media (min-width: 768px) {
+    --heading--title-large: 5.6rem;
     --heading--title: 4.8rem;
     --heading--main: 3.2rem;
     --heading--sub: 2.8rem;
@@ -20,7 +22,7 @@
     --heading--tiny: 1.8rem; /* Not in the designs - general size */
     --body-copy: 1.8rem;
     --body-small: 1.6rem;
-    --body-large: 2rem;
+    --body-large: 2.3rem;
   }
 
   /* Fonts */
@@ -49,6 +51,7 @@
   --space-quintuple: 5rem;
   --space-sextuple: 6rem;
   --space-septuple: 7rem;
+  --space-octuple: 8rem;
 
   /* Divided */
   --space-one-half: calc(var(--space) / 2);

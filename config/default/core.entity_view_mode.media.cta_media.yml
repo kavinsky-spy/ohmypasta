@@ -1,0 +1,11 @@
+uuid: bb707af0-24e0-4472-bde5-13e2f72a5229
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.cta_media
+label: 'CTA Media'
+description: ''
+targetEntityType: media
+cache: true

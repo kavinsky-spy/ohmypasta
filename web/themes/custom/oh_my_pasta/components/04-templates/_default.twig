@@ -11,9 +11,9 @@
 {# Page with sidebar tweaks #}
 {% if sidebar_first or sidebar_second %}
   {% set main_modifiers = main_modifiers|merge(['with-sidebar']) %}
-  {% set main_extra_classes = main_extra_classes|merge(['container']) %}
+  {% set main_extra_classes = main_extra_classes|merge(['container-fluid']) %}
   {% set main_content_modifiers = main_content_modifiers|merge(['with-sidebar']) %}
-  {% set main_content_extra_classes = main_content_extra_classes|merge(['col-md-8']) %}
+  {% set main_content_extra_classes = main_content_extra_classes|merge(['col-10']) %}
 {% endif %}
 
 <div {{ bem('layout-container', layout_modifiers, layout_blockname, layout_extra_classes) }}>
@@ -34,7 +34,7 @@
       <div class="row">
     {% endif %}
     {% if sidebar_first %}
-      <aside class="main-sidebar--first col-md-4" role="complementary">
+      <aside class="main-sidebar--first col-2" role="complementary">
         {% block page_sidebar_first %}{% endblock %}
       </aside>
     {% endif %}
@@ -42,7 +42,7 @@
       {% block page_content %}{% endblock %}
     </div>
     {% if sidebar_second %}
-      <aside class="main-sidebar--second col-md-4" role="complementary">
+      <aside class="main-sidebar--second col-2" role="complementary">
         {% block page_sidebar_second %}{% endblock %}
       </aside>
     {% endif %}

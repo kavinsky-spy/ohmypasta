@@ -6,67 +6,94 @@
 Drupal.behaviors.mainMenu = {
   attach(context) {
     const menu = context.querySelector('.js-main-menu');
+    const menuContainer = context.querySelector('.menu-container');
+    const hamburger = context.querySelector('.js-menu-hamburger');
 
     // Finish the execution if the menu is not in context or if it has already been processed.
     if (!menu || menu.dataset.jsApplied) {
       return;
     }
 
-    let tabContext;
-    const menuExpanders = menu.querySelectorAll('.js-menu-sub-expand');
+    // Hamburger menu toggle
+    if (hamburger && menuContainer) {
+      const handleEscape = (event) => {
+        if (
+          event.key === 'Escape' &&
+          hamburger.getAttribute('aria-expanded') === 'true'
+        ) {
+          hamburger.click();
+        }
+      };
 
-    // Add the required functionality to all submenus.
-    if (menuExpanders.length > 0) {
-      menuExpanders.forEach((menuExpander) => {
-        const submenu = menuExpander.nextElementSibling;
-        const parentItem = menuExpander.parentElement;
-        const menuBack = submenu.querySelector('.js-menu-sub-back');
+      hamburger.addEventListener('click', () => {
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !isExpanded);
+        menuContainer.classList.toggle('is-open');
 
-        // Submenu toggle listener for mobile / desktop.
-        menuExpander.addEventListener('click', (e) => {
-          e.preventDefault();
-          const expander = e.currentTarget;
-          const ariaExpanded = expander.getAttribute('aria-expanded');
+        if (!isExpanded) {
+          document.body.style.overflow = 'hidden';
+          document.addEventListener('keydown', handleEscape);
+        } else {
+          document.body.style.overflow = '';
+          document.removeEventListener('keydown', handleEscape);
+        }
+      });
 
-          // Close all open submenus before toggling the current one.
-          Drupal.behaviors.mainMenu.closeAllSubmenus(menu, submenu);
-
-          expander.setAttribute('aria-expanded', ariaExpanded === 'false');
-          submenu.classList.toggle('is-expanded');
-
-          // Trap focus on mobile only since it has a way of closing the menu.
-          if (window.innerWidth < 1024) {
-            if (submenu.classList.contains('is-expanded')) {
-              tabContext = Drupal.tabbingManager.constrain(submenu, {
-                trapFocus: true,
-              });
-            } else {
-              tabContext.release();
-              menuExpander.focus();
-            }
-          }
-        });
-
-        // Submenu closing on desktop when tabbing outside it.
-        parentItem.addEventListener('focusout', (event) => {
-          event.stopPropagation();
-
-          if (window.innerWidth >= 1024) {
-            if (!submenu.contains(event.relatedTarget)) {
-              Drupal.behaviors.mainMenu.closeAllSubmenus(menu);
-            }
-          }
-        });
-
-        // Submenu back button listener for mobile.
-        menuBack.addEventListener('click', () => {
-          menuExpander.setAttribute('aria-expanded', 'false');
-          submenu.classList.remove('is-expanded');
-          tabContext.release();
-          menuExpander.focus();
-        });
+      // Close menu on resize to desktop
+      window.addEventListener('resize', () => {
+        if (
+          window.innerWidth >= 1024 &&
+          hamburger.getAttribute('aria-expanded') === 'true'
+        ) {
+          hamburger.click();
+        }
       });
     }
+
+    const searchItem = Array.from(menu.querySelectorAll('a')).filter(
+      (item) =>
+        item.textContent.trim() === 'Search' ||
+        item.getAttribute('href') === '/search',
+    );
+
+    const homeItem = Array.from(menu.querySelectorAll('a')).filter(
+      (item) =>
+        item.textContent.trim() === 'Home' || item.getAttribute('href') === '/',
+    );
+
+    homeItem.forEach((item) => {
+      item.parentElement.classList.add('home-menu-item');
+    });
+
+    console.log(searchItem);
+
+    searchItem.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const searchForm = document.querySelector('.search-block-form');
+        const clonedFormId = 'search-block-form--cloned';
+        let clonedForm = document.getElementById(clonedFormId);
+        const target = searchItem[0];
+
+        if (window.innerWidth > 1024) {
+          searchForm.classList.toggle('visually-hidden');
+          searchForm.querySelector('input').focus();
+        } else {
+          // If cloned form doesn't exist, create and insert it
+          if (!clonedForm) {
+            clonedForm = searchForm.cloneNode(true);
+            clonedForm.id = clonedFormId;
+            clonedForm.classList.add('visually-hidden');
+            target.parentNode.insertBefore(clonedForm, target.nextSibling);
+          }
+          // Toggle visibility
+          clonedForm.classList.toggle('visually-hidden');
+          if (!clonedForm.classList.contains('visually-hidden')) {
+            clonedForm.querySelector('input').focus();
+          }
+        }
+      });
+    });
 
     // Close all mobile submenus when resizing to desktop
     window.addEventListener('resize', () => {
